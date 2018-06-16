@@ -34,7 +34,13 @@ public class PlayerScript : MonoBehaviour {
         if (xInput == 0) velocity.x = 0;
         if (zInput == 0) velocity.z = 0;
 
-       // transform.Translate(velocity.normalized * speed * Time.deltaTime);
+        if (xInput > 0) transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
+        else if (xInput < 0) transform.rotation = Quaternion.Euler(new Vector3(0, -90, 0));
+        else if (zInput > 0) transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        else if (zInput < 0) transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
+
+
+        // transform.Translate(velocity.normalized * speed * Time.deltaTime);
         GetComponent<Rigidbody>().MovePosition(transform.position + velocity.normalized * speed);
 
         //Jumping

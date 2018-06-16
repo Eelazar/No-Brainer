@@ -24,7 +24,7 @@ public class Telekinesis : MonoBehaviour {
 		if(objHeld != null)
         {
             objPosition = gameObject.transform.position;
-            objPosition.z += distanceHeld;
+            objPosition += transform.forward;
             objHeld.transform.position = objPosition;
             if (rotation)
             {

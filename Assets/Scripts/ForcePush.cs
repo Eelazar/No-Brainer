@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ForcePush : MonoBehaviour {
 
-    public float radius, arcSize;
-    public Vector3 direction, pushVector;
+    public float radius;
+    public Vector3 pushVector;
 
 	// Use this for initialization
 	void Start () {
@@ -23,17 +23,19 @@ public class ForcePush : MonoBehaviour {
 
     void Push()
     {
-        RaycastHit[] hits = Physics.SphereCastAll(gameObject.transform.position, radius, direction);
+        RaycastHit[] hits = Physics.SphereCastAll(gameObject.transform.position, radius, transform.forward);
         foreach(RaycastHit hit in hits)
         {
-            if(hit.transform.GetComponent<Rigidbody>() != null)
+            if(hit.transform.GetComponent<Rigidbody>() != null && hit.transform.tag != "Player")
             {
-                Vector3 v1 = (hit.transform.position - gameObject.transform.position).normalized;
-                if (Vector3.Dot(v1, gameObject.transform.forward) > arcSize)
-                {
-                    hit.transform.GetComponent<Rigidbody>().AddForce(pushVector, ForceMode.Impulse);
-                }
+                hit.transform.GetComponent<Rigidbody>().AddForce(pushVector, ForceMode.Impulse);
+                Debug.DrawRay(gameObject.transform.position, hit.transform.position - gameObject.transform.position, Color.red, 5F);
             }
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position + transform.forward, radius);
     }
 }
