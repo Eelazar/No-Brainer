@@ -22,7 +22,7 @@ public class PushButton : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if(other.tag == "Player" && other is CapsuleCollider)
         {
             StartCoroutine(PushIn());
             pressed = true;
@@ -31,7 +31,7 @@ public class PushButton : MonoBehaviour {
 
     void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && other is CapsuleCollider)
         {
             StartCoroutine(PushOut());
             pressed = false;
