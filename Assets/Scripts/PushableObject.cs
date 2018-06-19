@@ -8,6 +8,7 @@ public class PushableObject : MonoBehaviour {
     public float start, end, pushBack;
     public string axis;
     private bool win;
+    public GameObject openDoor;
 
 	// Use this for initialization
 	void Start () {
@@ -17,6 +18,11 @@ public class PushableObject : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        if (win==true)
+        {
+            openDoor.GetComponent<SlidingDoor>().Trigger();
+        }
+
         if(axis == "x")
         {
             if(transform.position.x < winMax && transform.position.x > winMin)

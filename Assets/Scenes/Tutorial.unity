@@ -238,6 +238,7 @@ MonoBehaviour:
   end: 8.48
   pushBack: 0.05
   axis: x
+  openDoor: {fileID: 0}
 --- !u!65 &118276010
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -331,6 +332,7 @@ GameObject:
   - component: {fileID: 381542421}
   - component: {fileID: 381542420}
   - component: {fileID: 381542419}
+  - component: {fileID: 381542423}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -405,6 +407,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &381542423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 381542418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6403c097f686384b8497d38e21d777d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slideVector: {x: 1, y: 0, z: 0}
+  slideAmount: 10
+  closeSlideDelay: 0
+  openSlideDelay: 0
+  open: 0
 --- !u!1 &411998982
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,6 +556,7 @@ MonoBehaviour:
   end: -5.88
   pushBack: 0.05
   axis: x
+  openDoor: {fileID: 381542418}
 --- !u!65 &630476278
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -745,6 +764,7 @@ MonoBehaviour:
   end: -2.59
   pushBack: 0.05
   axis: z
+  openDoor: {fileID: 0}
 --- !u!65 &991541094
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -865,6 +885,7 @@ MonoBehaviour:
   end: 0.08
   pushBack: 0.05
   axis: z
+  openDoor: {fileID: 0}
 --- !u!65 &1200051987
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -985,6 +1006,7 @@ MonoBehaviour:
   end: 3
   pushBack: 0.05
   axis: z
+  openDoor: {fileID: 0}
 --- !u!65 &1252137454
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1437,12 +1459,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pushForce: 30000
-  winMin: 0
-  winMax: 0
+  winMin: 10
+  winMax: 11
   start: 1.27
   end: 10.09
   pushBack: 0.05
   axis: x
+  openDoor: {fileID: 381542418}
 --- !u!65 &1624388378
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1504,7 +1527,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1624388376}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1.8299999, y: -1.0699999, z: -22.64}
+  m_LocalPosition: {x: 1.49, y: -1.0699999, z: -22.64}
   m_LocalScale: {x: 1.2596964, y: 1, z: 4.1416683}
   m_Children: []
   m_Father: {fileID: 2099429367}
@@ -1563,6 +1586,7 @@ MonoBehaviour:
   end: 6.99
   pushBack: 0.05
   axis: x
+  openDoor: {fileID: 0}
 --- !u!65 &1811083793
 BoxCollider:
   m_ObjectHideFlags: 0
