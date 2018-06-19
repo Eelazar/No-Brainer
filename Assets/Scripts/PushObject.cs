@@ -15,7 +15,7 @@ public class PushObject : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if(pushObject != null && Input.GetButton("Fire1"))
+        if(pushObject != null && Input.GetButtonDown("Fire1"))
         {
             pushObject.GetComponent<PushableObject>().Push(transform);
         }        

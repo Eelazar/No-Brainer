@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PushableObject : MonoBehaviour {
 
-    public float pushForce;
+    public float pushForce, winMin, winMax;
     public float start, end, pushBack;
     public string axis;
+    private bool win;
 
 	// Use this for initialization
 	void Start () {
@@ -16,6 +17,21 @@ public class PushableObject : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        if(axis == "x")
+        {
+            if(transform.position.x < winMax && transform.position.x > winMin)
+            {
+                win = true;
+            }
+        }
+        else if(axis == "z")
+        {
+            if (transform.position.z < winMax && transform.position.z > winMin)
+            {
+                win = true;
+            }
+        }
+
 		if(axis == "x")
         {
             if(gameObject.transform.position.x >= end)
@@ -51,13 +67,14 @@ public class PushableObject : MonoBehaviour {
         {
             Vector3 v = gameObject.transform.position - player.position;
             v.Normalize();
-            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(pushForce * v.x, 0, 0));
+            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(pushForce * v.x, 0, 0), ForceMode.Impulse);            
         }
         else if (axis == "z")
         {
             Vector3 v = gameObject.transform.position - player.position;
             v.Normalize();
-            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, pushForce * v.z));
+            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, pushForce * v.z), ForceMode.Impulse);
+            Debug.Log(new Vector3(0, 0, pushForce * v.z));
         }
     }
 }
