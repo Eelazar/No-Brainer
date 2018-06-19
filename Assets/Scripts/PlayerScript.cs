@@ -2,25 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerScript : MonoBehaviour {
+public class PlayerScript : MonoBehaviour
+{
 
     public float speed, jumpCDFloat;
     public Vector3 jumpVector;
 
+    private GameObject objInFront;
     private float xInput, zInput;
     public Vector3 velocity;
     private bool gridSwitchX, gridSwitchZ, jumpCDBool;
 
     // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         TranslateInput();
-        
+
     }
 
     void TranslateInput()
@@ -49,6 +52,10 @@ public class PlayerScript : MonoBehaviour {
             gameObject.GetComponent<Rigidbody>().AddForce(jumpVector, ForceMode.Impulse);
             StartCoroutine(JumpCooldown());
         }
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Interact();
+        }
     }
 
     IEnumerator JumpCooldown()
@@ -57,4 +64,21 @@ public class PlayerScript : MonoBehaviour {
         yield return new WaitForSeconds(jumpCDFloat);
         jumpCDBool = false;
     }
+
+    void Interact()
+    {
+        if(objInFront != null)
+        {
+            if (objInFront.GetComponent<InteractDialogue>() != null)
+            {
+                StartCoroutine(objInFront.GetComponent<InteractDialogue>().Trigger());
+            }
+        }        
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        objInFront = other.gameObject;
+    }
+    
 }
