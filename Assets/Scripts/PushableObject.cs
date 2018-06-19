@@ -36,26 +36,26 @@ public class PushableObject : MonoBehaviour {
         {
             if(gameObject.transform.position.x >= end)
             {
-                gameObject.transform.Translate(new Vector3(-pushBack, 0, 0));
                 gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                gameObject.transform.position = (gameObject.transform.position + new Vector3(-pushBack, 0, 0));
             }
             else if(gameObject.transform.position.x <= start)
             {
-                gameObject.transform.Translate(new Vector3(pushBack, 0, 0));
                 gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            }
+                gameObject.transform.position = (gameObject.transform.position + new Vector3(pushBack, 0, 0));
+            } 
         }
         else if(axis == "z")
         {
             if (gameObject.transform.position.z >= end)
             {
-                gameObject.transform.Translate(new Vector3(0, 0, -pushBack));
                 gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                gameObject.transform.position = (gameObject.transform.position + new Vector3(0, 0, -pushBack));
             }
             else if (gameObject.transform.position.z <= start)
             {
-                gameObject.transform.Translate(new Vector3(0, 0, pushBack));
                 gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                gameObject.transform.position = (gameObject.transform.position + new Vector3(0, 0, pushBack));
             }
         }
 
@@ -67,7 +67,8 @@ public class PushableObject : MonoBehaviour {
         {
             Vector3 v = gameObject.transform.position - player.position;
             v.Normalize();
-            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(pushForce * v.x, 0, 0), ForceMode.Impulse);            
+            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(pushForce * v.x, 0, 0), ForceMode.Impulse);
+            Debug.Log(new Vector3(pushForce * v.x, 0, 0));            
         }
         else if (axis == "z")
         {
