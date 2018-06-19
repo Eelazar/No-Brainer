@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour {
 
-    public float speed;
+    public float speed, jumpCDFloat;
     public Vector3 jumpVector;
 
     private float xInput, zInput;
     public Vector3 velocity;
-    private bool gridSwitchX, gridSwitchZ;
+    private bool gridSwitchX, gridSwitchZ, jumpCDBool;
 
     // Use this for initialization
     void Start () {
@@ -44,9 +44,17 @@ public class PlayerScript : MonoBehaviour {
         GetComponent<Rigidbody>().MovePosition(transform.position + velocity.normalized * speed);
 
         //Jumping
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && jumpCDBool == false)
         {
             gameObject.GetComponent<Rigidbody>().AddForce(jumpVector, ForceMode.Impulse);
+            StartCoroutine(JumpCooldown());
         }
+    }
+
+    IEnumerator JumpCooldown()
+    {
+        jumpCDBool = true;
+        yield return new WaitForSeconds(jumpCDFloat);
+        jumpCDBool = false;
     }
 }
