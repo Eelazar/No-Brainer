@@ -18,12 +18,12 @@ public class PushableObject : MonoBehaviour {
     {
 		if(axis == "x")
         {
-            if(gameObject.transform.position.x > end)
+            if(gameObject.transform.position.x >= end)
             {
                 gameObject.transform.Translate(new Vector3(-pushBack, 0, 0));
                 gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             }
-            else if(gameObject.transform.position.x < start)
+            else if(gameObject.transform.position.x <= start)
             {
                 gameObject.transform.Translate(new Vector3(pushBack, 0, 0));
                 gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
@@ -31,12 +31,12 @@ public class PushableObject : MonoBehaviour {
         }
         else if(axis == "z")
         {
-            if (gameObject.transform.position.z > end)
+            if (gameObject.transform.position.z >= end)
             {
                 gameObject.transform.Translate(new Vector3(0, 0, -pushBack));
                 gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             }
-            else if (gameObject.transform.position.z < start)
+            else if (gameObject.transform.position.z <= start)
             {
                 gameObject.transform.Translate(new Vector3(0, 0, pushBack));
                 gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
