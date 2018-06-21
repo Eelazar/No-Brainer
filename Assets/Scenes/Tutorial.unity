@@ -362,7 +362,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 0.9811321, g: 0.77906054, b: 0, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 1
   m_Range: 2
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -518,6 +518,7 @@ GameObject:
   - component: {fileID: 411998985}
   - component: {fileID: 411998984}
   - component: {fileID: 411998983}
+  - component: {fileID: 411998988}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -601,6 +602,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 45, y: -45, z: 0}
+--- !u!114 &411998988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 411998982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 541ee1a5fd713e24bb34b855d690bd4c, type: 2}
 --- !u!1 &489997545
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,7 +860,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 0.9811321, g: 0.77906054, b: 0, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 0.8
   m_Range: 2
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -1144,7 +1157,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 0.9811321, g: 0.77906054, b: 0, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 1
   m_Range: 2
   m_SpotAngle: 30
   m_CookieSize: 10
