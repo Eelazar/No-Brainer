@@ -35,7 +35,7 @@ public class Flickering : MonoBehaviour {
 
         for(int i = 0; i < amountOfFlickers; i++)
         {
-            thisLight.intensity = Random.Range(0, 4);
+            thisLight.intensity = Random.Range(0, defaultIntensity/2);
             yield return new WaitForSeconds(Random.Range(0, 0.1F));
             thisLight.intensity = defaultIntensity;
         }
