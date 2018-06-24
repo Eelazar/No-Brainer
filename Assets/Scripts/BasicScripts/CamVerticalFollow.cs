@@ -8,7 +8,7 @@ public class CamVerticalFollow : MonoBehaviour {
     public float followSpeed;
 
     private float currentHeight;
-    private Vector3 velocity, basePosition;
+    private Vector3 newPosition, basePosition, velocity;
 
 	// Use this for initialization
 	void Start ()
@@ -20,8 +20,8 @@ public class CamVerticalFollow : MonoBehaviour {
 	void Update ()
     {
         currentHeight = target.transform.position.y;
+        newPosition.y = currentHeight;
 
-        velocity.y = Mathf.Lerp(0, currentHeight, followSpeed);
-        gameObject.transform.position = velocity + basePosition;
+        gameObject.transform.position = Vector3.SmoothDamp(gameObject.transform.position, newPosition + basePosition, ref velocity, followSpeed);
     }
 }

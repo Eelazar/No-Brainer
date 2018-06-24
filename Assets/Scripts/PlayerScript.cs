@@ -5,13 +5,14 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
 
-    public float speed, jumpCDFloat;
-    public Vector3 jumpVector;
+    public float speed, jumpCDFloat, maxJumpLength;
+    public Vector3 minJumpVector, jumpVectorIncrease;
 
     private GameObject objInFront;
     private float xInput, zInput;
-    public Vector3 velocity;
-    private bool gridSwitchX, gridSwitchZ, jumpCDBool;
+    [HideInInspector]
+    public Vector3 velocity, jumpChargeVector;
+    private bool gridSwitchX, gridSwitchZ, jumpCDBool, jumpCharging;
 
     // Use this for initialization
     void Start()
@@ -47,14 +48,39 @@ public class PlayerScript : MonoBehaviour
         GetComponent<Rigidbody>().MovePosition(transform.position + velocity.normalized * speed);
 
         //Jumping
-        if (Input.GetButtonDown("Jump") && jumpCDBool == false)
+        if(Input.GetButtonDown("Jump") && jumpCDBool == false)
         {
-            gameObject.GetComponent<Rigidbody>().AddForce(jumpVector, ForceMode.Impulse);
-            StartCoroutine(JumpCooldown());
+            jumpChargeVector = minJumpVector;
         }
+        if (Input.GetButton("Jump") && jumpCDBool == false)
+        {
+            jumpCharging = true;
+            Jump();
+        }
+        else if(Input.GetButtonUp("Jump") && jumpCharging == true)
+        {
+            jumpCharging = false;
+            Jump();
+        }
+
+        //Interaction
         if (Input.GetButtonDown("Fire1"))
         {
             Interact();
+        }
+    }
+
+    void Jump()
+    {
+        if(jumpCharging == true)
+        {
+            jumpChargeVector += jumpVectorIncrease;
+            jumpChargeVector = Vector3.ClampMagnitude(jumpChargeVector, maxJumpLength);
+        }
+        else
+        {
+            transform.GetComponent<Rigidbody>().AddRelativeForce(jumpChargeVector, ForceMode.VelocityChange);
+            StartCoroutine(JumpCooldown());
         }
     }
 
