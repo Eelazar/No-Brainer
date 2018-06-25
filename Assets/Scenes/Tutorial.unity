@@ -160,7 +160,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 2bb2ab6ed9d0dd44992f6688301cf924, type: 2}
+  - {fileID: 2100000, guid: f58e261515d07ef45bb77cf77d853414, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1705,11 +1705,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7223ca27ba6e5c24287c6462dc6569ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fourDirectional: 0
   speed: 0.2
   jumpCDFloat: 1
   maxJumpLength: 0
   minJumpVector: {x: 0, y: 0, z: 0}
   jumpVectorIncrease: {x: 0, y: 0, z: 0}
+  spawnPoint: {fileID: 0}
   velocity: {x: 0, y: 0, z: 0}
   jumpChargeVector: {x: 0, y: 0, z: 0}
 --- !u!136 &1418142819
@@ -1774,7 +1776,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1418142811}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2.14, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2457,7 +2459,7 @@ Light:
   m_SpotAngle: 105
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1

@@ -2,43 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerScript : MonoBehaviour
+public class TwoPlayerScript : MonoBehaviour
 {
-    [Header("Controls")]
     public bool fourDirectional;
     public float speed, jumpCDFloat, maxJumpLength;
     public Vector3 minJumpVector, jumpVectorIncrease;
 
-    [Header("Other")]
-    public Transform spawnPoint;
-
-    private GameObject currentInteractionTarget;
+    private GameObject objInFront;
     private float xInput, zInput;
     [HideInInspector]
     public Vector3 velocity, jumpChargeVector;
-    private bool jumpCDBool, jumpCharging;
+    private bool gridSwitchX, gridSwitchZ, jumpCDBool, jumpCharging;
 
     // Use this for initialization
     void Start()
     {
-        //Set the player position to the spawn position
-        transform.SetPositionAndRotation(spawnPoint.position, spawnPoint.rotation);
+
     }
 
     // Update is called once per frame
     void Update()
     {
         TranslateInput();
+
     }
 
     void TranslateInput()
     {
-        //////Movement//////
-        //Get the player Input
+        //Movement
         xInput = Input.GetAxisRaw("Horizontal");
         zInput = Input.GetAxisRaw("Vertical");
 
-        //Check if movement is four directional 
         if (fourDirectional)
         {
             if (xInput != 0 && zInput == 0) velocity.x = xInput;
@@ -56,29 +50,28 @@ public class PlayerScript : MonoBehaviour
             velocity.x = xInput;
             velocity.z = zInput;
         }
-        //Translate the input into movement
+
+
+        // transform.Translate(velocity.normalized * speed * Time.deltaTime);
         GetComponent<Rigidbody>().MovePosition(transform.position + velocity.normalized * speed);
 
-        //////Jumping//////
-        if(Input.GetButtonDown("Jump") && jumpCDBool == false)
+        //Jumping
+        if (Input.GetButtonDown("Jump") && jumpCDBool == false)
         {
-            //Set the minimum amnount of force as soon as the buton is pressed
             jumpChargeVector = minJumpVector;
         }
         if (Input.GetButton("Jump") && jumpCDBool == false)
         {
-            //Keep adding force as long as the button is held down
             jumpCharging = true;
             Jump();
         }
-        else if(Input.GetButtonUp("Jump") && jumpCharging == true)
+        else if (Input.GetButtonUp("Jump") && jumpCharging == true)
         {
-            //Release the charge when the button is released
             jumpCharging = false;
             Jump();
         }
 
-        //////Interaction//////
+        //Interaction
         if (Input.GetButtonDown("Fire1"))
         {
             Interact();
@@ -87,13 +80,11 @@ public class PlayerScript : MonoBehaviour
 
     void Jump()
     {
-        //If the player is charging add force to the final vector
-        if(jumpCharging == true)
+        if (jumpCharging == true)
         {
             jumpChargeVector += jumpVectorIncrease;
             jumpChargeVector = Vector3.ClampMagnitude(jumpChargeVector, maxJumpLength);
         }
-        //If he releases the button exert the final force and set the jump on cooldown
         else
         {
             transform.GetComponent<Rigidbody>().AddRelativeForce(jumpChargeVector, ForceMode.VelocityChange);
@@ -110,38 +101,18 @@ public class PlayerScript : MonoBehaviour
 
     void Interact()
     {
-        if(currentInteractionTarget != null)
+        if (objInFront != null)
         {
-            if (currentInteractionTarget.GetComponent<InteractDialogue>() != null)
+            if (objInFront.GetComponent<InteractDialogue>() != null)
             {
-                StartCoroutine(currentInteractionTarget.GetComponent<InteractDialogue>().Trigger());
+                StartCoroutine(objInFront.GetComponent<InteractDialogue>().Trigger());
             }
-        }        
+        }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        //Set the current object you're viewing to the collider object if it is tagged as Interactable
-        if(other.tag == "Interactable")
-        {
-            currentInteractionTarget = other.gameObject;
-        }
-
-        //Set spawn position to collider position if collider is tagged as SavePoint
-        if(other.tag == "SavePoint")
-        {
-            spawnPoint = other.transform;
-        }
-
-        //Respawn the player if he collides with a deadly object
-        if(other.tag == "Deadly")
-        {
-            ReSpawn();
-        }
+        objInFront = other.gameObject;
     }
 
-    void ReSpawn()
-    {
-        gameObject.transform.SetPositionAndRotation(spawnPoint.position, spawnPoint.rotation);
-    }    
 }
