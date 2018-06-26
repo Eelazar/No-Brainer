@@ -12,6 +12,9 @@ public class PlayerScript : MonoBehaviour
     [Header("Other")]
     public Transform spawnPoint;
 
+    [Header("Temporary")]
+    public GameObject sibling;
+
     private GameObject currentInteractionTarget;
     private float xInput, zInput;
     [HideInInspector]
@@ -152,5 +155,6 @@ public class PlayerScript : MonoBehaviour
     void ReSpawn()
     {
         gameObject.transform.SetPositionAndRotation(spawnPoint.position, spawnPoint.rotation);
+        sibling.transform.SetPositionAndRotation(sibling.GetComponent<PlayerScript>().spawnPoint.position, sibling.GetComponent<PlayerScript>().spawnPoint.rotation);
     }    
 }
