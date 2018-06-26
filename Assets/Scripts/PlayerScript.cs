@@ -140,6 +140,15 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    void OnTriggerExit(Collider other)
+    {
+        //Remove the current object you're viewing if it left your collider
+        if (other.gameObject == currentInteractionTarget)
+        {
+            currentInteractionTarget = null;
+        }
+    }
+
     void ReSpawn()
     {
         gameObject.transform.SetPositionAndRotation(spawnPoint.position, spawnPoint.rotation);
