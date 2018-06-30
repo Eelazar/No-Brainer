@@ -4,33 +4,44 @@ using UnityEngine;
 
 public class PushableObject : MonoBehaviour {
 
-    public float pushForce, winMin, winMax;
-    public float start, end, pushBack;
-    public string axis;
+    public enum Axis { x, z }
+    public Axis slideAxis;
+    public float pushForce;
+    public float minPosition, maxPosition;
+    public float winMin, winMax;
+    [SerializeField]
     private bool win;
-    public GameObject openDoor;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
+        if(slideAxis == Axis.x)
+        {
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, minPosition, maxPosition), transform.position.y, transform.position.z);
+        }
+        else if (slideAxis == Axis.z)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(transform.position.z, minPosition, maxPosition));
+        }
+         
         if (win==true)
         {
-            openDoor.GetComponent<SlidingDoor>().Trigger();
+            //WIN//
         }
 
-        if(axis == "x")
+        if(slideAxis == Axis.x)
         {
             if(transform.position.x < winMax && transform.position.x > winMin)
             {
                 win = true;
             }
         }
-        else if(axis == "z")
+        else if(slideAxis == Axis.z)
         {
             if (transform.position.z < winMax && transform.position.z > winMin)
             {
@@ -38,6 +49,7 @@ public class PushableObject : MonoBehaviour {
             }
         }
 
+        /*
 		if(axis == "x")
         {
             if(gameObject.transform.position.x >= end)
@@ -63,25 +75,24 @@ public class PushableObject : MonoBehaviour {
                 gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 gameObject.transform.position = (gameObject.transform.position + new Vector3(0, 0, pushBack));
             }
-        }
+        }*/
 
-	}
+	} 
 
     public void Push(Transform player)
     {
-        if(axis == "x")
+        if(slideAxis == Axis.x)
         {
-            Vector3 v = gameObject.transform.position - player.position;
-            v.Normalize();
-            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(pushForce * v.x, 0, 0), ForceMode.Impulse);
-            Debug.Log(new Vector3(pushForce * v.x, 0, 0));            
+            Vector3 direction = gameObject.transform.position - player.position;
+            direction.Normalize();
+            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(pushForce * direction.x, 0, 0), ForceMode.Impulse);
+            Debug.Log("PushX  " + new Vector3(pushForce * direction.x, 0, 0));
         }
-        else if (axis == "z")
+        else if (slideAxis == Axis.z)
         {
-            Vector3 v = gameObject.transform.position - player.position;
-            v.Normalize();
-            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, pushForce * v.z), ForceMode.Impulse);
-            Debug.Log(new Vector3(0, 0, pushForce * v.z));
+            Vector3 direction = gameObject.transform.position - player.position;
+            direction.Normalize();
+            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, pushForce * direction.z), ForceMode.Impulse);
         }
     }
 }

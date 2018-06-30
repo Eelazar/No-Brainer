@@ -1109,8 +1109,7 @@ GameObject:
   - component: {fileID: 54457575549301482}
   - component: {fileID: 65010776680699500}
   - component: {fileID: 75511338194960100}
-  - component: {fileID: 136381091240501662}
-  - component: {fileID: 114222652762243648}
+  - component: {fileID: 65025446548157328}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1589,7 +1588,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1694090338772714}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.6974251, y: 0.03, z: -0.48198}
+  m_LocalPosition: {x: 0, y: -1, z: -22.61}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4812557304384984}
@@ -6506,9 +6505,9 @@ Rigidbody:
   m_GameObject: {fileID: 1694090338772714}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0.5
+  m_Drag: 10
   m_AngularDrag: 0.5
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -6523,8 +6522,20 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.3761561, y: 2, z: 2.5307379}
-  m_Center: {x: 0, y: 0, z: 1.7275925}
+  m_Size: {x: 2, y: 4, z: 4}
+  m_Center: {x: 0, y: 2.5, z: 2}
+--- !u!65 &65025446548157328
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1694090338772714}
+  m_Material: {fileID: 13400000, guid: 9a319cac580aa7947ac028232cfa97e4, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.7, y: 5.3, z: 3}
+  m_Center: {x: 0, y: 2.7, z: 0}
 --- !u!75 &75511338194960100
 ConstantForce:
   m_ObjectHideFlags: 1
@@ -6532,7 +6543,7 @@ ConstantForce:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1694090338772714}
   m_Enabled: 1
-  m_Force: {x: 0, y: -5, z: 0}
+  m_Force: {x: 0, y: -10, z: 0}
   m_RelativeForce: {x: 0, y: 0, z: 0}
   m_Torque: {x: 0, y: 0, z: 0}
   m_RelativeTorque: {x: 0, y: 0, z: 0}
@@ -6548,36 +6559,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fourDirectional: 1
-  speed: 0.2
+  speed: 10
   jumpCDFloat: 1
   maxJumpLength: 0
   minJumpVector: {x: 0, y: 0, z: 0}
   jumpVectorIncrease: {x: 0, y: 0, z: 0}
-  spawnPoint: {fileID: 0}
+  sceneSpawn: {x: 0, y: -1, z: -25}
   sibling: {fileID: 0}
-  velocity: {x: 0, y: 0, z: 0}
-  jumpChargeVector: {x: 0, y: 0, z: 0}
---- !u!114 &114222652762243648
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1694090338772714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2de86da94e9d7247bac53942cc389db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!136 &136381091240501662
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1694090338772714}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}

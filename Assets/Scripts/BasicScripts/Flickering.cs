@@ -22,7 +22,6 @@ public class Flickering : MonoBehaviour {
         if (!flickering)
         {
             StartCoroutine(Flicker());
-            Debug.Log("Start Flicker");
         }
 	}
     

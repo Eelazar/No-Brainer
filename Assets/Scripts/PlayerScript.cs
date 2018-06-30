@@ -4,32 +4,38 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    [Header("Controls")]
+    [Header("Movement")]
     public bool fourDirectional;
-    public float speed, jumpCDFloat, maxJumpLength;
+    public float speed;
+
+    [Header("Jump")]
+    public float jumpCDFloat; 
+    public float maxJumpLength;
     public Vector3 minJumpVector, jumpVectorIncrease;
 
     [Header("Other")]
-    public Transform spawnPoint;
+    public Vector3 sceneSpawn;
 
     [Header("Temporary")]
-    public GameObject sibling;
+    public GameObject sibling;    
 
     private GameObject currentInteractionTarget;
     private float xInput, zInput;
-    [HideInInspector]
-    public Vector3 velocity, jumpChargeVector;
     private bool jumpCDBool, jumpCharging;
+    private Vector3 velocity, jumpChargeVector;
 
     // Use this for initialization
     void Start()
     {
-        //Set the player position to the spawn position
-        transform.SetPositionAndRotation(spawnPoint.position, spawnPoint.rotation);
+        //Set the player position to the scene spawn position and save it to the PlayerPrefs
+        transform.position = sceneSpawn;
+        PlayerPrefs.SetFloat("xSpawn", sceneSpawn.x);
+        PlayerPrefs.SetFloat("ySpawn", sceneSpawn.y);
+        PlayerPrefs.SetFloat("zSpawn", sceneSpawn.z);
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         TranslateInput();
     }
@@ -60,7 +66,8 @@ public class PlayerScript : MonoBehaviour
             velocity.z = zInput;
         }
         //Translate the input into movement
-        GetComponent<Rigidbody>().MovePosition(transform.position + velocity.normalized * speed);
+        GetComponent<Rigidbody>().MovePosition(transform.position + velocity.normalized * speed * Time.deltaTime);
+              
 
         //////Jumping//////
         if(Input.GetButtonDown("Jump") && jumpCDBool == false)
@@ -119,6 +126,10 @@ public class PlayerScript : MonoBehaviour
             {
                 StartCoroutine(currentInteractionTarget.GetComponent<InteractDialogue>().Trigger());
             }
+            else if (currentInteractionTarget.GetComponent<PushableObject>() != null)
+            {
+                currentInteractionTarget.GetComponent<PushableObject>().Push(transform);
+            }
         }        
     }
 
@@ -128,13 +139,7 @@ public class PlayerScript : MonoBehaviour
         if(other.tag == "Interactable")
         {
             currentInteractionTarget = other.gameObject;
-        }
-
-        //Set spawn position to collider position if collider is tagged as SavePoint
-        if(other.tag == "SavePoint")
-        {
-            spawnPoint = other.transform;
-        }
+        }        
 
         //Respawn the player if he collides with a deadly object
         if(other.tag == "Deadly")
@@ -154,7 +159,7 @@ public class PlayerScript : MonoBehaviour
 
     void ReSpawn()
     {
-        gameObject.transform.SetPositionAndRotation(spawnPoint.position, spawnPoint.rotation);
-        sibling.transform.SetPositionAndRotation(sibling.GetComponent<PlayerScript>().spawnPoint.position, sibling.GetComponent<PlayerScript>().spawnPoint.rotation);
+        gameObject.transform.position = new Vector3(PlayerPrefs.GetFloat("xSpawn", 0), PlayerPrefs.GetFloat("ySpawn", 0), PlayerPrefs.GetFloat("zSpawn", 0));
+        sibling.transform.position = sibling.GetComponent<PlayerScript>().sceneSpawn;
     }    
 }
