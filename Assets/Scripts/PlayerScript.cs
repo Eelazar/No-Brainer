@@ -14,10 +14,7 @@ public class PlayerScript : MonoBehaviour
     public Vector3 minJumpVector, jumpVectorIncrease;
 
     [Header("Other")]
-    public Vector3 sceneSpawn;
-
-    [Header("Temporary")]
-    public GameObject sibling;    
+    public Vector3 sceneSpawn; 
 
     private GameObject currentInteractionTarget;
     private float xInput, zInput;
@@ -160,6 +157,5 @@ public class PlayerScript : MonoBehaviour
     void ReSpawn()
     {
         gameObject.transform.position = new Vector3(PlayerPrefs.GetFloat("xSpawn", 0), PlayerPrefs.GetFloat("ySpawn", 0), PlayerPrefs.GetFloat("zSpawn", 0));
-        sibling.transform.position = sibling.GetComponent<PlayerScript>().sceneSpawn;
     }    
 }
