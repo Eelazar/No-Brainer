@@ -5,10 +5,22 @@ using UnityEngine;
 public class PushableObject : MonoBehaviour {
 
     public enum Axis { x, z }
+
+    [Header("Movement")]
     public Axis slideAxis;
     public float pushForce;
-    public float minPosition, maxPosition;
-    public float winMin, winMax;
+    public float minPosition;
+    public float maxPosition;
+
+    [Header("Win Condition")]
+    public float winMin;
+    public float winMax;
+
+    [Header("Big Picture")]
+    public GameObject puzzleMaster;
+    [Tooltip("Must start at 0")]
+    public int puzzleIndex;
+
     [SerializeField]
     private bool win;
 
@@ -31,7 +43,7 @@ public class PushableObject : MonoBehaviour {
          
         if (win==true)
         {
-            //WIN//
+            puzzleMaster.GetComponent<PushMaster>().puzzlePieces[puzzleIndex] = true;
         }
 
         if(slideAxis == Axis.x)
@@ -48,35 +60,7 @@ public class PushableObject : MonoBehaviour {
                 win = true;
             }
         }
-
-        /*
-		if(axis == "x")
-        {
-            if(gameObject.transform.position.x >= end)
-            {
-                gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                gameObject.transform.position = (gameObject.transform.position + new Vector3(-pushBack, 0, 0));
-            }
-            else if(gameObject.transform.position.x <= start)
-            {
-                gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                gameObject.transform.position = (gameObject.transform.position + new Vector3(pushBack, 0, 0));
-            } 
-        }
-        else if(axis == "z")
-        {
-            if (gameObject.transform.position.z >= end)
-            {
-                gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                gameObject.transform.position = (gameObject.transform.position + new Vector3(0, 0, -pushBack));
-            }
-            else if (gameObject.transform.position.z <= start)
-            {
-                gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                gameObject.transform.position = (gameObject.transform.position + new Vector3(0, 0, pushBack));
-            }
-        }*/
-
+        
 	} 
 
     public void Push(Transform player)
@@ -86,7 +70,6 @@ public class PushableObject : MonoBehaviour {
             Vector3 direction = gameObject.transform.position - player.position;
             direction.Normalize();
             gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(pushForce * direction.x, 0, 0), ForceMode.Impulse);
-            Debug.Log("PushX  " + new Vector3(pushForce * direction.x, 0, 0));
         }
         else if (slideAxis == Axis.z)
         {
