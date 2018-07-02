@@ -45,13 +45,18 @@ public class PushableObject : MonoBehaviour {
         {
             puzzleMaster.GetComponent<PushMaster>().puzzlePieces[puzzleIndex] = true;
         }
+        else
+        {
+            puzzleMaster.GetComponent<PushMaster>().puzzlePieces[puzzleIndex] = false;
+        }
 
         if(slideAxis == Axis.x)
         {
-            if(transform.position.x < winMax && transform.position.x > winMin)
+            if (transform.position.x < winMax && transform.position.x > winMin)
             {
                 win = true;
             }
+            else win = false;
         }
         else if(slideAxis == Axis.z)
         {
@@ -59,6 +64,7 @@ public class PushableObject : MonoBehaviour {
             {
                 win = true;
             }
+            else win = false;
         }
         
 	} 
