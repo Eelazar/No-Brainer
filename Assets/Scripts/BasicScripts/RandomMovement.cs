@@ -5,7 +5,7 @@ using UnityEngine;
 public class RandomMovement : MonoBehaviour {
 
     [Header("Object Attributes")]
-    public GameObject movingObject;
+    public GameObject[] movingObjects;
     public int amountOfObjects;
 
     [Header("Area Attributes")]
@@ -33,7 +33,7 @@ public class RandomMovement : MonoBehaviour {
         {
             previousPositionList[i] = Random.insideUnitSphere * areaRadius;
             nextPositionList[i]     = Random.insideUnitSphere * areaRadius;
-            movingObjectList[i]     = GameObject.Instantiate<GameObject>(movingObject, originPosition + previousPositionList[i], this.transform.rotation);
+            movingObjectList[i]     = GameObject.Instantiate<GameObject>(movingObjects[Random.Range(0, movingObjects.Length-1)], originPosition + previousPositionList[i], this.transform.rotation);
         }
 	}
 	

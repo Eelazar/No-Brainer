@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589246, b: 0.2978263, a: 1}
+  m_IndirectSpecularColor: {r: 0.1727681, g: 0.21589208, b: 0.29782575, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9518,8 +9518,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357e856ace216364698320e3bed69b0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingObject: {fileID: 1894218604933854, guid: 607bef1a564ab2f418f633e41084c442,
-    type: 2}
+  movingObjects:
+  - {fileID: 1894218604933854, guid: 607bef1a564ab2f418f633e41084c442, type: 2}
   amountOfObjects: 5
   areaRadius: 4
   movementSpeed: 1
@@ -13635,7 +13635,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1041990144}
   m_LocalRotation: {x: 0.35355338, y: -0.35355338, z: 0.1464466, w: 0.8535535}
-  m_LocalPosition: {x: 26.6, y: 31.5, z: -26.7}
+  m_LocalPosition: {x: 26.6, y: 35.76, z: -26.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -14603,8 +14603,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357e856ace216364698320e3bed69b0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingObject: {fileID: 1894218604933854, guid: 607bef1a564ab2f418f633e41084c442,
-    type: 2}
+  movingObjects:
+  - {fileID: 1894218604933854, guid: 607bef1a564ab2f418f633e41084c442, type: 2}
   amountOfObjects: 15
   areaRadius: 8
   movementSpeed: 0.8
@@ -14650,8 +14650,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357e856ace216364698320e3bed69b0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingObject: {fileID: 1894218604933854, guid: 607bef1a564ab2f418f633e41084c442,
-    type: 2}
+  movingObjects:
+  - {fileID: 1894218604933854, guid: 607bef1a564ab2f418f633e41084c442, type: 2}
   amountOfObjects: 8
   areaRadius: 7
   movementSpeed: 1
@@ -16178,8 +16178,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357e856ace216364698320e3bed69b0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingObject: {fileID: 1894218604933854, guid: 607bef1a564ab2f418f633e41084c442,
-    type: 2}
+  movingObjects:
+  - {fileID: 1894218604933854, guid: 607bef1a564ab2f418f633e41084c442, type: 2}
   amountOfObjects: 3
   areaRadius: 2
   movementSpeed: 1.2
@@ -16585,6 +16585,16 @@ Prefab:
     - target: {fileID: 114080785671716788, guid: 7453b0d9ba88b48468b20ca2ec60e8f8,
         type: 2}
       propertyPath: sceneSpawn.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65025446548157328, guid: 7453b0d9ba88b48468b20ca2ec60e8f8,
+        type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 54457575549301482, guid: 7453b0d9ba88b48468b20ca2ec60e8f8,
+        type: 2}
+      propertyPath: m_Drag
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
