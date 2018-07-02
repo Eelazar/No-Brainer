@@ -26,7 +26,13 @@ public class Sibling : MonoBehaviour {
         //Respawn the player if he collides with a deadly object
         if (other.tag == "Deadly")
         {
-            gameObject.transform.position = spawn;
+            Respawn();
+            brother.GetComponent<PlayerScript>().ReSpawn();
         }
+    }
+
+    public void Respawn()
+    {
+        gameObject.transform.position = spawn;
     }
 }

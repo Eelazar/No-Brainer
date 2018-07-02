@@ -75,13 +75,27 @@ public class PushableObject : MonoBehaviour {
         {
             Vector3 direction = gameObject.transform.position - player.position;
             direction.Normalize();
-            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(pushForce * direction.x, 0, 0), ForceMode.Impulse);
+            if(direction.z > 0)
+            {
+                gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(pushForce * 1, 0, 0), ForceMode.Impulse);
+            }
+            else if (direction.z < 0)
+            {
+                gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(pushForce * -1, 0, 0), ForceMode.Impulse);
+            }
         }
         else if (slideAxis == Axis.z)
         {
             Vector3 direction = gameObject.transform.position - player.position;
             direction.Normalize();
-            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, pushForce * direction.z), ForceMode.Impulse);
+            if (direction.z > 0)
+            {
+                gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, pushForce * 1), ForceMode.Impulse);
+            }
+            else if (direction.z < 0)
+            {
+                gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, pushForce * -1), ForceMode.Impulse);
+            }
         }
     }
 }

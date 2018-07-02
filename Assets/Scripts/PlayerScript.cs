@@ -154,7 +154,7 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    void ReSpawn()
+    public void ReSpawn()
     {
         gameObject.transform.position = new Vector3(PlayerPrefs.GetFloat("xSpawn", 0), PlayerPrefs.GetFloat("ySpawn", 0), PlayerPrefs.GetFloat("zSpawn", 0));
     }    
