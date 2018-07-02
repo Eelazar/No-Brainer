@@ -14,6 +14,7 @@ public class RandomMovement : MonoBehaviour {
     [Header("Movement Attributes")]
     public float movementSpeed;
     public float rangeMargin;
+    [Range(0, 1)]
     public float slerpSpeed;
 
     private Vector3 originPosition;

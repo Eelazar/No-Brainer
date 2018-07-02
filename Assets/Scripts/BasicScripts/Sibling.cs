@@ -19,6 +19,7 @@ public class Sibling : MonoBehaviour {
 	void Update () {
         Vector3 v = new Vector3(brother.transform.position.x + distance.x, gameObject.transform.position.y, brother.transform.position.z + distance.z);
         gameObject.transform.position = v;
+        gameObject.transform.rotation = brother.transform.rotation;
 	}
 
     void OnTriggerEnter(Collider other)
