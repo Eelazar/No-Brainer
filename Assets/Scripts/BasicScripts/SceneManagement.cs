@@ -20,6 +20,13 @@ public class SceneManagement : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
+        if (PlayerPrefs.GetString("Scene") != "Menu")
+        {
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                SceneManager.LoadSceneAsync("Menu", LoadSceneMode.Single);
+            }
+        }
     }
     
 }
