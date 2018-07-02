@@ -1588,7 +1588,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1694090338772714}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: -22.61}
+  m_LocalPosition: {x: 0, y: 0.89, z: -14}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4812557304384984}
@@ -6505,7 +6505,7 @@ Rigidbody:
   m_GameObject: {fileID: 1694090338772714}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 10
+  m_Drag: 1
   m_AngularDrag: 0.5
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -6530,12 +6530,12 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1694090338772714}
-  m_Material: {fileID: 13400000, guid: 9a319cac580aa7947ac028232cfa97e4, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.7, y: 5.3, z: 3}
-  m_Center: {x: 0, y: 2.7, z: 0}
+  m_Size: {x: 1.5556791, y: 5.3, z: 1.3680191}
+  m_Center: {x: 0.0114007, y: 2.7000003, z: -0.087322235}
 --- !u!75 &75511338194960100
 ConstantForce:
   m_ObjectHideFlags: 1
@@ -6564,5 +6564,4 @@ MonoBehaviour:
   maxJumpLength: 0
   minJumpVector: {x: 0, y: 0, z: 0}
   jumpVectorIncrease: {x: 0, y: 0, z: 0}
-  sceneSpawn: {x: 0, y: -1, z: -25}
-  sibling: {fileID: 0}
+  sceneSpawn: {x: 0, y: 1, z: -14}
