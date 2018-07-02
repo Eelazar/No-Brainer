@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.5
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.063658625, g: 0.067073725, b: 0.060539365, a: 0.5}
+  m_IndirectSpecularColor: {r: 0.0636587, g: 0.06707381, b: 0.060539424, a: 0.5}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -160,7 +160,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: f58e261515d07ef45bb77cf77d853414, type: 2}
+  - {fileID: 2100000, guid: a408d9fa7af1b8e49924079b6555f888, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1342,7 +1342,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400022, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.29
+      value: 8.95
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1350,7 +1350,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.1099997
+      value: 2.9
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1415,8 +1415,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slideAxis: 0
-  pushForce: 50
-  minPosition: -3
+  pushForce: 100
+  minPosition: -8
   maxPosition: 9
   winMin: 0
   winMax: 0
@@ -2956,7 +2956,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400022, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.17
+      value: 1.43
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2964,7 +2964,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.63999987
+      value: -0.33
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_LocalRotation.x
@@ -3037,9 +3037,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slideAxis: 1
-  pushForce: 50
-  minPosition: -7
-  maxPosition: 7
+  pushForce: 30
+  minPosition: -0.5
+  maxPosition: 3
   winMin: 0
   winMax: 0
   puzzleMaster: {fileID: 2030996091}
@@ -4369,7 +4369,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400022, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.19
+      value: -11.27
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4377,7 +4377,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.5100002
+      value: -2.77
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_LocalRotation.x
@@ -4443,8 +4443,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slideAxis: 0
   pushForce: 50
-  minPosition: -12
-  maxPosition: 0
+  minPosition: -11
+  maxPosition: -5
   winMin: 0
   winMax: 0
   puzzleMaster: {fileID: 2030996091}
@@ -4783,6 +4783,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 2.7840962
       objectReference: {fileID: 0}
+    - target: {fileID: 100060, guid: 2c88ecb20839113479219111f141954b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2c88ecb20839113479219111f141954b, type: 3}
   m_IsPrefabParent: 0
@@ -4902,7 +4906,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: cfab35d62dc31dd4e95ebb0e423f1ab9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.97
+      value: -4.75
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cfab35d62dc31dd4e95ebb0e423f1ab9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4910,7 +4914,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cfab35d62dc31dd4e95ebb0e423f1ab9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.720001
+      value: -9.91
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cfab35d62dc31dd4e95ebb0e423f1ab9, type: 3}
       propertyPath: m_LocalRotation.x
@@ -4956,7 +4960,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400022, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.02
+      value: 7.03
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4964,7 +4968,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.63
+      value: -2.74
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_LocalRotation.x
@@ -5037,9 +5041,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slideAxis: 1
-  pushForce: 50
-  minPosition: -5
-  maxPosition: 6
+  pushForce: 80
+  minPosition: -9
+  maxPosition: 3
   winMin: 0
   winMax: 0
   puzzleMaster: {fileID: 2030996091}
@@ -5695,7 +5699,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400022, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.02
+      value: 1.26
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5703,7 +5707,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.3600006
+      value: -5.6
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_LocalRotation.x
@@ -5776,9 +5780,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slideAxis: 0
-  pushForce: 50
-  minPosition: -6
-  maxPosition: 5
+  pushForce: 100
+  minPosition: -7
+  maxPosition: 10.5
   winMin: 0
   winMax: 0
   puzzleMaster: {fileID: 2030996091}
@@ -6050,6 +6054,10 @@ Prefab:
     - target: {fileID: 100000, guid: 1a8ab20d22f24114bbb4635f28740e21, type: 3}
       propertyPath: m_Name
       value: Assets_Lab_Cupboard OPEN (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1a8ab20d22f24114bbb4635f28740e21, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1a8ab20d22f24114bbb4635f28740e21, type: 3}
@@ -6424,7 +6432,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400022, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.9
+      value: -5.67
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6432,7 +6440,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.0699997
+      value: -0.26
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_LocalRotation.x
@@ -6506,8 +6514,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slideAxis: 1
   pushForce: 50
-  minPosition: -8
-  maxPosition: 5
+  minPosition: -9
+  maxPosition: 2
   winMin: 0
   winMax: 0
   puzzleMaster: {fileID: 2030996091}
@@ -6571,7 +6579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slideAxis: 0
-  pushForce: 50
+  pushForce: 80
   minPosition: -5
   maxPosition: 5
   winMin: 0
