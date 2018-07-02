@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RandomMovement : MonoBehaviour {
+public class FlatRandomMovement : MonoBehaviour
+{
 
     [Header("Object Attributes")]
     public GameObject[] movingObjects;
@@ -22,7 +23,7 @@ public class RandomMovement : MonoBehaviour {
     private Vector3[] nextPositionList;
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         originPosition = transform.position;
         movingObjectList     = new GameObject[amountOfObjects];
@@ -31,35 +32,45 @@ public class RandomMovement : MonoBehaviour {
 
         for (int i = 0; i < amountOfObjects; i++)
         {
-            previousPositionList[i] = Random.insideUnitSphere * areaRadius;
-            nextPositionList[i]     = Random.insideUnitSphere * areaRadius;
-            movingObjectList[i]     = GameObject.Instantiate<GameObject>(movingObjects[Random.Range(0, movingObjects.Length-1)], originPosition + previousPositionList[i], Quaternion.Euler(new Vector3(0,0,90)));
+            Vector3 pV = Random.insideUnitCircle * areaRadius;
+            Vector3 nV = Random.insideUnitCircle * areaRadius;
+            pV.z = pV.y;
+            pV.y = 0;
+            nV.z = nV.y;
+            nV.y = 0;
+
+            previousPositionList[i] = pV;
+            nextPositionList[i]     = nV;
+            movingObjectList[i] = GameObject.Instantiate<GameObject>(movingObjects[Random.Range(0, movingObjects.Length - 1)], originPosition + previousPositionList[i], Quaternion.Euler(new Vector3(0, 0, 0)));
         }
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate ()
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
     {
-		for(int i = 0; i < amountOfObjects; i++)
+        for (int i = 0; i < amountOfObjects; i++)
         {
             float distance = Vector3.Distance(previousPositionList[i], nextPositionList[i]);
             float distanceLeft = Vector3.Distance(movingObjectList[i].transform.position - originPosition, nextPositionList[i]);
             Debug.DrawLine(movingObjectList[i].transform.position, nextPositionList[i] + originPosition);
 
             Quaternion targetRotation = Quaternion.LookRotation(nextPositionList[i] - (movingObjectList[i].transform.position - originPosition));
-            
-            movingObjectList[i].transform.rotation = Quaternion.Slerp(movingObjectList[i].transform.rotation, targetRotation, slerpSpeed);
 
+            movingObjectList[i].transform.rotation = Quaternion.Slerp(movingObjectList[i].transform.rotation, targetRotation, slerpSpeed);
             movingObjectList[i].transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
-            
-            if(distanceLeft < rangeMargin)
+
+            if (distanceLeft < rangeMargin)
             {
+                Vector3 nV = Random.insideUnitCircle * areaRadius;
+                nV.z = nV.y;
+                nV.y = 0;
+
                 previousPositionList[i] = nextPositionList[i];
-                nextPositionList[i] = Random.insideUnitSphere * areaRadius;
+                nextPositionList[i] = nV;
             }
         }
 
-        
+
 
     }
 
