@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a3bdb2cd68f901469e7cc149151eb49, type: 3}
-  m_Name: Water
+  m_Name: DreamRoom1Preview
   m_EditorClassIdentifier: 
   debugViews:
     m_Enabled: 1
@@ -25,7 +25,7 @@ MonoBehaviour:
         motionVectorsResolution: 24
         motionVectorsAmplitude: 64
   fog:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       excludeSkybox: 1
   antialiasing:
@@ -42,7 +42,7 @@ MonoBehaviour:
   ambientOcclusion:
     m_Enabled: 0
     m_Settings:
-      intensity: 1.07
+      intensity: 1.05
       radius: 0.3
       sampleCount: 10
       downsampling: 1
@@ -55,9 +55,9 @@ MonoBehaviour:
       reflection:
         blendType: 0
         reflectionQuality: 2
-        maxDistance: 100
+        maxDistance: 121
         iterationCount: 256
-        stepSize: 3
+        stepSize: 8
         widthModifier: 0.5
         reflectionBlur: 1
         reflectBackfaces: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
     m_Enabled: 0
     m_Settings:
       focusDistance: 10
-      aperture: 5.6
+      aperture: 16.5
       focalLength: 50
       useCameraFov: 0
       kernelSize: 1
@@ -97,13 +97,13 @@ MonoBehaviour:
       logMin: -8
       logMax: 4
   bloom:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       bloom:
         intensity: 0.5
         threshold: 1.1
-        softKnee: 0.5
-        radius: 4
+        softKnee: 0.252
+        radius: 5.3
         antiFlicker: 0
       lensDirt:
         texture: {fileID: 0}
@@ -113,21 +113,21 @@ MonoBehaviour:
     m_Settings:
       tonemapping:
         tonemapper: 2
-        neutralBlackIn: 0.0409
-        neutralWhiteIn: 3.08
-        neutralBlackOut: -0.016
-        neutralWhiteOut: 4.95
-        neutralWhiteLevel: 6.67
-        neutralWhiteClip: 8.26
+        neutralBlackIn: 0.054
+        neutralWhiteIn: 14.8
+        neutralBlackOut: 0.025
+        neutralWhiteOut: 5.03
+        neutralWhiteLevel: 18.98
+        neutralWhiteClip: 7.84
       basic:
         postExposure: 0
-        temperature: -4.8
-        tint: 29.1
-        hueShift: 7
-        saturation: 1.133
-        contrast: 0.842
+        temperature: -15.8
+        tint: -15.8
+        hueShift: 11
+        saturation: 0.763
+        contrast: 1.039
       channelMixer:
-        red: {x: 1.08, y: -0.11, z: -0.08}
+        red: {x: 1.12, y: -0.16, z: 0.09}
         green: {x: 0, y: 1, z: 0}
         blue: {x: 0, y: 0, z: 1}
         currentEditingChannel: 0
@@ -300,7 +300,7 @@ MonoBehaviour:
         e_CurveG: 0
         e_CurveB: 0
   userLut:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       lut: {fileID: 0}
       contribution: 1
@@ -320,10 +320,10 @@ MonoBehaviour:
     m_Enabled: 1
     m_Settings:
       mode: 0
-      color: {r: 0.6862745, g: 0.4117647, b: 0.6, a: 1}
+      color: {r: 0.103773594, g: 0.018111428, b: 0.054034278, a: 1}
       center: {x: 0.5, y: 0.5}
-      intensity: 0.52
-      smoothness: 1
+      intensity: 0.55
+      smoothness: 0.79
       roundness: 1
       mask: {fileID: 0}
       opacity: 1
