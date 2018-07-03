@@ -11,12 +11,12 @@ public class Sibling : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        distance.x = gameObject.transform.position.x - brother.transform.position.x;
-        distance.z = gameObject.transform.position.z - brother.transform.position.z;
     }
 	
 	// Update is called once per frame
 	void Update () {
+        distance.x = gameObject.transform.position.x - brother.transform.position.x;
+        distance.z = gameObject.transform.position.z - brother.transform.position.z;
         Vector3 v = new Vector3(brother.transform.position.x + distance.x, gameObject.transform.position.y, brother.transform.position.z + distance.z);
         gameObject.transform.position = v;
         gameObject.transform.rotation = brother.transform.rotation;
