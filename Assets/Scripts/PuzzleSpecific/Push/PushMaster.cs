@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class PushMaster : MonoBehaviour {
 
+    public GameObject doorToOpen;
     public int amountOfPieces;
 
     public bool[] puzzlePieces;
 
     private bool completed;
+
+
 
     // Use this for initialization
     void Start()
@@ -29,7 +32,7 @@ public class PushMaster : MonoBehaviour {
         }
         else
         {
-            //WIN//
+            doorToOpen.GetComponent<SlidingDoor>().Trigger();
         }
 	}
     

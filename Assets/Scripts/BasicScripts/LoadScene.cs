@@ -7,8 +7,11 @@ using UnityEngine.SceneManagement;
 public class LoadScene : MonoBehaviour {
 
     public string sceneToLoad;
+    public bool mustInteract;
 
     private Button btn;
+
+    private bool interacted;
 
 
     // Use this for initialization
@@ -22,12 +25,20 @@ public class LoadScene : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void Update ()
+    {
+	    if(Input.GetButton("Fire1") && interacted)
+        {
+            LoadNewScene();
+        }	
 	}
 
     private void OnTriggerEnter(Collider other)
     {
+        if (mustInteract)
+        {
+            interacted = true;
+        }
         LoadNewScene();
     }
 
