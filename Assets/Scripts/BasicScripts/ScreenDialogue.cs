@@ -37,7 +37,7 @@ public class ScreenDialogue : MonoBehaviour {
 
     public IEnumerator Speak(string message)
     {
-
+        dialogueBox.text = "";
         for (int i = 0; i < message.Length; i++)
         {
             dialogueBox.text += message[i];

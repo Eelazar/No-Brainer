@@ -119,11 +119,7 @@ public class PlayerScript : MonoBehaviour
     {
         if(currentInteractionTarget != null)
         {
-            if (currentInteractionTarget.GetComponent<InteractDialogue>() != null)
-            {
-                StartCoroutine(currentInteractionTarget.GetComponent<InteractDialogue>().Trigger());
-            }
-            else if (currentInteractionTarget.GetComponent<PushableObject>() != null)
+            if (currentInteractionTarget.GetComponent<PushableObject>() != null)
             {
                 currentInteractionTarget.GetComponent<PushableObject>().Push(transform);
             }

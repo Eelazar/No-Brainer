@@ -5,13 +5,14 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour {
 
     public GameObject audioMaster;
+    [TextArea(1, 5)]
     public string message;
     public bool oneTime;
     public bool mustInteract;
     public float cooldown;
 
-    private bool activated;
-    private bool triggered;
+    private bool playerInTrigger;
+    private bool oneTimeTriggered;
     private bool cd;
 
 
@@ -23,21 +24,18 @@ public class DialogueTrigger : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-	    if(cd == false)
+        if (cd == false && oneTimeTriggered == false)
         {
-            if (mustInteract == true)
+            if (mustInteract)
             {
-                if (triggered == true)
+                if (playerInTrigger && Input.GetButton("Fire1"))
                 {
-                    if (Input.GetButton("Fire1"))
-                    {
-                        Trigger();
-                    }
+                    Trigger();
                 }
             }
-            else if (mustInteract == false)
+            else
             {
-                if (triggered == true)
+                if (playerInTrigger)
                 {
                     Trigger();
                 }
@@ -47,38 +45,30 @@ public class DialogueTrigger : MonoBehaviour {
 
     void Trigger()
     {
-        if (activated == false)
-        {
-            StartCoroutine(audioMaster.GetComponent<ScreenDialogue>().Speak(message));
-            activated = true;
-            cd = true;
-            StartCoroutine(Cooldown());
-        }
+        StartCoroutine(audioMaster.GetComponent<ScreenDialogue>().Speak(message));
+        StartCoroutine(Cooldown());
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && oneTimeTriggered == false)
         {
-            triggered = true;
-        }
-        
+            playerInTrigger = true;
+            if (oneTime == true) oneTimeTriggered = true;
+        }        
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
         {
-            if(oneTime == false)
-            {
-                activated = false;
-            }
+            playerInTrigger = false;
         }
-
     }
 
     IEnumerator Cooldown()
     {
+        cd = true;
         yield return new WaitForSeconds(cooldown);
         cd = false;
     }
