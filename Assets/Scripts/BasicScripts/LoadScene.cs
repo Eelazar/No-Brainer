@@ -10,17 +10,26 @@ public class LoadScene : MonoBehaviour {
 
     private Button btn;
 
+
     // Use this for initialization
     void Start ()
     {
-        btn = this.GetComponent<Button>();
-        btn.onClick.AddListener(LoadNewScene);	
+        if(this.GetComponent<Button>() != null)
+        {
+            btn = this.GetComponent<Button>();
+            btn.onClick.AddListener(LoadNewScene);
+        }
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        LoadNewScene();
+    }
 
     void LoadNewScene()
     {
