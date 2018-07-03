@@ -7,13 +7,13 @@ public class CameraSpin : MonoBehaviour {
     public float stayAngle, decelerateAngle, numberOfTurns, maxAcceleration;
 
     private bool triggerTurn;
-    private float startingRotation, rotationIndex, acceleration;
+    private float rotationIndex, acceleration;
     
 
     // Use this for initialization
     void Start ()
     {
-        startingRotation = gameObject.transform.rotation.y;
+        
     }
 	
 	// Update is called once per frame
