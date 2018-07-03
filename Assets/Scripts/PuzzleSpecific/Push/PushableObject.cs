@@ -77,11 +77,11 @@ public class PushableObject : MonoBehaviour {
             direction.Normalize();
             if(direction.z > 0)
             {
-                gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(pushForce * 1, 0, 0), ForceMode.Impulse);
+                gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(pushForce * 1, 0, 0), ForceMode.VelocityChange);
             }
             else if (direction.z < 0)
             {
-                gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(pushForce * -1, 0, 0), ForceMode.Impulse);
+                gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(pushForce * -1, 0, 0), ForceMode.VelocityChange);
             }
         }
         else if (slideAxis == Axis.z)
@@ -90,11 +90,11 @@ public class PushableObject : MonoBehaviour {
             direction.Normalize();
             if (direction.z > 0)
             {
-                gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, pushForce * 1), ForceMode.Impulse);
+                gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, pushForce * 1), ForceMode.VelocityChange);
             }
             else if (direction.z < 0)
             {
-                gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, pushForce * -1), ForceMode.Impulse);
+                gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, pushForce * -1), ForceMode.VelocityChange);
             }
         }
     }
