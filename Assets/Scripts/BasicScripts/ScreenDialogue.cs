@@ -27,7 +27,7 @@ public class ScreenDialogue : MonoBehaviour {
         //    ac.LoadAudioData();
         //}
 
-        StartCoroutine(Speak("Hello, the weather sure is nice today."));
+        //StartCoroutine(Speak("Hello, the weather sure is nice today."));
     }
 
     // Update is called once per frame
