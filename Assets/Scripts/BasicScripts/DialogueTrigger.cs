@@ -46,6 +46,7 @@ public class DialogueTrigger : MonoBehaviour {
     {
         Debug.Log("Trigger");
         StartCoroutine(audioMaster.GetComponent<ScreenDialogue>().Speak(message, cooldown));
+        if (oneTime == true) oneTimeTriggered = true;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -53,7 +54,7 @@ public class DialogueTrigger : MonoBehaviour {
         if (other.tag == "Player" && oneTimeTriggered == false && playerInTrigger == false)
         {
             playerInTrigger = true;
-            if (oneTime == true) oneTimeTriggered = true;
+          
         }        
     }
 

@@ -36,6 +36,7 @@ public class Sibling : MonoBehaviour {
 
     public void Respawn()
     {
+        
         gameObject.transform.position = spawn;
         distance.x = gameObject.transform.position.x - brother.transform.position.x;
         distance.z = gameObject.transform.position.z - brother.transform.position.z;

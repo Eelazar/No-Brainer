@@ -41,26 +41,33 @@ public class ScreenDialogue : MonoBehaviour {
             dialogueBox.gameObject.SetActive(true);
             for (int i = 0; i < message.Length; i++)
             {
-                dialogueBox.text += message[i];
-
-                if (CheckIfLetter(message[i]) == true)
+                if(message[i] == '/')
                 {
-                    char c = message[i];
-                    source.clip = alphabet[GetIndexInAlphabet(c)];
-                    source.PlayOneShot(source.clip);
-                }
-
-                if (message[i].ToString() == ".")
-                {
-                    yield return new WaitForSeconds(dotDelay);
-                }
-                else if (message[i].ToString() == ",")
-                {
-                    yield return new WaitForSeconds(commaDelay);
+                    dialogueBox.text = "";
                 }
                 else
                 {
-                    yield return new WaitForSeconds(delay);
+                    dialogueBox.text += message[i];
+
+                    if (CheckIfLetter(message[i]) == true)
+                    {
+                        char c = message[i];
+                        source.clip = alphabet[GetIndexInAlphabet(c)];
+                        source.PlayOneShot(source.clip);
+                    }
+
+                    if (message[i].ToString() == "." || message[i].ToString() == "!" || message[i].ToString() == "?")
+                    {
+                        yield return new WaitForSeconds(dotDelay);
+                    }
+                    else if (message[i].ToString() == ",")
+                    {
+                        yield return new WaitForSeconds(commaDelay);
+                    }
+                    else
+                    {
+                        yield return new WaitForSeconds(delay);
+                    }
                 }
             }
 

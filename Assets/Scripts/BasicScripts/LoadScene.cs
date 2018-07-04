@@ -39,7 +39,11 @@ public class LoadScene : MonoBehaviour {
         {
             interacted = true;
         }
-        LoadNewScene();
+        else
+        {
+
+            LoadNewScene();
+        }
     }
 
     void LoadNewScene()

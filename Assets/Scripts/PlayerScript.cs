@@ -25,10 +25,14 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         //Set the player position to the scene spawn position and save it to the PlayerPrefs
+
         transform.position = sceneSpawn;
+
         PlayerPrefs.SetFloat("xSpawn", sceneSpawn.x);
         PlayerPrefs.SetFloat("ySpawn", sceneSpawn.y);
         PlayerPrefs.SetFloat("zSpawn", sceneSpawn.z);
+       
+
     }
 
     // Update is called once per frame
@@ -152,6 +156,7 @@ public class PlayerScript : MonoBehaviour
 
     public void ReSpawn()
     {
+        
         gameObject.transform.position = new Vector3(PlayerPrefs.GetFloat("xSpawn", 0), PlayerPrefs.GetFloat("ySpawn", 0), PlayerPrefs.GetFloat("zSpawn", 0));
     }    
 }
