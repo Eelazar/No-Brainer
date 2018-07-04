@@ -19,7 +19,6 @@ public class MenuManager : MonoBehaviour {
             if (i == 0) menuButtons[i].gameObject.SetActive(true);
             else menuButtons[i].gameObject.SetActive(false);
         }
-        Debug.Log(menuButtons.Length);
 	}
 	
 	// Update is called once per frame

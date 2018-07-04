@@ -740,10 +740,32 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: 50c9b7f1730140c4cb6d7733b694af94,
         type: 2}
+    - target: {fileID: 20322580601845736, guid: 322de88d347999643b2e7fb9fcf9a84f,
+        type: 2}
+      propertyPath: orthographic size
+      value: 26.63
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114991697635718838, guid: 322de88d347999643b2e7fb9fcf9a84f, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 322de88d347999643b2e7fb9fcf9a84f, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &422531130 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1095905171575052, guid: 322de88d347999643b2e7fb9fcf9a84f,
+    type: 2}
+  m_PrefabInternal: {fileID: 422531129}
+--- !u!114 &422531131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 422531130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dce375b34bda2a44bb3331b4110c72f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spinSpeed: 1
 --- !u!1001 &456426347
 Prefab:
   m_ObjectHideFlags: 0

@@ -13,7 +13,6 @@ public class DialogueTrigger : MonoBehaviour {
 
     private bool playerInTrigger;
     private bool oneTimeTriggered;
-    private bool cd;
 
 
 	// Use this for initialization
@@ -24,7 +23,7 @@ public class DialogueTrigger : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (cd == false && oneTimeTriggered == false)
+        if (oneTimeTriggered == false)
         {
             if (mustInteract)
             {
@@ -45,13 +44,13 @@ public class DialogueTrigger : MonoBehaviour {
 
     void Trigger()
     {
-        StartCoroutine(audioMaster.GetComponent<ScreenDialogue>().Speak(message));
-        StartCoroutine(Cooldown());
+        Debug.Log("Trigger");
+        StartCoroutine(audioMaster.GetComponent<ScreenDialogue>().Speak(message, cooldown));
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player" && oneTimeTriggered == false)
+        if (other.tag == "Player" && oneTimeTriggered == false && playerInTrigger == false)
         {
             playerInTrigger = true;
             if (oneTime == true) oneTimeTriggered = true;
@@ -66,10 +65,4 @@ public class DialogueTrigger : MonoBehaviour {
         }
     }
 
-    IEnumerator Cooldown()
-    {
-        cd = true;
-        yield return new WaitForSeconds(cooldown);
-        cd = false;
-    }
 }

@@ -8,10 +8,15 @@ public class SceneManagement : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+
         PlayerPrefs.SetString("Scene", SceneManager.GetActiveScene().name);
-        if(PlayerPrefs.GetString("Scene") == "Menu")
+        if (PlayerPrefs.GetString("Scene") == "Menu")
         {
             SceneManager.LoadSceneAsync(PlayerPrefs.GetString("ScenePreview", "TutorialPreview"), LoadSceneMode.Additive);
+        }
+        else
+        {
+            PlayerPrefs.SetString("ScenePreview", SceneManager.GetActiveScene().name + "Preview");
         }
         
 

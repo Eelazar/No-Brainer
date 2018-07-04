@@ -15,19 +15,16 @@ public class ScreenDialogue : MonoBehaviour {
     public AudioClip[] alphabet = new AudioClip[26];
 
     private AudioSource source;
+    private char[] nonLetters;
+    private bool cd;
 
     // Use this for initialization
     void Start ()
     {
-
+        dialogueBox.gameObject.SetActive(false);
         source = GetComponent<AudioSource>();
 
-        //foreach(AudioClip ac in alphabet)
-        //{
-        //    ac.LoadAudioData();
-        //}
-
-        //StartCoroutine(Speak("Hello, the weather sure is nice today."));
+        nonLetters = new Char[] { '.', ',', '?', '!', '\'', ':', ';', '-', '(', ')', '"', ' ' };
     }
 
     // Update is called once per frame
@@ -35,35 +32,43 @@ public class ScreenDialogue : MonoBehaviour {
 		
 	}
 
-    public IEnumerator Speak(string message)
+    public IEnumerator Speak(string message, float cooldown)
     {
-        dialogueBox.text = "";
-        for (int i = 0; i < message.Length; i++)
+        if (cd == false)
         {
-            dialogueBox.text += message[i];
-            if(message[i].ToString() != "." && message[i].ToString() != "," && message[i].ToString() != " ")
+            cd = true;
+            dialogueBox.text = "";
+            dialogueBox.gameObject.SetActive(true);
+            for (int i = 0; i < message.Length; i++)
             {
-                char c = message[i];
-                source.clip = alphabet[GetIndexInAlphabet(c)];
-                source.PlayOneShot(source.clip);
+                dialogueBox.text += message[i];
+
+                if (CheckIfLetter(message[i]) == true)
+                {
+                    char c = message[i];
+                    source.clip = alphabet[GetIndexInAlphabet(c)];
+                    source.PlayOneShot(source.clip);
+                }
+
+                if (message[i].ToString() == ".")
+                {
+                    yield return new WaitForSeconds(dotDelay);
+                }
+                else if (message[i].ToString() == ",")
+                {
+                    yield return new WaitForSeconds(commaDelay);
+                }
+                else
+                {
+                    yield return new WaitForSeconds(delay);
+                }
             }
 
-            if (message[i].ToString() == ".")
-            {
-                yield return new WaitForSeconds(dotDelay);
-            }
-            else if (message[i].ToString() == ",")
-            {
-                yield return new WaitForSeconds(commaDelay);
-            }
-            else
-            {
-                yield return new WaitForSeconds(delay);
-            }
+            yield return new WaitForSeconds(displayTime);
+            dialogueBox.text = "";
+            dialogueBox.gameObject.SetActive(false);
+            StartCoroutine(Cooldown(cooldown));
         }
-
-        yield return new WaitForSeconds(displayTime);
-        dialogueBox.text = "";
     }
 
     private static int GetIndexInAlphabet(char value)
@@ -76,5 +81,25 @@ public class ScreenDialogue : MonoBehaviour {
         }
 
         return (int)upper - (int)'A';
+    }
+
+    private bool CheckIfLetter(char letter)
+    {
+        bool b = true;
+        foreach(char c in nonLetters)
+        {
+            if(letter == c)
+            {
+                b = false;
+            }
+        }
+        return b;
+    }
+
+
+    IEnumerator Cooldown(float cooldown)
+    {
+        yield return new WaitForSeconds(cooldown);
+        cd = false;
     }
 }
