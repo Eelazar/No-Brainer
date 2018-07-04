@@ -8,19 +8,24 @@ public class SlidingDoor : MonoBehaviour {
     public int slideAmount;
     public float closeSlideDelay, openSlideDelay;
 
+    public bool automatic;
+
     public bool open;
 
 	// Use this for initialization
 	void Start ()
     {
-		
-	}
+        if (automatic == true)
+        {
+            Trigger();
+        }
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
-
-	}
+       
+    }
 
     public void Trigger()
     {
