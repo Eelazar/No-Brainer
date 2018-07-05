@@ -44,7 +44,7 @@ public class DialogueTrigger : MonoBehaviour {
 
     void Trigger()
     {
-        Debug.Log("Trigger");
+      
         StartCoroutine(audioMaster.GetComponent<ScreenDialogue>().Speak(message, cooldown));
         if (oneTime == true) oneTimeTriggered = true;
     }
