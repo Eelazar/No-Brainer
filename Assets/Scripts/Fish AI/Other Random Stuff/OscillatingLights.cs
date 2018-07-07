@@ -60,13 +60,19 @@ public class OscillatingLights : MonoBehaviour
             nextPositionList[i]      = Random.insideUnitSphere * areaRadius;
             movingObjectList[i]      = GameObject.Instantiate<GameObject>(movingObjects[Random.Range(0, movingObjects.Length - 1)], originPosition + previousPositionList[i], this.transform.rotation);
 
-            previousIntensityList[i] = Random.Range(minIntensity, maxIntensity);
-            nextIntensityList[i]     = Random.Range(minIntensity, maxIntensity);
-            movingObjectList[i].GetComponent<Light>().intensity = previousIntensityList[i];
+            if (randomIntensity)
+            {
+                previousIntensityList[i] = Random.Range(minIntensity, maxIntensity);
+                nextIntensityList[i] = Random.Range(minIntensity, maxIntensity);
+                movingObjectList[i].GetComponent<Light>().intensity = previousIntensityList[i];
+            }
 
-            previousRangeList[i]     = Random.Range(minRange, maxRange);
-            nextRangeList[i]         = Random.Range(minRange, maxRange);
-            movingObjectList[i].GetComponent<Light>().range = previousRangeList[i];
+            if (randomRange)
+            {
+                previousRangeList[i] = Random.Range(minRange, maxRange);
+                nextRangeList[i] = Random.Range(minRange, maxRange);
+                movingObjectList[i].GetComponent<Light>().range = previousRangeList[i];
+            }
         }
     }
 

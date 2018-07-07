@@ -43,7 +43,6 @@ public class RandomMovement : MonoBehaviour {
     {
 		for(int i = 0; i < amountOfObjects; i++)
         {
-            float distance = Vector3.Distance(previousPositionList[i], nextPositionList[i]);
             float distanceLeft = Vector3.Distance(movingObjectList[i].transform.position - originPosition, nextPositionList[i]);
             Debug.DrawLine(movingObjectList[i].transform.position, nextPositionList[i] + originPosition);
 
