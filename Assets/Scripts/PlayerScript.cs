@@ -5,73 +5,76 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     [Header("Movement")]
-    public bool fourDirectional;
+    [Tooltip("The speed multiplier for basic movement")]
     public float speed;
 
     [Header("Jump")]
     public float jumpCDFloat; 
     public float maxJumpLength;
-    public Vector3 minJumpVector, jumpVectorIncrease;
+    public Vector3 minJumpVector;
+    public Vector3 jumpVectorIncrease;
 
     [Header("Other")]
+    [Tooltip("The starting position of the player when first starting the scene, will automatically get saved to PlayerPrefs upon loading")]
     public Vector3 sceneSpawn; 
-
-    private GameObject currentInteractionTarget;
+    
+    ////Variables
+    //Movement
     private float xInput, zInput;
+    private Vector3 velocity;
+    //Jumping
     private bool jumpCDBool, jumpCharging;
-    private Vector3 velocity, jumpChargeVector;
+    private Vector3 jumpChargeVector;
+    
 
-    // Use this for initialization
     void Start()
     {
         //Set the player position to the scene spawn position and save it to the PlayerPrefs
-
         transform.position = sceneSpawn;
-
-        PlayerPrefs.SetFloat("xSpawn", sceneSpawn.x);
-        PlayerPrefs.SetFloat("ySpawn", sceneSpawn.y);
-        PlayerPrefs.SetFloat("zSpawn", sceneSpawn.z);
-       
-
+        SetSpawn(sceneSpawn);
     }
-
-    // Update is called once per frame
+    
     void FixedUpdate()
     {
-        TranslateInput();
+        TranslateMovementInput();
+        TranslateJumpInput();
     }
 
-    void TranslateInput()
+    void TranslateMovementInput()
     {
-        //////Movement//////
         //Get the player Input
         xInput = Input.GetAxisRaw("Horizontal");
         zInput = Input.GetAxisRaw("Vertical");
 
-        //Check if movement is four directional 
-        if (fourDirectional)
-        {
-            if (xInput != 0 && zInput == 0) velocity.x = xInput;
-            else if (zInput != 0 && xInput == 0) velocity.z = zInput;
-            if (xInput == 0) velocity.x = 0;
-            if (zInput == 0) velocity.z = 0;
+        //Assign the input to the velocity vector
+        if (xInput != 0 && zInput == 0) velocity.x = xInput;
+        else if (zInput != 0 && xInput == 0) velocity.z = zInput;
 
-            if (xInput > 0) transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
-            else if (xInput < 0) transform.rotation = Quaternion.Euler(new Vector3(0, -90, 0));
-            else if (zInput > 0) transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-            else if (zInput < 0) transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
-        }
-        else
-        {
-            velocity.x = xInput;
-            velocity.z = zInput;
-        }
-        //Translate the input into movement
-        GetComponent<Rigidbody>().MovePosition(transform.position + velocity.normalized * speed * Time.deltaTime);
-              
+        //If the player isn't moving set his velocity to 0
+        if (xInput == 0) velocity.x = 0;
+        if (zInput == 0) velocity.z = 0;
 
-        //////Jumping//////
-        if(Input.GetButtonDown("Jump") && jumpCDBool == false)
+        //Rotate the player according to the input
+        if (xInput > 0) transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
+        else if (xInput < 0) transform.rotation = Quaternion.Euler(new Vector3(0, -90, 0));
+        else if (zInput > 0) transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        else if (zInput < 0) transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
+
+        //Multiply the direction by the chosen speed
+        velocity.Normalize();
+        velocity *= speed;
+
+        //Translate the final input into movement
+        GetComponent<Rigidbody>().MovePosition(transform.position + velocity * Time.deltaTime);        
+    }
+
+    void TranslateJumpInput()
+    {
+        ///////////////////////////////////////////////////
+        //NOT FINAL; WAITING ON JUMPING LEVEL TO FINALIZE//
+        ///////////////////////////////////////////////////
+
+        if (Input.GetButtonDown("Jump") && jumpCDBool == false)
         {
             //Set the minimum amnount of force as soon as the buton is pressed
             jumpChargeVector = minJumpVector;
@@ -82,24 +85,22 @@ public class PlayerScript : MonoBehaviour
             jumpCharging = true;
             Jump();
         }
-        else if(Input.GetButtonUp("Jump") && jumpCharging == true)
+        else if (Input.GetButtonUp("Jump") && jumpCharging == true)
         {
             //Release the charge when the button is released
             jumpCharging = false;
             Jump();
         }
-
-        //////Interaction//////
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Interact();
-        }
     }
 
     void Jump()
     {
+        ///////////////////////////////////////////////////
+        //NOT FINAL; WAITING ON JUMPING LEVEL TO FINALIZE//
+        ///////////////////////////////////////////////////
+
         //If the player is charging add force to the final vector
-        if(jumpCharging == true)
+        if (jumpCharging == true)
         {
             jumpChargeVector += jumpVectorIncrease;
             jumpChargeVector = Vector3.ClampMagnitude(jumpChargeVector, maxJumpLength);
@@ -114,49 +115,46 @@ public class PlayerScript : MonoBehaviour
 
     IEnumerator JumpCooldown()
     {
+        ///////////////////////////////////////////////////
+        //NOT FINAL; WAITING ON JUMPING LEVEL TO FINALIZE//
+        ///////////////////////////////////////////////////
+
         jumpCDBool = true;
         yield return new WaitForSeconds(jumpCDFloat);
         jumpCDBool = false;
     }
 
-    void Interact()
-    {
-        if(currentInteractionTarget != null)
-        {
-            if (currentInteractionTarget.GetComponent<PushableObject>() != null)
-            {
-                currentInteractionTarget.GetComponent<PushableObject>().Push(transform);
-            }
-        }        
-    }
-
     void OnTriggerEnter(Collider other)
     {
-        //Set the current object you're viewing to the collider object if it is tagged as Interactable
-        if(other.tag == "Interactable")
-        {
-            currentInteractionTarget = other.gameObject;
-        }        
-
         //Respawn the player if he collides with a deadly object
         if(other.tag == "Deadly")
         {
-            ReSpawn();
+            Respawn();
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        //Remove the current object you're viewing if it left your collider
-        if (other.gameObject == currentInteractionTarget)
-        {
-            currentInteractionTarget = null;
-        }
     }
 
-    public void ReSpawn()
+    //Reset the players position
+    public void Respawn()
     {
-        
-        gameObject.transform.position = new Vector3(PlayerPrefs.GetFloat("xSpawn", 0), PlayerPrefs.GetFloat("ySpawn", 0), PlayerPrefs.GetFloat("zSpawn", 0));
-    }    
+        gameObject.transform.position = GetSpawn();
+    }
+
+    //Sets the spawn position to the Vector given as a parameter
+    void SetSpawn(Vector3 spawn)
+    {
+        PlayerPrefs.SetFloat("xSpawn", spawn.x);
+        PlayerPrefs.SetFloat("ySpawn", spawn.y);
+        PlayerPrefs.SetFloat("zSpawn", spawn.z);
+    }
+
+    //Returns the saved spawn position, or Vector3.zero if it cannot be found
+    Vector3 GetSpawn()
+    {
+        Vector3 spawn = new Vector3(PlayerPrefs.GetFloat("xSpawn", 0), PlayerPrefs.GetFloat("ySpawn", 0), PlayerPrefs.GetFloat("zSpawn", 0));
+        return spawn;
+    }
 }

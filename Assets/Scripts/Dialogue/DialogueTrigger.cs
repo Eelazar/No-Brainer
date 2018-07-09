@@ -24,7 +24,8 @@ public class DialogueTrigger : MonoBehaviour {
     private bool oneTimeTriggered;
 
     
-	void Start () {
+	void Start ()
+    {
 		
 	}
 	

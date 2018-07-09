@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Sibling : MonoBehaviour {
-
+    
     public Vector3 spawn;
     public GameObject brother;
 
@@ -29,16 +29,13 @@ public class Sibling : MonoBehaviour {
         //Respawn the player if he collides with a deadly object
         if (other.tag == "Deadly")
         {
-            brother.GetComponent<PlayerScript>().ReSpawn();
             Respawn();
         }
     }
 
     public void Respawn()
     {
-        
+        brother.GetComponent<PlayerScript>().Respawn();
         gameObject.transform.position = spawn;
-        distance.x = gameObject.transform.position.x - brother.transform.position.x;
-        distance.z = gameObject.transform.position.z - brother.transform.position.z;
     }
 }

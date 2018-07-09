@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour {
     
@@ -9,8 +10,7 @@ public class MenuManager : MonoBehaviour {
 
     private Button[] menuButtons;
     private bool devSwitchBool;
-
-	// Use this for initialization
+    
 	void Start ()
     {
         menuButtons = this.GetComponentsInChildren<Button>();
@@ -19,7 +19,9 @@ public class MenuManager : MonoBehaviour {
             if (i == 0) menuButtons[i].gameObject.SetActive(true);
             else menuButtons[i].gameObject.SetActive(false);
         }
-	}
+
+        SceneManager.LoadSceneAsync(PlayerPrefs.GetString("ScenePreview", "TutorialPreview"), LoadSceneMode.Additive);
+    }
 	
 	// Update is called once per frame
 	void Update ()

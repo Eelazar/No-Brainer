@@ -8,19 +8,7 @@ public class PopupDialogueTrigger : MonoBehaviour {
     public string text;
     [Tooltip("The reference to the PopupMaster, found in the canvas")]
     public GameObject popupMaster;
-
-	// Use this for initialization
-	void Start ()
-    {
-
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
-
+    
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
