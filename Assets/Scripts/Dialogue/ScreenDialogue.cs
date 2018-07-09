@@ -6,24 +6,39 @@ using UnityEngine.UI;
 
 public class ScreenDialogue : MonoBehaviour {
 
-    public Text dialogueBox;
+    [Header("Punctuation")]
+    [Tooltip("The delay after normal letters")]
     public float delay;
+    [Tooltip("The delay after commas")]
     public float commaDelay;
+    [Tooltip("The delay after dots, question marks, and exclamation marks")]
     public float dotDelay;
+    [Tooltip("How long the dialogue stays on screen when it is done")]
     public float displayTime;
 
+    [Header("Audio Assets")]
     public AudioClip[] alphabet = new AudioClip[26];
 
+    //Object references
     private AudioSource source;
+    private Text dialogueBox;
+    private Image background;
+
+    //The letters that will get skipped when reading
     private char[] nonLetters;
+    
+    //
     private bool cd;
 
     // Use this for initialization
     void Start ()
     {
-        dialogueBox.gameObject.SetActive(false);
+        dialogueBox = gameObject.GetComponent<Text>();
+        background = gameObject.GetComponentInChildren<Image>();
+        background.enabled = false;
         source = GetComponent<AudioSource>();
 
+        //Assign symbols to be ignored
         nonLetters = new Char[] { '.', ',', '?', '!', '\'', ':', ';', '-', '(', ')', '"', ' ' };
     }
 
@@ -34,28 +49,37 @@ public class ScreenDialogue : MonoBehaviour {
 
     public IEnumerator Speak(string message, float cooldown)
     {
+        //If speaking isn't on cooldown
         if (cd == false)
         {
+            //Set it on cooldown, reset the text box, enable the background
             cd = true;
             dialogueBox.text = "";
-            dialogueBox.gameObject.SetActive(true);
+            background.enabled = true;
+
+            //For every letter in the text
             for (int i = 0; i < message.Length; i++)
             {
+                //If a backlash is found, reset the text box
                 if(message[i] == '/')
                 {
                     dialogueBox.text = "";
                 }
                 else
                 {
+                    //Add the letter to the textbox
                     dialogueBox.text += message[i];
 
+                    //Check if the letter can be pronounced
                     if (CheckIfLetter(message[i]) == true)
                     {
+                        //if it can, play the appropriate audio clip
                         char c = message[i];
                         source.clip = alphabet[GetIndexInAlphabet(c)];
                         source.PlayOneShot(source.clip);
                     }
 
+                    //Assign the correct delays acording to punctuation
                     if (message[i].ToString() == "." || message[i].ToString() == "!" || message[i].ToString() == "?")
                     {
                         yield return new WaitForSeconds(dotDelay);
@@ -71,16 +95,17 @@ public class ScreenDialogue : MonoBehaviour {
                 }
             }
 
+            //Reset the dialogue box and set cooldowns
             yield return new WaitForSeconds(displayTime);
             dialogueBox.text = "";
-            dialogueBox.gameObject.SetActive(false);
+            background.enabled = false;
             StartCoroutine(Cooldown(cooldown));
         }
     }
 
     private static int GetIndexInAlphabet(char value)
     {
-        // Uses the uppercase character unicode code point. 'A' = U+0042 = 65, 'Z' = U+005A = 90
+        //Check the chars position in thge alphabet
         char upper = char.ToUpper(value);
         if (upper < 'A' || upper > 'Z')
         {
@@ -92,6 +117,7 @@ public class ScreenDialogue : MonoBehaviour {
 
     private bool CheckIfLetter(char letter)
     {
+        //Check if the char is one of the non-letters we defined earlier
         bool b = true;
         foreach(char c in nonLetters)
         {

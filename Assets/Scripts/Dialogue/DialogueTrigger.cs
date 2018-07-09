@@ -4,29 +4,39 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour {
 
-    public GameObject audioMaster;
+    [Tooltip("The reference to the dialogue master, found in the canvas")]
+    public GameObject dialogueMaster;
+    [Tooltip("The message you want spoken")]
     [TextArea(1, 5)]
     public string message;
+    [Header("Conditions")]
+    [Tooltip("Whether or not the clip should be allowed to play multiple times")]
     public bool oneTime;
+    [Tooltip("Whether or not the player must interact in order to hear the dialogue")]
     public bool mustInteract;
+    [Tooltip("The cooldown of the dialogue")]
     public float cooldown;
 
+
+    //Whether player is in collider
     private bool playerInTrigger;
+    //If oneTime is selected, this tracks it
     private bool oneTimeTriggered;
 
-
-	// Use this for initialization
+    
 	void Start () {
 		
 	}
 	
-	// Update is called once per frame
 	void Update ()
     {
+        //If dialogue can only be spoken once, this checks whether it already has been
         if (oneTimeTriggered == false)
         {
+            //If dialogue can only trigger when interacted with
             if (mustInteract)
             {
+                //If player is in range, this triggers it
                 if (playerInTrigger && Input.GetButton("Fire1"))
                 {
                     Trigger();
@@ -34,6 +44,7 @@ public class DialogueTrigger : MonoBehaviour {
             }
             else
             {
+                //Otherwise it is automatically triggered
                 if (playerInTrigger)
                 {
                     Trigger();
@@ -44,8 +55,8 @@ public class DialogueTrigger : MonoBehaviour {
 
     void Trigger()
     {
-      
-        StartCoroutine(audioMaster.GetComponent<ScreenDialogue>().Speak(message, cooldown));
+        //Start the Speak coroutine in the DialogueMaster and set conditions if they were picked
+        StartCoroutine(dialogueMaster.GetComponent<ScreenDialogue>().Speak(message, cooldown));
         if (oneTime == true) oneTimeTriggered = true;
     }
 
