@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a3bdb2cd68f901469e7cc149151eb49, type: 3}
-  m_Name: Hope Profile
+  m_Name: City Profile
   m_EditorClassIdentifier: 
   debugViews:
     m_Enabled: 1
@@ -25,7 +25,7 @@ MonoBehaviour:
         motionVectorsResolution: 24
         motionVectorsAmplitude: 64
   fog:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       excludeSkybox: 1
   antialiasing:
@@ -102,32 +102,32 @@ MonoBehaviour:
       bloom:
         intensity: 0.5
         threshold: 1.1
-        softKnee: 0
-        radius: 1
+        softKnee: 0.5
+        radius: 4
         antiFlicker: 0
       lensDirt:
         texture: {fileID: 0}
         intensity: 3
   colorGrading:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       tonemapping:
         tonemapper: 2
-        neutralBlackIn: -0.03
-        neutralWhiteIn: 4.2
-        neutralBlackOut: 0.002
-        neutralWhiteOut: 7
-        neutralWhiteLevel: 9.4
-        neutralWhiteClip: 8.1
+        neutralBlackIn: 0.033
+        neutralWhiteIn: 10.6
+        neutralBlackOut: 0
+        neutralWhiteOut: 9.7
+        neutralWhiteLevel: 4.6
+        neutralWhiteClip: 8.2
       basic:
         postExposure: 0
         temperature: 0
         tint: 0
         hueShift: 0
-        saturation: 1.77
-        contrast: 1
+        saturation: 0.83
+        contrast: 1.2
       channelMixer:
-        red: {x: 1, y: 0, z: 0}
+        red: {x: 0.6, y: 0.07, z: 0}
         green: {x: 0, y: 1, z: 0}
         blue: {x: 0, y: 0, z: 1}
         currentEditingChannel: 0
@@ -310,20 +310,20 @@ MonoBehaviour:
       spectralTexture: {fileID: 0}
       intensity: 0.1
   grain:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       colored: 1
-      intensity: 0.5
-      size: 1
-      luminanceContribution: 0.8
+      intensity: 0.02
+      size: 0.3
+      luminanceContribution: 1
   vignette:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       mode: 0
-      color: {r: 1, g: 0.406206, b: 0, a: 1}
+      color: {r: 0.4771564, g: 0.06354574, b: 0.6415094, a: 1}
       center: {x: 0.5, y: 0.5}
-      intensity: 0
-      smoothness: 1
+      intensity: 0.48
+      smoothness: 0.59
       roundness: 1
       mask: {fileID: 0}
       opacity: 1
