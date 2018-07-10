@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4380326610671098}
   - component: {fileID: 82754107733518752}
-  - component: {fileID: 114175528457604084}
   m_Layer: 0
   m_Name: LvlMusic
   m_TagString: Untagged
@@ -50,7 +49,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 0531c1b695c06b6449a987f8ec097a6f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -136,14 +135,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &114175528457604084
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1215846062634604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f2dc6931a4f984bb67cb469317f724, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

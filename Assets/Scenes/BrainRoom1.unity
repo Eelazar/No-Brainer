@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -270,7 +270,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4769312317592954, guid: 8a85cb2dbe55d2d4ba018ed82d6fbee4, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8a85cb2dbe55d2d4ba018ed82d6fbee4, type: 2}
@@ -312,7 +312,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4630410374739972, guid: 2618121bf6ada1348a1478a64613bd6f, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2618121bf6ada1348a1478a64613bd6f, type: 2}
@@ -345,6 +345,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94bd0973f93b8844da49088fd1e1d9ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minFlickerIntensity: 0
+  maxFlickerIntensity: 0
+  minFlickerDuration: 0
+  maxFlickerDuration: 0
+  minFlickerAmount: 0
+  maxFlickerAmount: 0
+  minWait: 0
+  maxWait: 0
 --- !u!108 &223764805
 Light:
   m_ObjectHideFlags: 0
@@ -775,7 +783,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4184064257163144, guid: 916b4174677e8f848b46fd2ffabe3798, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 916b4174677e8f848b46fd2ffabe3798, type: 2}
@@ -2147,6 +2155,11 @@ Prefab:
       propertyPath: sceneSpawn.z
       value: -22.79
       objectReference: {fileID: 0}
+    - target: {fileID: 114080785671716788, guid: 7453b0d9ba88b48468b20ca2ec60e8f8,
+        type: 2}
+      propertyPath: sceneSpawn.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7453b0d9ba88b48468b20ca2ec60e8f8, type: 2}
   m_IsPrefabParent: 0
@@ -2520,53 +2533,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 18ee9a96f7ab5d642b6f04409885f0ee, type: 3}
   m_IsPrefabParent: 0
---- !u!1001 &1104924112
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4051881804457296, guid: 305908f55c874e14aaf282d2c4b36e30, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.3787389
-      objectReference: {fileID: 0}
-    - target: {fileID: 4051881804457296, guid: 305908f55c874e14aaf282d2c4b36e30, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 2.2568562
-      objectReference: {fileID: 0}
-    - target: {fileID: 4051881804457296, guid: 305908f55c874e14aaf282d2c4b36e30, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 5.673079
-      objectReference: {fileID: 0}
-    - target: {fileID: 4051881804457296, guid: 305908f55c874e14aaf282d2c4b36e30, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4051881804457296, guid: 305908f55c874e14aaf282d2c4b36e30, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4051881804457296, guid: 305908f55c874e14aaf282d2c4b36e30, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4051881804457296, guid: 305908f55c874e14aaf282d2c4b36e30, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4051881804457296, guid: 305908f55c874e14aaf282d2c4b36e30, type: 2}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 114384508492869866, guid: 305908f55c874e14aaf282d2c4b36e30,
-        type: 2}
-      propertyPath: dialogueBox
-      value: 
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 305908f55c874e14aaf282d2c4b36e30, type: 2}
-  m_IsPrefabParent: 0
 --- !u!4 &1186894322 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 52be00f664d79cd4e9db9e2cb0cbaea4, type: 3}
@@ -2583,6 +2549,11 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 400062, guid: 7df5df94e690f1646b337a779efd3a0c, type: 3}
   m_PrefabInternal: {fileID: 622317412}
+--- !u!1 &1253123721 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1173041043166994, guid: f75f93e8e9bb9904d9690a77ad723f09,
+    type: 2}
+  m_PrefabInternal: {fileID: 323333693}
 --- !u!4 &1271241623 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400060, guid: 2c88ecb20839113479219111f141954b, type: 3}
@@ -2982,7 +2953,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d13c4aec7348a64d9b81689d2d52035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueMaster: {fileID: 0}
+  dialogueMaster: {fileID: 1253123721}
   message: Hey I heard you lost your brain. What a tragedy. Why don't you try this
     one?
   oneTime: 1

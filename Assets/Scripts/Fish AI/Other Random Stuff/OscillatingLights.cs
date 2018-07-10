@@ -24,29 +24,19 @@ public class OscillatingLights : MonoBehaviour
     public float slerpSpeed;
 
     [Header("Light Attributes")]
-    [Tooltip("Whether or not you want the lights to randomly change their intensity")]
-    public bool randomIntensity;
     [Tooltip("Minimum Intensity")]
     public float minIntensity;
     [Tooltip("Maximum Intensity")]
     public float maxIntensity;
-    [Tooltip("Speed the intensity will change at")]
-    [Range(0, 1)]
-    public float intensitySpeed;
-    [Tooltip("'Distance' at which lights will consider their target intensity to be reached")]
-    public float intensityMargin;
+    [Tooltip("Amount of time it will take until the target intensity is achieved")]
+    public float intensityChangeDuration;
     [Space]
-    [Tooltip("Whether or not you want the lights to randomly change their range")]
-    public bool randomRange;
     [Tooltip("Minimum Range")]
     public float minRange;
     [Tooltip("Maximum Range")]
     public float maxRange;
-    [Tooltip("Speed the range will change at")]
-    [Range(0, 1)]
-    public float rangeSpeed;
-    [Tooltip("'Distance' at which lights will consider their target range to be reached")]
-    public float rangeMargin;
+    [Tooltip("Amount of time it will take until the target range is achieved")]
+    public float rangeChangeDuration;
 
 
     //Original position of the spawner
@@ -59,7 +49,12 @@ public class OscillatingLights : MonoBehaviour
     private float[] nextIntensityList;
     private float[] previousRangeList;
     private float[] nextRangeList;
-    
+    //Time variables for lerping
+    private float[] intensityLerp;
+    private float[] rangeLerp;
+    private float[] intensityStartTime;
+    private float[] rangeStartTime;
+
 
     void Start()
     {
@@ -72,6 +67,10 @@ public class OscillatingLights : MonoBehaviour
         nextIntensityList     = new float[amountOfObjects];
         previousRangeList     = new float[amountOfObjects];
         nextRangeList         = new float[amountOfObjects];
+        intensityLerp         = new float[amountOfObjects];
+        rangeLerp             = new float[amountOfObjects];
+        intensityStartTime    = new float[amountOfObjects];
+        rangeStartTime        = new float[amountOfObjects];
         
         for (int i = 0; i < amountOfObjects; i++)
         {
@@ -81,21 +80,15 @@ public class OscillatingLights : MonoBehaviour
             //Create the lights at the given positions
             movingObjectList[i]      = GameObject.Instantiate<GameObject>(movingObjects[Random.Range(0, movingObjects.Length - 1)], originPosition + previousPositionList[i], this.transform.rotation);
 
-            if (randomIntensity)
-            {
-                //Create the first set of random intensities and set it
-                previousIntensityList[i] = Random.Range(minIntensity, maxIntensity);
-                nextIntensityList[i] = Random.Range(minIntensity, maxIntensity);
-                movingObjectList[i].GetComponent<Light>().intensity = previousIntensityList[i];
-            }
+            //Create the first set of random intensities and set it
+            previousIntensityList[i] = Random.Range(minIntensity, maxIntensity);
+            nextIntensityList[i] = Random.Range(minIntensity, maxIntensity);
+            movingObjectList[i].GetComponent<Light>().intensity = previousIntensityList[i];
 
-            if (randomRange)
-            {
-                //Create the first set of random ranges and set it
-                previousRangeList[i] = Random.Range(minRange, maxRange);
-                nextRangeList[i] = Random.Range(minRange, maxRange);
-                movingObjectList[i].GetComponent<Light>().range = previousRangeList[i];
-            }
+            //Create the first set of random ranges and set it
+            previousRangeList[i] = Random.Range(minRange, maxRange);
+            nextRangeList[i] = Random.Range(minRange, maxRange);
+            movingObjectList[i].GetComponent<Light>().range = previousRangeList[i];
         }
     }
     
@@ -127,19 +120,25 @@ public class OscillatingLights : MonoBehaviour
 
             ////Random Intensity and Range
             //Lerp values towards their target (see above)
-            movingObjectList[i].GetComponent<Light>().intensity = Mathf.Lerp(movingObjectList[i].GetComponent<Light>().intensity, nextIntensityList[i], intensitySpeed);
-            movingObjectList[i].GetComponent<Light>().range     = Mathf.Lerp(movingObjectList[i].GetComponent<Light>().range, nextRangeList[i], rangeSpeed);
+            intensityLerp[i] = (Time.time - intensityStartTime[i]) / intensityChangeDuration;
+            rangeLerp[i]     = (Time.time - rangeStartTime[i]) / rangeChangeDuration;
+            movingObjectList[i].GetComponent<Light>().intensity = Mathf.Lerp(previousIntensityList[i], nextIntensityList[i], intensityLerp[i]);
+            movingObjectList[i].GetComponent<Light>().range     = Mathf.Lerp(previousRangeList[i], nextRangeList[i], rangeLerp[i]);
 
             //Create new random values if target ones are reached
-            if(nextIntensityList[i] - movingObjectList[i].GetComponent<Light>().intensity < intensityMargin)
+            if (intensityLerp[i] > 1)
             {
                 previousIntensityList[i] = nextIntensityList[i];
                 nextIntensityList[i] = Random.Range(minIntensity, maxIntensity);
-            }
-            if (nextRangeList[i] - movingObjectList[i].GetComponent<Light>().range < rangeMargin)
+                intensityStartTime[i] = Time.time;
+            }       
+
+            //Create new random values if target ones are reached
+            if (rangeLerp[i] > 1)
             {
-                previousRangeList[i] = Random.Range(minRange, maxRange);
+                previousRangeList[i] = nextRangeList[i];
                 nextRangeList[i] = Random.Range(minRange, maxRange);
+                rangeStartTime[i] = Time.time;
             }
         }
 

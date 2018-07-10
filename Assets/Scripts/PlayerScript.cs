@@ -7,6 +7,8 @@ public class PlayerScript : MonoBehaviour
     [Header("Movement")]
     [Tooltip("The speed multiplier for basic movement")]
     public float speed;
+    [Tooltip("The amount of time it takes to rotate the player once")]
+    public float turnDuration;
 
     [Header("Jump")]
     public float jumpCDFloat; 
@@ -22,6 +24,7 @@ public class PlayerScript : MonoBehaviour
     //Movement
     private float xInput, zInput;
     private Vector3 velocity;
+    private bool rotating;
     //Jumping
     private bool jumpCDBool, jumpCharging;
     private Vector3 jumpChargeVector;
@@ -55,10 +58,13 @@ public class PlayerScript : MonoBehaviour
         if (zInput == 0) velocity.z = 0;
 
         //Rotate the player according to the input
-        if (xInput > 0) transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
-        else if (xInput < 0) transform.rotation = Quaternion.Euler(new Vector3(0, -90, 0));
-        else if (zInput > 0) transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-        else if (zInput < 0) transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
+        if(rotating == false)
+        {
+            if (xInput > 0) StartCoroutine(RotatePlayer(new Vector3(0, 90, 0)));
+            else if (xInput < 0) StartCoroutine(RotatePlayer(new Vector3(0, -90, 0)));
+            else if (zInput > 0) StartCoroutine(RotatePlayer(new Vector3(0, 0, 0)));
+            else if (zInput < 0) StartCoroutine(RotatePlayer(new Vector3(0, 180, 0)));
+        }
 
         //Multiply the direction by the chosen speed
         velocity.Normalize();
@@ -156,5 +162,24 @@ public class PlayerScript : MonoBehaviour
     {
         Vector3 spawn = new Vector3(PlayerPrefs.GetFloat("xSpawn", 0), PlayerPrefs.GetFloat("ySpawn", 0), PlayerPrefs.GetFloat("zSpawn", 0));
         return spawn;
+    }
+
+    IEnumerator RotatePlayer(Vector3 targetVector)
+    {
+        /*Debug.Log("turn");
+        rotating = true;
+        Quaternion start = transform.rotation;
+        Quaternion end = Quaternion.Euler(targetVector);
+        float startTime = Time.time;
+        float t = 0;
+
+        while(t < 1)
+        {
+            t = (Time.time - startTime) / turnDuration;
+            transform.rotation = Quaternion.Slerp(start, end, t);
+        }
+
+        rotating = false;*/
+        yield return null;
     }
 }
