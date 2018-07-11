@@ -8,7 +8,7 @@ public class PlayerScript : MonoBehaviour
     [Tooltip("The speed multiplier for basic movement")]
     public float speed;
     [Tooltip("The amount of time it takes to rotate the player once")]
-    [Range(0, 0.5F)]
+    [Range(0, 0.2F)]
     public float turnDuration;
 
     [Header("Jump")]
@@ -25,7 +25,13 @@ public class PlayerScript : MonoBehaviour
     //Movement
     private float xInput, zInput;
     private Vector3 velocity;
+    //Rotating
     private bool rotating;
+    private Vector3 currentRotation;
+    private Vector3 rightRotation   = new Vector3(0, 90, 0);
+    private Vector3 leftRotation    = new Vector3(0, -90, 0);
+    private Vector3 forwardRotation = new Vector3(0, 0, 0);
+    private Vector3 backRotation    = new Vector3(0, 180, 0);
     //Jumping
     private bool jumpCDBool;
     
@@ -35,6 +41,7 @@ public class PlayerScript : MonoBehaviour
         //Set the player position to the scene spawn position and save it to the PlayerPrefs
         transform.position = sceneSpawn;
         SetSpawn(sceneSpawn);
+        currentRotation = forwardRotation;
     }
     
     void FixedUpdate()
@@ -60,10 +67,10 @@ public class PlayerScript : MonoBehaviour
         //Rotate the player according to the input
         if(rotating == false)
         {
-            if (xInput > 0) StartCoroutine(RotatePlayer(new Vector3(0, 90, 0)));
-            else if (xInput < 0) StartCoroutine(RotatePlayer(new Vector3(0, -90, 0)));
-            else if (zInput > 0) StartCoroutine(RotatePlayer(new Vector3(0, 0, 0)));
-            else if (zInput < 0) StartCoroutine(RotatePlayer(new Vector3(0, 180, 0)));
+            if (xInput > 0 && currentRotation != rightRotation) StartCoroutine(RotatePlayer(new Vector3(0, 90, 0)));
+            else if (xInput < 0 && currentRotation != leftRotation) StartCoroutine(RotatePlayer(new Vector3(0, -90, 0)));
+            else if (zInput > 0 && currentRotation != forwardRotation) StartCoroutine(RotatePlayer(new Vector3(0, 0, 0)));
+            else if (zInput < 0 && currentRotation != backRotation) StartCoroutine(RotatePlayer(new Vector3(0, 180, 0)));
         }
 
         //Multiply the direction by the chosen speed
@@ -131,7 +138,6 @@ public class PlayerScript : MonoBehaviour
 
     IEnumerator RotatePlayer(Vector3 targetVector)
     {
-        Debug.Log("turn");
         rotating = true;
         Quaternion start = transform.rotation;
         Quaternion end = Quaternion.Euler(targetVector);
@@ -145,6 +151,7 @@ public class PlayerScript : MonoBehaviour
             yield return null;
         }
 
+        currentRotation = targetVector;
         rotating = false;
         yield return null;
     }
