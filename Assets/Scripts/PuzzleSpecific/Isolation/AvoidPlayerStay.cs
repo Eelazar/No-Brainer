@@ -20,12 +20,14 @@ public class AvoidPlayerStay : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        distance = Vector3.Distance(origin, player.transform.position);
+        distance = Vector3.Distance(gameObject.transform.position, player.transform.position);
 
-        Vector3 v = this.transform.position - player.transform.position;
-        v.Normalize();
-        v *= (range - distance);
-
-        this.transform.position = v;
+        if(distance < range)
+        {
+            Vector3 v = this.transform.position - player.transform.position;
+            v.Normalize();
+            v *= (range - distance);
+            this.transform.position += v;
+        }
     }
 }
