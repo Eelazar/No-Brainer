@@ -67,10 +67,34 @@ public class PlayerScript : MonoBehaviour
         //Rotate the player according to the input
         if(rotating == false)
         {
-            if (xInput > 0 && currentRotation != rightRotation) StartCoroutine(RotatePlayer(new Vector3(0, 90, 0)));
-            else if (xInput < 0 && currentRotation != leftRotation) StartCoroutine(RotatePlayer(new Vector3(0, -90, 0)));
-            else if (zInput > 0 && currentRotation != forwardRotation) StartCoroutine(RotatePlayer(new Vector3(0, 0, 0)));
-            else if (zInput < 0 && currentRotation != backRotation) StartCoroutine(RotatePlayer(new Vector3(0, 180, 0)));
+            if (xInput > 0)
+            {
+                if (currentRotation != rightRotation)
+                {
+                    StartCoroutine(RotatePlayer(new Vector3(0, 90, 0)));
+                }
+            }
+            else if (xInput < 0)
+            {
+                if (currentRotation != leftRotation)
+                {
+                    StartCoroutine(RotatePlayer(new Vector3(0, -90, 0)));
+                }
+            }
+            else if (zInput > 0)
+            {
+                if (currentRotation != forwardRotation)
+                {
+                    StartCoroutine(RotatePlayer(new Vector3(0, 0, 0)));
+                }
+            }
+            else if (zInput < 0)
+            {
+                if (currentRotation != backRotation)
+                {
+                    StartCoroutine(RotatePlayer(new Vector3(0, 180, 0)));
+                }
+            }
         }
 
         //Multiply the direction by the chosen speed
