@@ -2919,7 +2919,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &668605369
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4991,8 +4991,8 @@ GameObject:
   - component: {fileID: 1259260413}
   - component: {fileID: 1259260415}
   - component: {fileID: 1259260412}
-  - component: {fileID: 1259260411}
   - component: {fileID: 1259260410}
+  - component: {fileID: 1259260411}
   - component: {fileID: 1259260409}
   m_Layer: 0
   m_Name: Player
@@ -5008,7 +5008,7 @@ BoxCollider:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1259260408}
-  m_Material: {fileID: 13400000, guid: 9a319cac580aa7947ac028232cfa97e4, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -5068,11 +5068,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  turnDuration: 1
+  turnDuration: 0.1
   jumpCDFloat: 1
-  maxJumpLength: 0
-  minJumpVector: {x: 0, y: 0, z: 0}
-  jumpVectorIncrease: {x: 0, y: 0, z: 0}
+  jumpVector: {x: 0, y: 0, z: 0}
   sceneSpawn: {x: 0, y: -1, z: -22.61}
 --- !u!4 &1259260414
 Transform:
@@ -6445,7 +6443,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1598854982
 Transform:
   m_ObjectHideFlags: 0
@@ -8015,7 +8013,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1873274784
 Transform:
   m_ObjectHideFlags: 0
