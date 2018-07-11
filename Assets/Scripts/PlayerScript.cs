@@ -11,10 +11,10 @@ public class PlayerScript : MonoBehaviour
     public float turnDuration;
 
     [Header("Jump")]
+    [Tooltip("The cooldown of the jump")]
     public float jumpCDFloat; 
-    public float maxJumpLength;
-    public Vector3 minJumpVector;
-    public Vector3 jumpVectorIncrease;
+    [Tooltip("The force applied to the player when jumping")]
+    public Vector3 jumpVector;
 
     [Header("Other")]
     [Tooltip("The starting position of the player when first starting the scene, will automatically get saved to PlayerPrefs upon loading")]
@@ -26,8 +26,7 @@ public class PlayerScript : MonoBehaviour
     private Vector3 velocity;
     private bool rotating;
     //Jumping
-    private bool jumpCDBool, jumpCharging;
-    private Vector3 jumpChargeVector;
+    private bool jumpCDBool;
     
 
     void Start()
@@ -76,55 +75,20 @@ public class PlayerScript : MonoBehaviour
 
     void TranslateJumpInput()
     {
-        ///////////////////////////////////////////////////
-        //NOT FINAL; WAITING ON JUMPING LEVEL TO FINALIZE//
-        ///////////////////////////////////////////////////
-
         if (Input.GetButtonDown("Jump") && jumpCDBool == false)
         {
-            //Set the minimum amnount of force as soon as the buton is pressed
-            jumpChargeVector = minJumpVector;
-        }
-        if (Input.GetButton("Jump") && jumpCDBool == false)
-        {
-            //Keep adding force as long as the button is held down
-            jumpCharging = true;
-            Jump();
-        }
-        else if (Input.GetButtonUp("Jump") && jumpCharging == true)
-        {
-            //Release the charge when the button is released
-            jumpCharging = false;
             Jump();
         }
     }
 
     void Jump()
     {
-        ///////////////////////////////////////////////////
-        //NOT FINAL; WAITING ON JUMPING LEVEL TO FINALIZE//
-        ///////////////////////////////////////////////////
-
-        //If the player is charging add force to the final vector
-        if (jumpCharging == true)
-        {
-            jumpChargeVector += jumpVectorIncrease;
-            jumpChargeVector = Vector3.ClampMagnitude(jumpChargeVector, maxJumpLength);
-        }
-        //If he releases the button exert the final force and set the jump on cooldown
-        else
-        {
-            transform.GetComponent<Rigidbody>().AddRelativeForce(jumpChargeVector, ForceMode.VelocityChange);
-            StartCoroutine(JumpCooldown());
-        }
+        transform.GetComponent<Rigidbody>().AddRelativeForce(jumpVector, ForceMode.VelocityChange);
+        StartCoroutine(JumpCooldown());
     }
 
     IEnumerator JumpCooldown()
     {
-        ///////////////////////////////////////////////////
-        //NOT FINAL; WAITING ON JUMPING LEVEL TO FINALIZE//
-        ///////////////////////////////////////////////////
-
         jumpCDBool = true;
         yield return new WaitForSeconds(jumpCDFloat);
         jumpCDBool = false;
@@ -166,20 +130,21 @@ public class PlayerScript : MonoBehaviour
 
     IEnumerator RotatePlayer(Vector3 targetVector)
     {
-        /*Debug.Log("turn");
+        Debug.Log("turn");
         rotating = true;
         Quaternion start = transform.rotation;
         Quaternion end = Quaternion.Euler(targetVector);
-        float startTime = Time.time;
+        float startTime = Time.realtimeSinceStartup;
         float t = 0;
 
         while(t < 1)
         {
-            t = (Time.time - startTime) / turnDuration;
+            t = (Time.realtimeSinceStartup - startTime) / turnDuration;
             transform.rotation = Quaternion.Slerp(start, end, t);
+            yield return null;
         }
 
-        rotating = false;*/
+        rotating = false;
         yield return null;
     }
 }
