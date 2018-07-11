@@ -27,6 +27,7 @@ public class AvoidPlayerStay : MonoBehaviour {
             Vector3 v = this.transform.position - player.transform.position;
             v.Normalize();
             v *= (range - distance);
+            v.y = 0;
             this.transform.position += v;
         }
     }
