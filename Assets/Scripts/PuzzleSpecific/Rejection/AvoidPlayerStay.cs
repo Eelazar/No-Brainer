@@ -5,10 +5,13 @@ using UnityEngine;
 public class AvoidPlayerStay : MonoBehaviour {
 
     public float range;
+    public float pushForce;
 
     private float distance;
     private GameObject player;
     private Vector3 origin;
+    private Vector3 pushVector;
+
 
     // Use this for initialization
     void Start ()
@@ -24,11 +27,14 @@ public class AvoidPlayerStay : MonoBehaviour {
 
         if(distance < range)
         {
-            Vector3 v = this.transform.position - player.transform.position;
+            Vector3 v = player.transform.position - gameObject.transform.position;
             v.Normalize();
-            v *= (range - distance);
+            v *= pushForce;
             v.y = 0;
-            this.transform.position += v;
+
+            Debug.Log(v);
+
+            gameObject.GetComponent<Rigidbody>().AddForce(-v);
         }
     }
 }
