@@ -6505,12 +6505,12 @@ Rigidbody:
   m_GameObject: {fileID: 1694090338772714}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 10
+  m_Drag: 1
   m_AngularDrag: 0.5
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!65 &65010776680699500
 BoxCollider:
@@ -6522,15 +6522,15 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 4, z: 4}
-  m_Center: {x: 0, y: 2.5, z: 2}
+  m_Size: {x: 2, y: 4, z: 2.0067787}
+  m_Center: {x: 0, y: 2.5, z: 1.0033894}
 --- !u!65 &65025446548157328
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1694090338772714}
-  m_Material: {fileID: 13400000, guid: 9a319cac580aa7947ac028232cfa97e4, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -6559,9 +6559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  turnDuration: 1
+  turnDuration: 0.1
   jumpCDFloat: 1
-  maxJumpLength: 0
-  minJumpVector: {x: 0, y: 0, z: 0}
-  jumpVectorIncrease: {x: 0, y: 0, z: 0}
+  jumpVector: {x: 0, y: 0, z: 0}
   sceneSpawn: {x: -4.05, y: -1, z: -7.76}
