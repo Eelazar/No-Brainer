@@ -8,6 +8,7 @@ public class PlayerScript : MonoBehaviour
     [Tooltip("The speed multiplier for basic movement")]
     public float speed;
     [Tooltip("The amount of time it takes to rotate the player once")]
+    [Range(0, 0.5F)]
     public float turnDuration;
 
     [Header("Jump")]
