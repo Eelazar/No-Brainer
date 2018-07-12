@@ -21,8 +21,10 @@ public class Attraction : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        Profiler.BeginSample("AttractScript");
-        SearchAttractableObjects();
+        if(attracted == false)
+        {
+            SearchAttractableObjects();
+        }
         foreach (Collider c in attractableObjects)
         {
             distance = Vector3.Distance(this.transform.position, c.transform.position);
