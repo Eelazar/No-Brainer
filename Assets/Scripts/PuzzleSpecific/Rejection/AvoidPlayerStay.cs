@@ -9,14 +9,12 @@ public class AvoidPlayerStay : MonoBehaviour {
 
     private float distance;
     private GameObject player;
-    private Vector3 origin;
     private Vector3 pushVector;
 
 
     // Use this for initialization
     void Start ()
     {
-        origin = transform.position;
         player = GameObject.FindGameObjectWithTag("Player");
 	}
 	

@@ -84,7 +84,7 @@ public class Fish : MonoBehaviour {
         position.z = Random.Range(swimArea.min.z, swimArea.max.z);
 
         //Limit the vertical distance traveled
-        if(staminaVertical != 0)
+        if (staminaVertical != 0)
         {
             while (Mathf.Abs(position.y - this.transform.position.y) > staminaVertical)
             {
