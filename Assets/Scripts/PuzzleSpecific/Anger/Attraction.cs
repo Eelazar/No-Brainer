@@ -10,8 +10,10 @@ public class Attraction : MonoBehaviour {
     public bool stayAttracted;
 
     private Collider[] attractableObjects;
+    private GameObject player;
     private float distance;
-    private bool attracted;
+    private Vector3 direction;
+    private bool attracted = false;
 
 	// Use this for initialization
 	void Start ()
@@ -21,46 +23,44 @@ public class Attraction : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if(attracted == false)
+        if (attracted == false)
         {
             SearchAttractableObjects();
         }
-        foreach (Collider c in attractableObjects)
+        else if(attracted == true)
         {
-            distance = Vector3.Distance(this.transform.position, c.transform.position);
+            distance = Vector3.Distance(this.transform.position, player.transform.position);
+            direction = player.transform.position - this.transform.position;
+            direction.Normalize();
 
-            if (attracted)
+            if (stayAttracted == true)
             {
-                Vector3 direction = transform.position - c.transform.position;
-                if (c.GetComponent<Rigidbody>() != null)
-                {
-                    c.GetComponent<Rigidbody>().AddForce(direction * attractionForce);
-                }
+                transform.GetComponent<Rigidbody>().AddForce(direction * attractionForce);
             }
-            else if (distance <= attractionRange && attracted == false)
+            else if(distance <= attractionRange)
             {
-                Vector3 direction = transform.position - c.transform.position;
-                if(c.GetComponent<Rigidbody>() != null)
-                {
-                    c.GetComponent<Rigidbody>().AddForce(direction * attractionForce);
-                }
+                transform.GetComponent<Rigidbody>().AddForce(direction * attractionForce);
             }
         }
-        Profiler.EndSample();
+       
 	}
 
     void SearchAttractableObjects()
     {
         attractableObjects = Physics.OverlapSphere(transform.position, attractionRange);
-        if(attracted == false)
+        foreach (Collider c in attractableObjects)
         {
-            foreach(Collider c in attractableObjects)
+            if (c.tag == "Player")
             {
-                if(c.tag == "Player")
-                {
-                    attracted = true;
-                }
-            }
+                player = c.gameObject;
+                attracted = true;
+            }            
         }
+    }
+
+    void OnDrawGizmos()
+    {
+        UnityEditor.Handles.color = Color.cyan;
+        UnityEditor.Handles.DrawWireDisc(gameObject.transform.position, Vector3.up, attractionRange);
     }
 }
