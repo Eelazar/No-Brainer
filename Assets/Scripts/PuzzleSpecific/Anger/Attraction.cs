@@ -44,7 +44,6 @@ public class Attraction : MonoBehaviour {
                 {
                     c.GetComponent<Rigidbody>().AddForce(direction * attractionForce);
                 }
-                attracted = true;
             }
         }
         Profiler.EndSample();
@@ -53,5 +52,15 @@ public class Attraction : MonoBehaviour {
     void SearchAttractableObjects()
     {
         attractableObjects = Physics.OverlapSphere(transform.position, attractionRange);
+        if(attracted == false)
+        {
+            foreach(Collider c in attractableObjects)
+            {
+                if(c.tag == "Player")
+                {
+                    attracted = true;
+                }
+            }
+        }
     }
 }
