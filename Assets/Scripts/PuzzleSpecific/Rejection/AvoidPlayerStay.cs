@@ -15,7 +15,6 @@ public class AvoidPlayerStay : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        origin = transform.position;
         player = GameObject.FindGameObjectWithTag("Player");
 	}
 	
