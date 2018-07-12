@@ -41,6 +41,10 @@ public class Attraction : MonoBehaviour {
             {
                 transform.GetComponent<Rigidbody>().AddForce(direction * attractionForce);
             }
+            else if(distance > attractionRange)
+            {
+
+            }
         }
        
 	}
@@ -60,7 +64,7 @@ public class Attraction : MonoBehaviour {
 
     void OnDrawGizmos()
     {
-        UnityEditor.Handles.color = Color.cyan;
+        UnityEditor.Handles.color = Color.red;
         UnityEditor.Handles.DrawWireDisc(gameObject.transform.position, Vector3.up, attractionRange);
     }
 }
