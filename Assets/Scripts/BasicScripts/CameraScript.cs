@@ -27,7 +27,7 @@ public class CameraScript : MonoBehaviour {
     {
         if (lockHorizontalMovement)
         {
-            newPosition = new Vector3(originPosition.x + cameraHeight / 3 * 2, target.transform.position.y + cameraHeight, originPosition.z - cameraHeight / 3 * 2);
+            newPosition = new Vector3(cameraHeight / 3 * 2, target.transform.position.y + cameraHeight, -cameraHeight / 3 * 2);
         }
         else
         {
