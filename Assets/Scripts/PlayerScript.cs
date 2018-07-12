@@ -115,7 +115,7 @@ public class PlayerScript : MonoBehaviour
 
     void Jump()
     {
-        transform.GetComponent<Rigidbody>().AddRelativeForce(jumpVector, ForceMode.VelocityChange);
+        transform.GetComponent<Rigidbody>().AddForce(jumpVector, ForceMode.VelocityChange);
         StartCoroutine(JumpCooldown());
     }
 

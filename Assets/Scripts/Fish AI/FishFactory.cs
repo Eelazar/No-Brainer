@@ -32,14 +32,6 @@ public class FishFactory : MonoBehaviour {
             fish.GetComponent<Fish>().swimArea = fishArea;
         }
 	}
-	
-
-
-	void Update () {
-		
-	}
-
-
 
     Vector3 PickRandomPosition()
     {
