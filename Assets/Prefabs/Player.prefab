@@ -1110,6 +1110,7 @@ GameObject:
   - component: {fileID: 65010776680699500}
   - component: {fileID: 75511338194960100}
   - component: {fileID: 65025446548157328}
+  - component: {fileID: 114742945521158764}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -6434,8 +6435,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 4, z: 2.0067787}
-  m_Center: {x: 0, y: 2.5, z: 1.0033894}
+  m_Size: {x: 3.113223, y: 4, z: 2.613472}
+  m_Center: {x: 0.06878042, y: 2.5, z: -0.11950302}
 --- !u!65 &65025446548157328
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -6474,4 +6475,17 @@ MonoBehaviour:
   turnDuration: 0.1
   jumpCDFloat: 1
   jumpVector: {x: 0, y: 0, z: 0}
-  sceneSpawn: {x: -4.05, y: -1, z: -7.76}
+  sceneSpawn: {x: 0, y: -1, z: -22.61}
+--- !u!114 &114742945521158764
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1694090338772714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f97c5104f48d3a74c81a1c67c690ea83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attractionRange: 10
+  attractionForce: 1.5
