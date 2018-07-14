@@ -34,6 +34,10 @@ public class PlayerScript : MonoBehaviour
     private Vector3 backRotation    = new Vector3(0, 180, 0);
     //Jumping
     private bool jumpCDBool;
+
+	[SerializeField]
+	[Tooltip("The player will able to jump between the negative of minVelocity, zero and minVelocity")]
+	private float minVelocity = 0.1f;
     
 
     void Start()
@@ -107,7 +111,10 @@ public class PlayerScript : MonoBehaviour
 
     void TranslateJumpInput()
     {
-        if (Input.GetButtonDown("Jump") && jumpCDBool == false)
+        if (Input.GetButtonDown("Jump") && 
+			//jumpCDBool == false &&
+			(GetComponent<Rigidbody>().velocity.y < minVelocity && GetComponent<Rigidbody>().velocity.y > -minVelocity)
+			)
         {
             Jump();
         }
@@ -115,8 +122,11 @@ public class PlayerScript : MonoBehaviour
 
     void Jump()
     {
-        transform.GetComponent<Rigidbody>().AddForce(jumpVector, ForceMode.VelocityChange);
-        StartCoroutine(JumpCooldown());
+		
+			transform.GetComponent<Rigidbody> ().AddForce (jumpVector, ForceMode.VelocityChange);
+			StartCoroutine (JumpCooldown ());
+
+
     }
 
     IEnumerator JumpCooldown()
