@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -220,6 +220,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94bd0973f93b8844da49088fd1e1d9ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minFlickerIntensity: 0
+  maxFlickerIntensity: 0
+  minFlickerDuration: 0
+  maxFlickerDuration: 0
+  minFlickerAmount: 0
+  maxFlickerAmount: 0
+  minWait: 0
+  maxWait: 0
 --- !u!108 &223764805
 Light:
   m_ObjectHideFlags: 0
@@ -2425,6 +2433,27 @@ Prefab:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 0531c1b695c06b6449a987f8ec097a6f, type: 3}
+    - target: {fileID: 114896027803003130, guid: 322de88d347999643b2e7fb9fcf9a84f,
+        type: 2}
+      propertyPath: profile
+      value: 
+      objectReference: {fileID: 11400000, guid: bddb050b5c6fd7c47aea7ee76fcf807e,
+        type: 2}
+    - target: {fileID: 20322580601845736, guid: 322de88d347999643b2e7fb9fcf9a84f,
+        type: 2}
+      propertyPath: m_BackGroundColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20322580601845736, guid: 322de88d347999643b2e7fb9fcf9a84f,
+        type: 2}
+      propertyPath: m_BackGroundColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20322580601845736, guid: 322de88d347999643b2e7fb9fcf9a84f,
+        type: 2}
+      propertyPath: m_BackGroundColor.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 322de88d347999643b2e7fb9fcf9a84f, type: 2}
   m_IsPrefabParent: 0
