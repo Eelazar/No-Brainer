@@ -109,25 +109,25 @@ MonoBehaviour:
         texture: {fileID: 0}
         intensity: 3
   colorGrading:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       tonemapping:
         tonemapper: 2
-        neutralBlackIn: -0.03
-        neutralWhiteIn: 4.2
-        neutralBlackOut: 0.002
-        neutralWhiteOut: 7
-        neutralWhiteLevel: 9.4
-        neutralWhiteClip: 8.1
+        neutralBlackIn: -0.033
+        neutralWhiteIn: 6.1
+        neutralBlackOut: 0.015
+        neutralWhiteOut: 10.3
+        neutralWhiteLevel: 9.1
+        neutralWhiteClip: 10
       basic:
         postExposure: 0
-        temperature: 0
-        tint: 0
+        temperature: 47
+        tint: 17
         hueShift: 0
-        saturation: 1.77
-        contrast: 1
+        saturation: 1.44
+        contrast: 1.1
       channelMixer:
-        red: {x: 1, y: 0, z: 0}
+        red: {x: 0.6, y: 0.93, z: -0.07}
         green: {x: 0, y: 1, z: 0}
         blue: {x: 0, y: 0, z: 1}
         currentEditingChannel: 0
