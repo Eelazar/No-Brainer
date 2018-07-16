@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276813, g: 0.21589187, b: 0.29782563, a: 1}
+  m_IndirectSpecularColor: {r: 0.1727681, g: 0.21589208, b: 0.29782575, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4409,18 +4409,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 759618279}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 357e856ace216364698320e3bed69b0a, type: 3}
+  m_Script: {fileID: 11500000, guid: 16beae9e3e6bf394a8003eb109f33716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingObjects:
-  - {fileID: 100000, guid: b44e9d105fb3c3146bd7c9373039fd35, type: 3}
-  - {fileID: 100000, guid: 908c9b846dc6bb144b7a0c6ecda3fab9, type: 3}
-  - {fileID: 100000, guid: 31d31c79d78ab2947bbf4b2df214d63e, type: 3}
-  amountOfObjects: 5
-  areaRadius: 4
-  movementSpeed: 1
-  rangeMargin: 1
-  slerpSpeed: 0.01
+  size: {x: 15, y: 5, z: 30}
+  fishPrefabs: []
+  amountOfFishes: 0
 --- !u!4 &759618281
 Transform:
   m_ObjectHideFlags: 0
@@ -4428,7 +4422,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 759618279}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.18, y: -7.59, z: 0}
+  m_LocalPosition: {x: 16.6, y: -5.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6271,18 +6265,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1116711240}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 357e856ace216364698320e3bed69b0a, type: 3}
+  m_Script: {fileID: 11500000, guid: 16beae9e3e6bf394a8003eb109f33716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingObjects:
-  - {fileID: 100000, guid: b44e9d105fb3c3146bd7c9373039fd35, type: 3}
-  - {fileID: 100000, guid: 908c9b846dc6bb144b7a0c6ecda3fab9, type: 3}
-  - {fileID: 100000, guid: 31d31c79d78ab2947bbf4b2df214d63e, type: 3}
-  amountOfObjects: 15
-  areaRadius: 8
-  movementSpeed: 0.8
-  rangeMargin: 1
-  slerpSpeed: 0.01
+  size: {x: 40, y: 8, z: 25}
+  fishPrefabs: []
+  amountOfFishes: 0
 --- !u!4 &1116711242
 Transform:
   m_ObjectHideFlags: 0
@@ -6290,7 +6278,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1116711240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6, y: -11.9, z: 29.5}
+  m_LocalPosition: {x: -4.7, y: -9.1, z: 29.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6325,18 +6313,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1124559048}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 357e856ace216364698320e3bed69b0a, type: 3}
+  m_Script: {fileID: 11500000, guid: 16beae9e3e6bf394a8003eb109f33716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingObjects:
-  - {fileID: 100000, guid: b44e9d105fb3c3146bd7c9373039fd35, type: 3}
-  - {fileID: 100000, guid: 908c9b846dc6bb144b7a0c6ecda3fab9, type: 3}
-  - {fileID: 100000, guid: 31d31c79d78ab2947bbf4b2df214d63e, type: 3}
-  amountOfObjects: 8
-  areaRadius: 7
-  movementSpeed: 1
-  rangeMargin: 1
-  slerpSpeed: 0.01
+  size: {x: 30, y: 5, z: 20}
+  fishPrefabs: []
+  amountOfFishes: 0
 --- !u!4 &1124559050
 Transform:
   m_ObjectHideFlags: 0
@@ -6344,7 +6326,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1124559048}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.9, y: -11.1, z: -17.5}
+  m_LocalPosition: {x: -2.0099998, y: -7.07, z: -24.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7512,18 +7494,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1316773792}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 357e856ace216364698320e3bed69b0a, type: 3}
+  m_Script: {fileID: 11500000, guid: 16beae9e3e6bf394a8003eb109f33716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingObjects:
-  - {fileID: 100000, guid: b44e9d105fb3c3146bd7c9373039fd35, type: 3}
-  - {fileID: 100000, guid: 908c9b846dc6bb144b7a0c6ecda3fab9, type: 3}
-  - {fileID: 100000, guid: 31d31c79d78ab2947bbf4b2df214d63e, type: 3}
-  amountOfObjects: 3
-  areaRadius: 2
-  movementSpeed: 1.2
-  rangeMargin: 1
-  slerpSpeed: 0.01
+  size: {x: 20, y: 10, z: 50}
+  fishPrefabs: []
+  amountOfFishes: 0
 --- !u!4 &1316773794
 Transform:
   m_ObjectHideFlags: 0
@@ -7531,7 +7507,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1316773792}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28.2, y: -6.7, z: -1.7}
+  m_LocalPosition: {x: -26.900002, y: -8.3, z: -0.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
