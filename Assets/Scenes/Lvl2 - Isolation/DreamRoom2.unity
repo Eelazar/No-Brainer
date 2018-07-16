@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731725, g: 0.13414745, b: 0.12107873, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10846,7 +10846,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1572326185603110, guid: f75f93e8e9bb9904d9690a77ad723f09, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f75f93e8e9bb9904d9690a77ad723f09, type: 2}
@@ -14953,7 +14953,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4203523223485630, guid: 322de88d347999643b2e7fb9fcf9a84f, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -26.7
+      value: -48.6
       objectReference: {fileID: 0}
     - target: {fileID: 4203523223485630, guid: 322de88d347999643b2e7fb9fcf9a84f, type: 2}
       propertyPath: m_LocalRotation.x
@@ -14977,7 +14977,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1095905171575052, guid: 322de88d347999643b2e7fb9fcf9a84f, type: 2}
       propertyPath: m_Name
-      value: Main Camera (1)
+      value: Main Camera
       objectReference: {fileID: 0}
     - target: {fileID: 114896027803003130, guid: 322de88d347999643b2e7fb9fcf9a84f,
         type: 2}
@@ -14995,6 +14995,16 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: 1d4c8a4728aa83f43846f37b9a96a5a5,
         type: 2}
+    - target: {fileID: 114712035806680466, guid: 322de88d347999643b2e7fb9fcf9a84f,
+        type: 2}
+      propertyPath: lockHorizontalMovement
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20322580601845736, guid: 322de88d347999643b2e7fb9fcf9a84f,
+        type: 2}
+      propertyPath: orthographic size
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 322de88d347999643b2e7fb9fcf9a84f, type: 2}
   m_IsPrefabParent: 0
@@ -15421,7 +15431,7 @@ GameObject:
   - component: {fileID: 1581583994}
   - component: {fileID: 1581583993}
   m_Layer: 0
-  m_Name: Plane (1)
+  m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
