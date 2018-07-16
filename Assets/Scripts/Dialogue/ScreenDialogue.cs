@@ -54,7 +54,7 @@ public class ScreenDialogue : MonoBehaviour {
         {
             //Set it on cooldown, reset the text box, enable the background
             cd = true;
-            dialogueBox.text = "";
+            dialogueBox.text = String.Empty;
             background.enabled = true;
 
             //For every letter in the text
@@ -63,7 +63,7 @@ public class ScreenDialogue : MonoBehaviour {
                 //If a backlash is found, reset the text box
                 if(message[i] == '/')
                 {
-                    dialogueBox.text = "";
+                    dialogueBox.text = String.Empty;
                 }
                 else
                 {
@@ -97,7 +97,7 @@ public class ScreenDialogue : MonoBehaviour {
 
             //Reset the dialogue box and set cooldowns
             yield return new WaitForSeconds(displayTime);
-            dialogueBox.text = "";
+            dialogueBox.text = String.Empty;
             background.enabled = false;
             StartCoroutine(Cooldown(cooldown));
         }
