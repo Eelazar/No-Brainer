@@ -27,7 +27,7 @@ public class FishFactory : MonoBehaviour {
         //Spawn the chosen amount of fishes at random positions, and assign their area
         for(int i = 0; i < amountOfFishes; i++)
         {
-            int fishIndex = Random.Range(0, fishPrefabs.Length - 1);
+            int fishIndex = Random.Range(0, fishPrefabs.Length);
             GameObject fish = GameObject.Instantiate<GameObject>(fishPrefabs[fishIndex], PickRandomPosition(), fishPrefabs[fishIndex].transform.rotation);
             fish.GetComponent<Fish>().swimArea = fishArea;
         }
