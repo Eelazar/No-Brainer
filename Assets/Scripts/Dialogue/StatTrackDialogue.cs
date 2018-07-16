@@ -5,7 +5,7 @@ using UnityEngine;
 public class StatTrackDialogue : MonoBehaviour
 {
 
-    public enum Stat { time }
+    public enum Stat { Time, Deaths }
 
     [Tooltip("The reference to the dialogue master, found in the canvas")]
     public GameObject dialogueMaster;
@@ -24,12 +24,23 @@ public class StatTrackDialogue : MonoBehaviour
 
     void Update()
     {
-        if(trackedStat == Stat.time && triggered == false)
+        if(triggered == false)
         {
-            statCounter += 1 * Time.deltaTime;
+            switch (trackedStat)
+            {
+                case Stat.Time:
+                    statCounter += 1 * Time.deltaTime;
+                    break;
+                case Stat.Deaths:
+                    statCounter = PlayerPrefs.GetFloat("Deaths");
+                    break;
+                default:
+                    break;
+            }
         }
+        
 
-        if(statCounter >= statAmount && triggered == false)
+        if (statCounter >= statAmount && triggered == false)
         {
             Trigger();
         }

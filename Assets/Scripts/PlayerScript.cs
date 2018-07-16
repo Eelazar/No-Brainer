@@ -42,6 +42,9 @@ public class PlayerScript : MonoBehaviour
 
     void Start()
     {
+        //Reset amount of deaths
+        PlayerPrefs.SetFloat("Deaths", 0);
+
         //Set the player position to the scene spawn position and save it to the PlayerPrefs
         transform.position = sceneSpawn;
         SetSpawn(sceneSpawn);
@@ -152,6 +155,13 @@ public class PlayerScript : MonoBehaviour
     //Reset the players position
     public void Respawn()
     {
+        //Record amount of deaths
+        float f  = PlayerPrefs.GetFloat("Deaths");
+        float ff = PlayerPrefs.GetFloat("TotalDeaths");
+        PlayerPrefs.SetFloat("Deaths", f += 1);
+        PlayerPrefs.SetFloat("TotalDeaths", ff += 1);
+
+        //respawn
         gameObject.transform.position = GetSpawn();
     }
 
