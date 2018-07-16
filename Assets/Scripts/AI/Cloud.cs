@@ -28,8 +28,11 @@ public class Cloud : MonoBehaviour {
 
     void FixedUpdate ()
     {
-        transform.RotateAround(centerOfRotation, Vector3.up, rotationSpeed);
-        if(reverse == true)
+        if(reverse == false)
+        {
+            transform.RotateAround(centerOfRotation, Vector3.up, rotationSpeed);
+        }
+        else if(reverse == true)
         {
             transform.RotateAround(centerOfRotation, Vector3.up, -rotationSpeed);
         }
