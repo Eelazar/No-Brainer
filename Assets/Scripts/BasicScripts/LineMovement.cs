@@ -11,10 +11,12 @@ public class LineMovement : MonoBehaviour {
     private bool platformSwitch, wait;
 
     private Vector3 directionToB, directionToA, newPosition;
+    private Quaternion originalRotation, reversedRotation;
 
 	// Use this for initialization
 	void Start ()
     {
+        originalRotation = transform.rotation;
         platformSwitch = true;
         gameObject.transform.position = pointA;
         directionToA = (pointA - pointB).normalized;
@@ -26,7 +28,8 @@ public class LineMovement : MonoBehaviour {
     {
         if (platformSwitch == true && wait == false)
         {
-            if(Vector3.Distance(gameObject.transform.position, pointB) < distanceThreshold)
+            transform.rotation = Quaternion.LookRotation(directionToB);
+            if (Vector3.Distance(gameObject.transform.position, pointB) < distanceThreshold)
             {
                 wait = true;
                 StartCoroutine(Wait());
@@ -36,6 +39,7 @@ public class LineMovement : MonoBehaviour {
         }
         else if (platformSwitch == false && wait == false)
         {
+            transform.rotation = Quaternion.LookRotation(directionToA);
             if (Vector3.Distance(gameObject.transform.position, pointA) < distanceThreshold)
             {
                 wait = true;
