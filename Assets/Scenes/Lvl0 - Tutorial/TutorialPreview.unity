@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.5
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.063658625, g: 0.067073725, b: 0.060539365, a: 0.5}
+  m_IndirectSpecularColor: {r: 0.063658744, g: 0.067073785, b: 0.06053935, a: 0.5}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -160,7 +160,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: f58e261515d07ef45bb77cf77d853414, type: 2}
+  - {fileID: 2100000, guid: 87a85f27d6394f245b243164cf88cc24, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1327,22 +1327,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingObjects:
-  - {fileID: 1768598446700212, guid: 265615e8d7e8d7649b10c9c8e8f7a9dc, type: 2}
+  - {fileID: 0}
   amountOfObjects: 3
   areaRadius: 5
   movementSpeed: 0.2
   positionMargin: 1
   slerpSpeed: 0.5
-  randomIntensity: 1
   minIntensity: 0.1
   maxIntensity: 2
-  intensitySpeed: 0.1
-  intensityMargin: 0.1
-  randomRange: 0
+  intensityChangeDuration: 0
   minRange: 1
   maxRange: 2
-  rangeSpeed: 0.01
-  rangeMargin: 0.1
+  rangeChangeDuration: 0
 --- !u!1001 &302782931
 Prefab:
   m_ObjectHideFlags: 0
@@ -2163,7 +2159,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: f58e261515d07ef45bb77cf77d853414, type: 2}
+  - {fileID: 2100000, guid: 87a85f27d6394f245b243164cf88cc24, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3962,22 +3958,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingObjects:
-  - {fileID: 1768598446700212, guid: 265615e8d7e8d7649b10c9c8e8f7a9dc, type: 2}
+  - {fileID: 0}
   amountOfObjects: 5
   areaRadius: 10
   movementSpeed: 0.2
   positionMargin: 1
   slerpSpeed: 0.5
-  randomIntensity: 1
   minIntensity: 0.1
   maxIntensity: 2
-  intensitySpeed: 0.1
-  intensityMargin: 0.1
-  randomRange: 0
+  intensityChangeDuration: 0
   minRange: 1
   maxRange: 3
-  rangeSpeed: 0.01
-  rangeMargin: 0.1
+  rangeChangeDuration: 0
 --- !u!1 &1258579500
 GameObject:
   m_ObjectHideFlags: 0
@@ -4019,22 +4011,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingObjects:
-  - {fileID: 1768598446700212, guid: 265615e8d7e8d7649b10c9c8e8f7a9dc, type: 2}
+  - {fileID: 0}
   amountOfObjects: 4
   areaRadius: 7
   movementSpeed: 0.2
   positionMargin: 1
   slerpSpeed: 0.5
-  randomIntensity: 1
   minIntensity: 0.1
   maxIntensity: 2
-  intensitySpeed: 0.1
-  intensityMargin: 0.1
-  randomRange: 0
+  intensityChangeDuration: 0
   minRange: 1
   maxRange: 3
-  rangeSpeed: 0.01
-  rangeMargin: 0.1
+  rangeChangeDuration: 0
 --- !u!1001 &1291331871
 Prefab:
   m_ObjectHideFlags: 0
@@ -4281,22 +4269,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingObjects:
-  - {fileID: 1768598446700212, guid: 265615e8d7e8d7649b10c9c8e8f7a9dc, type: 2}
+  - {fileID: 0}
   amountOfObjects: 6
   areaRadius: 8
   movementSpeed: 0.2
   positionMargin: 1
   slerpSpeed: 0.5
-  randomIntensity: 1
   minIntensity: 0.1
   maxIntensity: 2
-  intensitySpeed: 0.1
-  intensityMargin: 0.1
-  randomRange: 0
+  intensityChangeDuration: 0
   minRange: 1
   maxRange: 3
-  rangeSpeed: 0.01
-  rangeMargin: 0.1
+  rangeChangeDuration: 0
 --- !u!1001 &1314229948
 Prefab:
   m_ObjectHideFlags: 0
@@ -4560,22 +4544,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingObjects:
-  - {fileID: 1768598446700212, guid: 265615e8d7e8d7649b10c9c8e8f7a9dc, type: 2}
+  - {fileID: 0}
   amountOfObjects: 3
   areaRadius: 3
   movementSpeed: 0.2
   positionMargin: 1
   slerpSpeed: 0.5
-  randomIntensity: 1
   minIntensity: 0.1
   maxIntensity: 2
-  intensitySpeed: 0.1
-  intensityMargin: 0.1
-  randomRange: 0
+  intensityChangeDuration: 0
   minRange: 1
   maxRange: 3
-  rangeSpeed: 0.01
-  rangeMargin: 0.1
+  rangeChangeDuration: 0
 --- !u!1001 &1536484944
 Prefab:
   m_ObjectHideFlags: 0
@@ -5663,6 +5643,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94bd0973f93b8844da49088fd1e1d9ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minFlickerIntensity: 0
+  maxFlickerIntensity: 0
+  minFlickerDuration: 0
+  maxFlickerDuration: 0
+  minFlickerAmount: 0
+  maxFlickerAmount: 0
+  minWait: 0
+  maxWait: 0
 --- !u!1001 &1953008216
 Prefab:
   m_ObjectHideFlags: 0
@@ -5974,22 +5962,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingObjects:
-  - {fileID: 1768598446700212, guid: 265615e8d7e8d7649b10c9c8e8f7a9dc, type: 2}
+  - {fileID: 0}
   amountOfObjects: 3
   areaRadius: 2
   movementSpeed: 0.2
   positionMargin: 1
   slerpSpeed: 0.5
-  randomIntensity: 1
   minIntensity: 0.1
   maxIntensity: 2
-  intensitySpeed: 0.1
-  intensityMargin: 0.1
-  randomRange: 0
+  intensityChangeDuration: 0
   minRange: 1
   maxRange: 2
-  rangeSpeed: 0.01
-  rangeMargin: 0.1
+  rangeChangeDuration: 0
 --- !u!1001 &2126947287
 Prefab:
   m_ObjectHideFlags: 0
