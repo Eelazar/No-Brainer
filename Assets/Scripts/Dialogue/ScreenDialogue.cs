@@ -109,7 +109,7 @@ public class ScreenDialogue : MonoBehaviour {
         char upper = char.ToUpper(value);
         if (upper < 'A' || upper > 'Z')
         {
-            Debug.Log("Wrong symbol" + upper);
+            Debug.Log("Wrong symbol : (" + upper + ")");
             throw new ArgumentOutOfRangeException("value", "This method only accepts standard Latin characters.");
         }
 
