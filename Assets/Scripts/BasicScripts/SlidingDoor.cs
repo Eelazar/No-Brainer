@@ -34,7 +34,7 @@ public class SlidingDoor : MonoBehaviour {
 
         if (automatic == true)
         {
-            Trigger();
+            StartCoroutine(Trigger());
         }
     }
 	
@@ -47,7 +47,7 @@ public class SlidingDoor : MonoBehaviour {
             while (lerpT < 1)
             {
                 lerpT = (Time.time - lerpStart) / slideDuration;
-                Vector3.Lerp(openPosition, closedPosition, lerpT);
+                transform.position = Vector3.Lerp(openPosition, closedPosition, lerpT);
                 yield return null;
             }
 
@@ -58,7 +58,7 @@ public class SlidingDoor : MonoBehaviour {
             while (lerpT < 1)
             {
                 lerpT = (Time.time - lerpStart) / slideDuration;
-                Vector3.Lerp(closedPosition, openPosition, lerpT);
+                transform.position = Vector3.Lerp(closedPosition, openPosition, lerpT);
                 yield return null;
             }
 
