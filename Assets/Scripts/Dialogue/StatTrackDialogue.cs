@@ -14,6 +14,8 @@ public class StatTrackDialogue : MonoBehaviour
     public string message;
     [Space]
     [Header("Conditions")]
+    [Tooltip("The initial delay before speaking")]
+    public float delay;
     [Tooltip("Which stat should be tracked by the script")]
     public Stat trackedStat;
     [Tooltip("Amount of stat counts after which dialogue gets triggered")]
@@ -49,7 +51,7 @@ public class StatTrackDialogue : MonoBehaviour
     void Trigger()
     {
         //Start the Speak coroutine in the DialogueMaster
-        StartCoroutine(dialogueMaster.GetComponent<ScreenDialogue>().Speak(message, 0));
+        StartCoroutine(dialogueMaster.GetComponent<ScreenDialogue>().Speak(message, delay, 0));
         triggered = true;
     }
 }
