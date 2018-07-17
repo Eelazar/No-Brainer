@@ -44,10 +44,15 @@ public class PlayerScript : MonoBehaviour
     {
         //Reset amount of deaths
         PlayerPrefs.SetFloat("Deaths", 0);
-
-        //Set the player position to the scene spawn position and save it to the PlayerPrefs
-        transform.position = sceneSpawn;
-        SetSpawn(sceneSpawn);
+        
+        if(sceneSpawn != Vector3.zero)
+        {
+            transform.position = sceneSpawn;
+        }
+        else
+        {
+            transform.position = GetSpawn();
+        }
         currentRotation = forwardRotation;
     }
     

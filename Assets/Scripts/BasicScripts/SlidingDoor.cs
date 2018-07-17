@@ -4,60 +4,65 @@ using UnityEngine;
 
 public class SlidingDoor : MonoBehaviour {
 
-    public Vector3 slideVector;
-    public int slideAmount;
-    public float closeSlideDelay, openSlideDelay;
-
+    [Tooltip("The position of the door when it's opened")]
+    public Vector3 closedPosition;
+    [Tooltip("The position of the door when it's closed")]
+    public Vector3 openPosition;
+    [Tooltip("The amount of time it takes for the door to close")]
+    public float slideDuration;
+    [Tooltip("Whether or not the door is currently open")]
+    public bool open;
+    [Tooltip("Whether or not the door should instantly activate")]
     public bool automatic;
 
-    public bool open;
 
-	// Use this for initialization
+    //Lerp Variables
+    private float lerpT;
+    private float lerpStart;
+
+	
 	void Start ()
     {
+        if (open)
+        {
+            transform.position = openPosition;
+        }
+        else
+        {
+            transform.position = closedPosition;
+        }
+
         if (automatic == true)
         {
             Trigger();
         }
     }
 	
-	// Update is called once per frame
-	void Update ()
+    public IEnumerator Trigger()
     {
-       
-    }
+        lerpStart = Time.time;
 
-    public void Trigger()
-    {
         if (open)
         {
-            StartCoroutine(Close());
+            while (lerpT < 1)
+            {
+                lerpT = (Time.time - lerpStart) / slideDuration;
+                Vector3.Lerp(openPosition, closedPosition, lerpT);
+                yield return null;
+            }
+
             open = false;
         }
-        else
+        else if(!open)
         {
-            StartCoroutine(Open());
+            while (lerpT < 1)
+            {
+                lerpT = (Time.time - lerpStart) / slideDuration;
+                Vector3.Lerp(closedPosition, openPosition, lerpT);
+                yield return null;
+            }
+
             open = true;
-        }
-    }
-
-    IEnumerator Close()
-    {
-        yield return new WaitForSeconds(closeSlideDelay);
-        for (int i = 0; i <= slideAmount; i++)
-        {
-            gameObject.transform.Translate(-slideVector);
-            yield return null;
-        }
-    }
-
-    IEnumerator Open()
-    {
-        yield return new WaitForSeconds(openSlideDelay);
-        for (int i = 0; i <= slideAmount; i++)
-        {
-            gameObject.transform.Translate(slideVector);
-            yield return null;
         }
     }
 }

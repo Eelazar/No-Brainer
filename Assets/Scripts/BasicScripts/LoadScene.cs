@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class LoadScene : MonoBehaviour {
 
     public string sceneToLoad;
+    public Vector3 newSpawnPoint;
     public bool mustInteract;
 
     private Button btn;
@@ -41,13 +42,20 @@ public class LoadScene : MonoBehaviour {
         }
         else
         {
-
             LoadNewScene();
         }
     }
 
     void LoadNewScene()
     {
+        SetSpawn(newSpawnPoint);
         SceneManager.LoadSceneAsync(sceneToLoad, LoadSceneMode.Single);
+    }
+
+    void SetSpawn(Vector3 spawn)
+    {
+        PlayerPrefs.SetFloat("xSpawn", spawn.x);
+        PlayerPrefs.SetFloat("ySpawn", spawn.y);
+        PlayerPrefs.SetFloat("zSpawn", spawn.z);
     }
 }
