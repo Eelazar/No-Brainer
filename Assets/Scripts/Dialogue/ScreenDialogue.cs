@@ -27,8 +27,9 @@ public class ScreenDialogue : MonoBehaviour {
     //The letters that will get skipped when reading
     private char[] nonLetters;
     
-    //
-    private bool cd;
+    //bools
+    [HideInInspector]
+    public bool cd;
 
     // Use this for initialization
     void Start ()

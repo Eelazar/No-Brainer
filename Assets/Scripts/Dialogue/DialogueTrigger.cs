@@ -56,9 +56,12 @@ public class DialogueTrigger : MonoBehaviour {
 
     void Trigger()
     {
-        //Start the Speak coroutine in the DialogueMaster and set conditions if they were picked
-        StartCoroutine(dialogueMaster.GetComponent<ScreenDialogue>().Speak(message, cooldown));
-        if (oneTime == true) oneTimeTriggered = true;
+        if (dialogueMaster.GetComponent<ScreenDialogue>().cd == false)
+        {
+            //Start the Speak coroutine in the DialogueMaster and set conditions if they were picked
+            StartCoroutine(dialogueMaster.GetComponent<ScreenDialogue>().Speak(message, cooldown));
+            if (oneTime == true) oneTimeTriggered = true;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
