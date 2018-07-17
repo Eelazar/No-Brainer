@@ -476,7 +476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueMaster: {fileID: 1110877049}
-  message: Rejection
+  message: Having no brain makes fitting in so much easier.
   oneTime: 0
   mustInteract: 1
   cooldown: 0
@@ -579,6 +579,78 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.012104, y: 2.6040125, z: 3.8917246}
   m_Center: {x: 0.036146164, y: 0.80200624, z: -1.4458617}
+--- !u!1 &83861149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 83861153}
+  - component: {fileID: 83861152}
+  - component: {fileID: 83861151}
+  - component: {fileID: 83861150}
+  m_Layer: 0
+  m_Name: Dialogue + Popup (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &83861150
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 83861149}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &83861151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 83861149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca28ab71aa23ed443a65788f5d544089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: press 'e' to examine
+  popupMaster: {fileID: 2123561686}
+--- !u!114 &83861152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 83861149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d13c4aec7348a64d9b81689d2d52035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueMaster: {fileID: 1110877049}
+  message: Looking for my secret master plan?
+  oneTime: 0
+  mustInteract: 1
+  cooldown: 0
+--- !u!4 &83861153
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 83861149}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -14.34, y: -0.36, z: 1.55}
+  m_LocalScale: {x: 1.7205921, y: 1, z: 5.8868723}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &85594325
 Transform:
   m_ObjectHideFlags: 0
@@ -1039,6 +1111,78 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1a8ab20d22f24114bbb4635f28740e21, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &136338053
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 136338057}
+  - component: {fileID: 136338056}
+  - component: {fileID: 136338055}
+  - component: {fileID: 136338054}
+  m_Layer: 0
+  m_Name: Dialogue + Popup (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &136338054
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 136338053}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &136338055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 136338053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca28ab71aa23ed443a65788f5d544089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: press 'e' to examine
+  popupMaster: {fileID: 2123561686}
+--- !u!114 &136338056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 136338053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d13c4aec7348a64d9b81689d2d52035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueMaster: {fileID: 1110877049}
+  message: Don't look too closely.
+  oneTime: 0
+  mustInteract: 1
+  cooldown: 0
+--- !u!4 &136338057
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 136338053}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.44, y: -0.36, z: 7.34}
+  m_LocalScale: {x: 3.4411838, y: 1, z: 5.8868723}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &164698222
 GameObject:
   m_ObjectHideFlags: 0
@@ -3814,7 +3958,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueMaster: {fileID: 1110877049}
-  message: Not the most comfortable bed I guess.
+  message: Not the most comfortable bed I guess, but I didn't expect anyone to complain.
   oneTime: 0
   mustInteract: 1
   cooldown: 0
@@ -5257,7 +5401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueMaster: {fileID: 1110877049}
-  message: Isolation
+  message: Isolating brains is no easy job, you know?
   oneTime: 0
   mustInteract: 1
   cooldown: 0
@@ -7748,13 +7892,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueMaster: {fileID: 1110877049}
-  message: "Well, this is a surprise! Most people I know usually don't wake up after
-    having their brain taken. / Just look at all those unfortunate fellas around you..\r
-    / You must be particularly determined to get your brain back. / I guess there
-    is a chance, but I\u2019m not even sure if I remember where I left it. / My mind
-    is a little absent these days. / You know what? I\u2019ll open the door for you.
-    / I\u2019m intrigued to see how you will do. / And if you make it, I will be the
-    last one in your way. \n"
+  message: Well, this is a surprise! Most people usually don't wake up after having
+    their brain taken. / Just look at all those unfortunate fellas around you.. /
+    You must be particularly determined to get your brain back. / I guess there is
+    a chance, but I'm not even sure if I remember where I left it. / My mind is a
+    little absent these days.
   oneTime: 1
   mustInteract: 0
   cooldown: 1
@@ -7765,7 +7907,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1332228578}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.62, y: 0.703125, z: 4.58}
+  m_LocalPosition: {x: -1.04, y: 0.703125, z: -8.07}
   m_LocalScale: {x: 6.1046906, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9149,12 +9291,12 @@ Prefab:
     - target: {fileID: 114470695397264584, guid: 916b4174677e8f848b46fd2ffabe3798,
         type: 2}
       propertyPath: automatic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114411791021993226, guid: 916b4174677e8f848b46fd2ffabe3798,
         type: 2}
       propertyPath: automatic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1937138465637560, guid: 916b4174677e8f848b46fd2ffabe3798, type: 2}
       propertyPath: m_IsActive
@@ -9323,6 +9465,65 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 8.591459, y: 10.539909, z: 74.20009}
   m_Center: {x: -4.4266815, y: -0.19955993, z: -0.5894813}
+--- !u!1 &1716988158
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1716988161}
+  - component: {fileID: 1716988160}
+  - component: {fileID: 1716988159}
+  m_Layer: 0
+  m_Name: Dialogue (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1716988159
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1716988158}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.78505665, y: 1, z: 0.999897}
+  m_Center: {x: -0.3974716, y: 0, z: -3.2827559}
+--- !u!114 &1716988160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1716988158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d13c4aec7348a64d9b81689d2d52035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueMaster: {fileID: 1110877049}
+  message: You know what? I'll open the door for you. / I'm intrigued to see how you
+    will do. / And if you make it, I will be the last one in your way.
+  oneTime: 1
+  mustInteract: 0
+  cooldown: 1
+--- !u!4 &1716988161
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1716988158}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.7, y: 0.703125, z: 16}
+  m_LocalScale: {x: 6.1046906, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 27
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1717803454
 Prefab:
   m_ObjectHideFlags: 0
@@ -9653,8 +9854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueMaster: {fileID: 1110877049}
-  message: I do feel a bit guilty about taking their brains. This one was still very
-    young.
+  message: I do feel a bit guilty about taking their brains.
   oneTime: 0
   mustInteract: 1
   cooldown: 0
