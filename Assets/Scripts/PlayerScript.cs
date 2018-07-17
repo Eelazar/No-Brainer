@@ -18,7 +18,10 @@ public class PlayerScript : MonoBehaviour
     [Header("Other")]
     [Tooltip("The starting position of the player when first starting the scene, will automatically get saved to PlayerPrefs upon loading")]
     public Vector3 sceneSpawn;
+
+    [Header("Sounds")]
     public AudioClip walkSound;
+    public AudioClip JumpSound;
     
     ////Variables
     //Movement
@@ -78,7 +81,10 @@ public class PlayerScript : MonoBehaviour
         }
 
         //Finally, play the walking sound if he is walking only
-        if (walking) source.Play();
+        if (walking)
+        {
+            source.Play();
+        }
         else source.Stop();
     }  
 
@@ -164,8 +170,9 @@ public class PlayerScript : MonoBehaviour
     }
 
     void Jump()
-    {		
-			transform.GetComponent<Rigidbody> ().AddForce (jumpVector, ForceMode.VelocityChange);
+    {
+        source.PlayOneShot(walkSound);
+        transform.GetComponent<Rigidbody> ().AddForce (jumpVector, ForceMode.VelocityChange);
     }
 
     void OnTriggerEnter(Collider other)
@@ -176,10 +183,7 @@ public class PlayerScript : MonoBehaviour
             Respawn();
         }
     }
-
-    void OnTriggerExit(Collider other)
-    {
-    }
+    
 
     //Reset the players position
     public void Respawn()
