@@ -36,13 +36,16 @@ public class LoadScene : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (mustInteract)
+        if(other.tag == "Player")
         {
-            interacted = true;
-        }
-        else
-        {
-            LoadNewScene();
+            if (mustInteract)
+            {
+                interacted = true;
+            }
+            else
+            {
+                LoadNewScene();
+            }
         }
     }
 
