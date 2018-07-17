@@ -48,13 +48,14 @@ public class ScreenDialogue : MonoBehaviour {
 		
 	}
 
-    public IEnumerator Speak(string message, float cooldown)
+    public IEnumerator Speak(string message, float delay, float cooldown)
     {
         //If speaking isn't on cooldown
         if (cd == false)
         {
             //Set it on cooldown, reset the text box, enable the background
             cd = true;
+            yield return new WaitForSeconds(delay);
             dialogueBox.text = String.Empty;
             background.enabled = true;
 

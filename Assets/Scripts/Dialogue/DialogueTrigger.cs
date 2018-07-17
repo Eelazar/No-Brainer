@@ -10,6 +10,8 @@ public class DialogueTrigger : MonoBehaviour {
     [TextArea(1, 5)]
     public string message;
     [Header("Conditions")]
+    [Tooltip("The amount of time that needs to pass after triggering for the dialogue to start")]
+    public float initialDelay;
     [Tooltip("Whether or not the clip should be allowed to play multiple times")]
     public bool oneTime;
     [Tooltip("Whether or not the player must interact in order to hear the dialogue")]
@@ -59,7 +61,7 @@ public class DialogueTrigger : MonoBehaviour {
         if (dialogueMaster.GetComponent<ScreenDialogue>().cd == false)
         {
             //Start the Speak coroutine in the DialogueMaster and set conditions if they were picked
-            StartCoroutine(dialogueMaster.GetComponent<ScreenDialogue>().Speak(message, cooldown));
+            StartCoroutine(dialogueMaster.GetComponent<ScreenDialogue>().Speak(message, initialDelay, cooldown));
             if (oneTime == true) oneTimeTriggered = true;
         }
     }

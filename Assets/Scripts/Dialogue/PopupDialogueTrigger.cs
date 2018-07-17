@@ -8,10 +8,18 @@ public class PopupDialogueTrigger : MonoBehaviour {
     public string text;
     [Tooltip("The reference to the PopupMaster, found in the canvas")]
     public GameObject popupMaster;
-    
+
+
+    private GameObject dialogueMaster;
+
+    void Start()
+    {
+        dialogueMaster = GameObject.Find("DialogueMaster");
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if(other.tag == "Player" && dialogueMaster.GetComponent<ScreenDialogue>().cd == false)
         {
             DisplayText();                                              
         }
