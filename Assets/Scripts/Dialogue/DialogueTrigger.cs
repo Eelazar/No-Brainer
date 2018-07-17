@@ -65,8 +65,7 @@ public class DialogueTrigger : MonoBehaviour {
     {
         if (other.tag == "Player" && oneTimeTriggered == false && playerInTrigger == false)
         {
-            playerInTrigger = true;
-          
+            playerInTrigger = true;          
         }        
     }
 
