@@ -14,6 +14,8 @@ public class SlidingDoor : MonoBehaviour {
     public bool open;
     [Tooltip("Whether or not the door should instantly activate")]
     public bool automatic;
+    [Tooltip("Delay that will be applied every time the door is triggered")]
+    public float delay;
 
 
     //Lerp Variables
@@ -40,6 +42,8 @@ public class SlidingDoor : MonoBehaviour {
 	
     public IEnumerator Trigger()
     {
+        yield return new WaitForSeconds(delay);
+
         lerpStart = Time.time;
 
         if (open)
