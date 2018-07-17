@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731725, g: 0.13414745, b: 0.12107873, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -739,9 +739,24 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 224719480985736392, guid: f75f93e8e9bb9904d9690a77ad723f09,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224431439383528472, guid: f75f93e8e9bb9904d9690a77ad723f09,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f75f93e8e9bb9904d9690a77ad723f09, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &323333694 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1786440783013156, guid: f75f93e8e9bb9904d9690a77ad723f09,
+    type: 2}
+  m_PrefabInternal: {fileID: 323333693}
 --- !u!4 &332022185 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400060, guid: fd7d733aa468e3342a19d6625cea3c58, type: 3}
@@ -3748,6 +3763,55 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 50742766bf30591488ac8b34d21d8f31, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &1864341719
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1864341722}
+  - component: {fileID: 1864341721}
+  - component: {fileID: 1864341720}
+  m_Layer: 0
+  m_Name: Dontwalkback
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1864341720
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1864341719}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1864341721
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1864341719}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1864341722
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1864341719}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.33, y: -0.44, z: -31.26}
+  m_LocalScale: {x: 7.988888, y: 4.3022237, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1869873003 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: dba81795e3857334c806f85e6db138d9, type: 3}
@@ -4055,6 +4119,7 @@ GameObject:
   - component: {fileID: 2141854882}
   - component: {fileID: 2141854881}
   - component: {fileID: 2141854880}
+  - component: {fileID: 2141854883}
   m_Layer: 0
   m_Name: LoadScene (1)
   m_TagString: Untagged
@@ -4094,12 +4159,25 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2141854879}
   m_LocalRotation: {x: -0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -0.19, y: -0.41, z: -0.13}
-  m_LocalScale: {x: 1.3078115, y: 4.6962795, z: 5.6895595}
+  m_LocalPosition: {x: 0.47, y: -0.41, z: -0.28245}
+  m_LocalScale: {x: 1.3078115, y: 3.287398, z: 5.8549123}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2141854883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2141854879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca28ab71aa23ed443a65788f5d544089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: press 'e' to interact
+  popupMaster: {fileID: 323333694}
 --- !u!4 &2142898959 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 6f1b886d14573ff46aa3a4add903c441, type: 3}
