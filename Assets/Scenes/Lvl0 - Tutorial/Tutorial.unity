@@ -476,6 +476,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueMaster: {fileID: 1110877049}
   message: Having no brain makes fitting in so much easier.
+  initialDelay: 0
   oneTime: 0
   mustInteract: 1
   cooldown: 0
@@ -634,6 +635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueMaster: {fileID: 1110877049}
   message: Looking for my evil master plan?
+  initialDelay: 0
   oneTime: 0
   mustInteract: 1
   cooldown: 0
@@ -1166,6 +1168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueMaster: {fileID: 1110877049}
   message: Don't look too closely.
+  initialDelay: 0
   oneTime: 0
   mustInteract: 1
   cooldown: 0
@@ -3544,6 +3547,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueMaster: {fileID: 1110877049}
   message: I wonder if they would be angry if they knew what happened to them.
+  initialDelay: 0
   oneTime: 0
   mustInteract: 1
   cooldown: 0
@@ -3761,6 +3765,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueMaster: {fileID: 1110877049}
   message: Well, at least there's some hope for you if not for them.
+  initialDelay: 0
   oneTime: 0
   mustInteract: 1
   cooldown: 0
@@ -3962,6 +3967,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueMaster: {fileID: 1110877049}
   message: Not the most comfortable bed I guess, but I didn't expect anyone to complain.
+  initialDelay: 0
   oneTime: 0
   mustInteract: 1
   cooldown: 0
@@ -5405,6 +5411,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueMaster: {fileID: 1110877049}
   message: Isolating brains is no easy job, you know?
+  initialDelay: 0
   oneTime: 0
   mustInteract: 1
   cooldown: 0
@@ -6832,12 +6839,12 @@ Prefab:
     - target: {fileID: 114971541471461248, guid: 4ad7e45fd85a4254bae67f962f0341ec,
         type: 2}
       propertyPath: delay
-      value: 12
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 114351616559376494, guid: 4ad7e45fd85a4254bae67f962f0341ec,
         type: 2}
       propertyPath: delay
-      value: 12
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4ad7e45fd85a4254bae67f962f0341ec, type: 2}
@@ -7944,8 +7951,6 @@ GameObject:
   - component: {fileID: 1332228581}
   - component: {fileID: 1332228580}
   - component: {fileID: 1332228584}
-  - component: {fileID: 1332228582}
-  - component: {fileID: 1332228579}
   m_Layer: 0
   m_Name: Dialogue
   m_TagString: Untagged
@@ -7953,18 +7958,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &1332228579
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1332228578}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.78505665, y: 1, z: 1.2598305}
-  m_Center: {x: -0.3974716, y: 0, z: 0.8523283}
 --- !u!114 &1332228580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7982,6 +7975,7 @@ MonoBehaviour:
     You must be particularly determined to get your brain back. / I guess there is
     a chance, but I'm not even sure if I remember where I left it. / My mind is a
     little absent these days.
+  initialDelay: 3
   oneTime: 1
   mustInteract: 0
   cooldown: 1
@@ -7998,18 +7992,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1332228582
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1332228578}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.20766361, y: 0.7002373, z: 4.8589706}
-  m_Center: {x: -0.120634705, y: -0.14988136, z: -0.95471764}
 --- !u!65 &1332228584
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8020,8 +8002,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.78505665, y: 1, z: 0.999897}
-  m_Center: {x: -0.3974716, y: 0, z: -3.2827559}
+  m_Size: {x: 0.7374707, y: 1.3631058, z: 3.0554523}
+  m_Center: {x: -0.5566903, y: 0.18155289, z: -0.6321869}
 --- !u!1 &1347204415
 GameObject:
   m_ObjectHideFlags: 0
@@ -8196,6 +8178,11 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114394000846550040, guid: f75f93e8e9bb9904d9690a77ad723f09,
+        type: 2}
+      propertyPath: delay
+      value: 0.06
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f75f93e8e9bb9904d9690a77ad723f09, type: 2}
@@ -9623,6 +9610,7 @@ MonoBehaviour:
   dialogueMaster: {fileID: 1110877049}
   message: You know what? I'll open the door for you. / I'm intrigued to see how you
     will do. / And if you make it, I will be the last one in your way.
+  initialDelay: 0
   oneTime: 1
   mustInteract: 0
   cooldown: 1
@@ -9651,6 +9639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 1037844674}
+  minTimePassed: 30
 --- !u!114 &1716988163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9663,6 +9652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 516928898}
+  minTimePassed: 30
 --- !u!1001 &1717803454
 Prefab:
   m_ObjectHideFlags: 0
@@ -10023,6 +10013,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueMaster: {fileID: 1110877049}
   message: I do feel a bit guilty about taking their brains.
+  initialDelay: 0
   oneTime: 0
   mustInteract: 1
   cooldown: 0
