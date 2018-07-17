@@ -12,14 +12,13 @@ public class PlayerScript : MonoBehaviour
     public float turnDuration;
 
     [Header("Jump")]
-    [Tooltip("The cooldown of the jump")]
-    public float jumpCDFloat; 
     [Tooltip("The force applied to the player when jumping")]
     public Vector3 jumpVector;
 
     [Header("Other")]
     [Tooltip("The starting position of the player when first starting the scene, will automatically get saved to PlayerPrefs upon loading")]
-    public Vector3 sceneSpawn; 
+    public Vector3 sceneSpawn;
+    public AudioClip walkSound;
     
     ////Variables
     //Movement
@@ -34,14 +33,19 @@ public class PlayerScript : MonoBehaviour
     private Vector3 backRotation    = new Vector3(0, 180, 0);
     //Jumping
     private bool jumpCDBool;
-
-	[SerializeField]
-	[Tooltip("The player will able to jump between the negative of minVelocity, zero and minVelocity")]
-	private float minVelocity = 0.1f;
+    private float minVelocity = 0.1f;
+    //Sound
+    private AudioSource source;
+    private bool walking;
+    
     
 
     void Start()
     {
+        source = this.GetComponent<AudioSource>();
+        source.loop = true;
+        source.clip = walkSound;
+
         //Reset amount of deaths
         PlayerPrefs.SetFloat("Deaths", 0);
         
@@ -55,7 +59,29 @@ public class PlayerScript : MonoBehaviour
         }
         currentRotation = forwardRotation;
     }
-    
+
+    void LateUpdate()
+    {
+        //Get the players velocity, and set the default to not walking
+        Vector3 v = GetComponent<Rigidbody>().velocity;
+        walking = false;
+
+        //If the player is moving in either direction, set walking to true
+        if (velocity.x != 0 || velocity.z != 0)
+        {
+            walking = true;
+        }
+        //But if he is in the air, set it to false again
+        if(v.y > minVelocity || v.y < -minVelocity)
+        {
+            walking = false;
+        }
+
+        //Finally, play the walking sound if he is walking only
+        if (walking) source.Play();
+        else source.Stop();
+    }  
+
     void FixedUpdate()
     {
         TranslateMovementInput();
@@ -69,12 +95,24 @@ public class PlayerScript : MonoBehaviour
         zInput = Input.GetAxisRaw("Vertical");
 
         //Assign the input to the velocity vector
-        if (xInput != 0 && zInput == 0) velocity.x = xInput;
-        else if (zInput != 0 && xInput == 0) velocity.z = zInput;
+        if (xInput != 0 && zInput == 0)
+        {
+            velocity.x = xInput;
+        }
+        else if (zInput != 0 && xInput == 0)
+        {
+            velocity.z = zInput;
+        }
 
         //If the player isn't moving set his velocity to 0
-        if (xInput == 0) velocity.x = 0;
-        if (zInput == 0) velocity.z = 0;
+        if (xInput == 0)
+        {
+            velocity.x = 0;
+        }
+        if (zInput == 0)
+        {
+            velocity.z = 0;
+        }
 
         //Rotate the player according to the input
         if(rotating == false)
@@ -119,29 +157,15 @@ public class PlayerScript : MonoBehaviour
 
     void TranslateJumpInput()
     {
-        if (Input.GetButtonDown("Jump") && 
-			//jumpCDBool == false &&
-			(GetComponent<Rigidbody>().velocity.y < minVelocity && GetComponent<Rigidbody>().velocity.y > -minVelocity)
-			)
+        if (Input.GetButtonDown("Jump") && GetComponent<Rigidbody>().velocity.y < minVelocity && GetComponent<Rigidbody>().velocity.y > -minVelocity)
         {
             Jump();
         }
     }
 
     void Jump()
-    {
-		
+    {		
 			transform.GetComponent<Rigidbody> ().AddForce (jumpVector, ForceMode.VelocityChange);
-			StartCoroutine (JumpCooldown ());
-
-
-    }
-
-    IEnumerator JumpCooldown()
-    {
-        jumpCDBool = true;
-        yield return new WaitForSeconds(jumpCDFloat);
-        jumpCDBool = false;
     }
 
     void OnTriggerEnter(Collider other)
