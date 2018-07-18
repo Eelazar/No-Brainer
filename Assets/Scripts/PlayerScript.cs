@@ -21,7 +21,7 @@ public class PlayerScript : MonoBehaviour
 
     [Header("Sounds")]
     public AudioClip walkSound;
-    public AudioClip JumpSound;
+    public AudioClip jumpSound;
     
     ////Variables
     //Movement
@@ -39,15 +39,15 @@ public class PlayerScript : MonoBehaviour
     private float minVelocity = 0.1f;
     //Sound
     private AudioSource source;
+    private AudioSource sourceOneShot;
     private bool walking;
     
     
 
     void Start()
     {
-        source = this.GetComponent<AudioSource>();
-        source.loop = true;
-        source.clip = walkSound;
+        source = this.GetComponents<AudioSource>()[0];
+        sourceOneShot = this.GetComponents<AudioSource>()[1];
 
         //Reset amount of deaths
         PlayerPrefs.SetFloat("Deaths", 0);
@@ -81,11 +81,15 @@ public class PlayerScript : MonoBehaviour
         }
 
         //Finally, play the walking sound if he is walking only
-        if (walking)
+        if (walking && !source.isPlaying)
         {
+            source.clip = walkSound;
             source.Play();
         }
-        else source.Stop();
+        else if(walking == false)
+        {
+            source.Stop();
+        }
     }  
 
     void FixedUpdate()
@@ -165,13 +169,13 @@ public class PlayerScript : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") && GetComponent<Rigidbody>().velocity.y < minVelocity && GetComponent<Rigidbody>().velocity.y > -minVelocity)
         {
+            sourceOneShot.PlayOneShot(jumpSound);
             Jump();
         }
     }
 
     void Jump()
     {
-        source.PlayOneShot(walkSound);
         transform.GetComponent<Rigidbody> ().AddForce (jumpVector, ForceMode.VelocityChange);
     }
 
