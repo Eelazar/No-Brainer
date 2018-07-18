@@ -10,7 +10,6 @@ public class CameraScript : MonoBehaviour {
 
     private GameObject target;
     private Vector3 newPosition;
-    private Vector3 originPosition;
 
     //Ref Value
     private Vector3 velocity;
@@ -19,7 +18,6 @@ public class CameraScript : MonoBehaviour {
     void Start ()
     {
         target = GameObject.FindGameObjectWithTag("Player");
-        originPosition = this.transform.position;
 	}
 	
 	// Update is called once per frame

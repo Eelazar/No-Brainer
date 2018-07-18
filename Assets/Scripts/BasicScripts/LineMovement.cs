@@ -11,12 +11,10 @@ public class LineMovement : MonoBehaviour {
     private bool platformSwitch, wait;
 
     private Vector3 directionToB, directionToA, newPosition;
-    private Quaternion originalRotation, reversedRotation;
 
 	// Use this for initialization
 	void Start ()
     {
-        originalRotation = transform.rotation;
         platformSwitch = true;
         gameObject.transform.position = pointA;
         directionToA = (pointA - pointB).normalized;

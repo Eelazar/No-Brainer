@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.5
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.063658625, g: 0.067073725, b: 0.060539365, a: 0.5}
+  m_IndirectSpecularColor: {r: 0.063658744, g: 0.067073785, b: 0.06053935, a: 0.5}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 37136650}
   - component: {fileID: 37136651}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: HintLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -256,22 +256,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 37136649}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9564bdafe24ad3a4790467b7b691148e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea333c3c6167e246890836c3bbc093e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movingObjects:
-  - {fileID: 1701723510649656, guid: 50949aa639da7a541b2d2bea8bce772b, type: 2}
+  - {fileID: 1033684306227314, guid: d0d1573fe2520f849827e011ff623b28, type: 2}
   amountOfObjects: 7
-  areaRadius: 2
+  areaRadius: 1
   movementSpeed: 0.2
   positionMargin: 0.1
   slerpSpeed: 0.01
   minIntensity: 1
   maxIntensity: 2
   intensityChangeDuration: 3
-  minRange: 0.2
-  maxRange: 0.5
-  rangeChangeDuration: 5
+  minRange: 0.3
+  maxRange: 0.8
+  rangeChangeDuration: 0.2
+  innerVisibilityRing: 4
+  outerVisibilityRing: 10
 --- !u!1001 &47013114
 Prefab:
   m_ObjectHideFlags: 0
@@ -558,7 +560,7 @@ GameObject:
   - component: {fileID: 77880320}
   - component: {fileID: 77880321}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: HintLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -585,22 +587,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 77880319}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9564bdafe24ad3a4790467b7b691148e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea333c3c6167e246890836c3bbc093e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movingObjects:
-  - {fileID: 1701723510649656, guid: 50949aa639da7a541b2d2bea8bce772b, type: 2}
+  - {fileID: 1033684306227314, guid: d0d1573fe2520f849827e011ff623b28, type: 2}
   amountOfObjects: 7
-  areaRadius: 2
+  areaRadius: 1
   movementSpeed: 0.2
   positionMargin: 0.1
   slerpSpeed: 0.01
   minIntensity: 1
   maxIntensity: 2
   intensityChangeDuration: 3
-  minRange: 0.2
-  maxRange: 0.5
-  rangeChangeDuration: 5
+  minRange: 0.3
+  maxRange: 0.8
+  rangeChangeDuration: 0.2
+  innerVisibilityRing: 4
+  outerVisibilityRing: 10
 --- !u!1001 &82366521
 Prefab:
   m_ObjectHideFlags: 0
@@ -756,7 +760,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 128344262}
   m_Father: {fileID: 1437037680}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1082,7 +1087,7 @@ GameObject:
   - component: {fileID: 128344262}
   - component: {fileID: 128344263}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: HintLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1098,8 +1103,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 2.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1437037680}
-  m_RootOrder: 9
+  m_Father: {fileID: 83861153}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &128344263
 MonoBehaviour:
@@ -1109,22 +1114,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 128344261}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9564bdafe24ad3a4790467b7b691148e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea333c3c6167e246890836c3bbc093e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movingObjects:
-  - {fileID: 1701723510649656, guid: 50949aa639da7a541b2d2bea8bce772b, type: 2}
+  - {fileID: 1033684306227314, guid: d0d1573fe2520f849827e011ff623b28, type: 2}
   amountOfObjects: 7
-  areaRadius: 2
+  areaRadius: 1
   movementSpeed: 0.2
   positionMargin: 0.1
   slerpSpeed: 0.01
   minIntensity: 1
   maxIntensity: 2
   intensityChangeDuration: 3
-  minRange: 0.2
-  maxRange: 0.5
-  rangeChangeDuration: 5
+  minRange: 0.3
+  maxRange: 0.8
+  rangeChangeDuration: 0.2
+  innerVisibilityRing: 4
+  outerVisibilityRing: 10
 --- !u!1001 &131766009
 Prefab:
   m_ObjectHideFlags: 0
@@ -1812,6 +1819,106 @@ Transform:
   m_Father: {fileID: 479474777}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &246495055 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1694090338772714, guid: 7453b0d9ba88b48468b20ca2ec60e8f8,
+    type: 2}
+  m_PrefabInternal: {fileID: 1048881300}
+--- !u!82 &246495063
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 246495055}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &248538575
 GameObject:
   m_ObjectHideFlags: 0
@@ -4102,7 +4209,7 @@ GameObject:
   - component: {fileID: 618296442}
   - component: {fileID: 618296443}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: HintLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4129,22 +4236,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 618296441}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9564bdafe24ad3a4790467b7b691148e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea333c3c6167e246890836c3bbc093e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movingObjects:
-  - {fileID: 1701723510649656, guid: 50949aa639da7a541b2d2bea8bce772b, type: 2}
+  - {fileID: 1033684306227314, guid: d0d1573fe2520f849827e011ff623b28, type: 2}
   amountOfObjects: 7
-  areaRadius: 2
+  areaRadius: 1
   movementSpeed: 0.2
   positionMargin: 0.1
   slerpSpeed: 0.01
   minIntensity: 1
   maxIntensity: 2
   intensityChangeDuration: 3
-  minRange: 0.2
-  maxRange: 0.5
-  rangeChangeDuration: 5
+  minRange: 0.3
+  maxRange: 0.8
+  rangeChangeDuration: 0.2
+  innerVisibilityRing: 4
+  outerVisibilityRing: 10
 --- !u!1 &619729614 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: afa7ef2d7150cf84ea1a3b4076cacefb, type: 3}
@@ -5631,7 +5740,7 @@ GameObject:
   - component: {fileID: 871223915}
   - component: {fileID: 871223916}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: HintLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5658,22 +5767,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 871223914}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9564bdafe24ad3a4790467b7b691148e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea333c3c6167e246890836c3bbc093e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movingObjects:
-  - {fileID: 1701723510649656, guid: 50949aa639da7a541b2d2bea8bce772b, type: 2}
+  - {fileID: 1033684306227314, guid: d0d1573fe2520f849827e011ff623b28, type: 2}
   amountOfObjects: 7
-  areaRadius: 2
+  areaRadius: 1
   movementSpeed: 0.2
   positionMargin: 0.1
   slerpSpeed: 0.01
   minIntensity: 1
   maxIntensity: 2
   intensityChangeDuration: 3
-  minRange: 0.2
-  maxRange: 0.5
-  rangeChangeDuration: 5
+  minRange: 0.3
+  maxRange: 0.8
+  rangeChangeDuration: 0.2
+  innerVisibilityRing: 4
+  outerVisibilityRing: 10
 --- !u!1 &871539215
 GameObject:
   m_ObjectHideFlags: 0
@@ -5893,7 +6004,7 @@ GameObject:
   - component: {fileID: 916607427}
   - component: {fileID: 916607428}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: HintLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5920,22 +6031,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 916607426}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9564bdafe24ad3a4790467b7b691148e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea333c3c6167e246890836c3bbc093e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movingObjects:
-  - {fileID: 1701723510649656, guid: 50949aa639da7a541b2d2bea8bce772b, type: 2}
+  - {fileID: 1033684306227314, guid: d0d1573fe2520f849827e011ff623b28, type: 2}
   amountOfObjects: 7
-  areaRadius: 2
+  areaRadius: 1
   movementSpeed: 0.2
   positionMargin: 0.1
   slerpSpeed: 0.01
   minIntensity: 1
   maxIntensity: 2
   intensityChangeDuration: 3
-  minRange: 0.2
-  maxRange: 0.5
-  rangeChangeDuration: 5
+  minRange: 0.3
+  maxRange: 0.8
+  rangeChangeDuration: 0.2
+  innerVisibilityRing: 4
+  outerVisibilityRing: 10
 --- !u!4 &925098389
 Transform:
   m_ObjectHideFlags: 0
@@ -6580,7 +6693,7 @@ GameObject:
   - component: {fileID: 1055497055}
   - component: {fileID: 1055497056}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: HintLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6607,22 +6720,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1055497054}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9564bdafe24ad3a4790467b7b691148e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea333c3c6167e246890836c3bbc093e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movingObjects:
-  - {fileID: 1701723510649656, guid: 50949aa639da7a541b2d2bea8bce772b, type: 2}
+  - {fileID: 1033684306227314, guid: d0d1573fe2520f849827e011ff623b28, type: 2}
   amountOfObjects: 7
-  areaRadius: 2
+  areaRadius: 1
   movementSpeed: 0.2
   positionMargin: 0.1
   slerpSpeed: 0.01
   minIntensity: 1
   maxIntensity: 2
   intensityChangeDuration: 3
-  minRange: 0.2
-  maxRange: 0.5
-  rangeChangeDuration: 5
+  minRange: 0.3
+  maxRange: 0.8
+  rangeChangeDuration: 0.2
+  innerVisibilityRing: 4
+  outerVisibilityRing: 10
 --- !u!1 &1056699611 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: dba81795e3857334c806f85e6db138d9, type: 3}
@@ -7102,7 +7217,7 @@ GameObject:
   - component: {fileID: 1147346724}
   - component: {fileID: 1147346725}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: HintLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7129,22 +7244,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1147346723}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9564bdafe24ad3a4790467b7b691148e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea333c3c6167e246890836c3bbc093e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movingObjects:
-  - {fileID: 1701723510649656, guid: 50949aa639da7a541b2d2bea8bce772b, type: 2}
+  - {fileID: 1033684306227314, guid: d0d1573fe2520f849827e011ff623b28, type: 2}
   amountOfObjects: 7
-  areaRadius: 2
+  areaRadius: 1
   movementSpeed: 0.2
   positionMargin: 0.1
   slerpSpeed: 0.01
   minIntensity: 1
   maxIntensity: 2
   intensityChangeDuration: 3
-  minRange: 0.2
-  maxRange: 0.5
-  rangeChangeDuration: 5
+  minRange: 0.3
+  maxRange: 0.8
+  rangeChangeDuration: 0.2
+  innerVisibilityRing: 4
+  outerVisibilityRing: 10
 --- !u!1001 &1154977070
 Prefab:
   m_ObjectHideFlags: 0
@@ -8886,7 +9003,6 @@ Transform:
   - {fileID: 625449460}
   - {fileID: 136338057}
   - {fileID: 83861153}
-  - {fileID: 128344262}
   - {fileID: 1716988161}
   - {fileID: 1904939930}
   m_Father: {fileID: 0}
@@ -9760,7 +9876,7 @@ GameObject:
   - component: {fileID: 1650180420}
   - component: {fileID: 1650180421}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: HintLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9787,22 +9903,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1650180419}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9564bdafe24ad3a4790467b7b691148e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea333c3c6167e246890836c3bbc093e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movingObjects:
-  - {fileID: 1701723510649656, guid: 50949aa639da7a541b2d2bea8bce772b, type: 2}
+  - {fileID: 1033684306227314, guid: d0d1573fe2520f849827e011ff623b28, type: 2}
   amountOfObjects: 7
-  areaRadius: 2
+  areaRadius: 1
   movementSpeed: 0.2
   positionMargin: 0.1
   slerpSpeed: 0.01
   minIntensity: 1
   maxIntensity: 2
   intensityChangeDuration: 3
-  minRange: 0.2
-  maxRange: 0.5
-  rangeChangeDuration: 5
+  minRange: 0.3
+  maxRange: 0.8
+  rangeChangeDuration: 0.2
+  innerVisibilityRing: 4
+  outerVisibilityRing: 10
 --- !u!1001 &1652248285
 Prefab:
   m_ObjectHideFlags: 0
@@ -10120,7 +10238,7 @@ Transform:
   m_LocalScale: {x: 3.548017, y: 1, z: 0.29597047}
   m_Children: []
   m_Father: {fileID: 1437037680}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1716988162
 MonoBehaviour:
@@ -11307,7 +11425,7 @@ Transform:
   m_Children:
   - {fileID: 1650180420}
   m_Father: {fileID: 1437037680}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1909719623
 Transform:
