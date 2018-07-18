@@ -10,6 +10,9 @@ public class LoadScene : MonoBehaviour {
     public Vector3 newSpawnPoint;
     public bool mustInteract;
 
+    public bool destroyMusic;
+    public GameObject musicObject;
+
     private Button btn;
 
     private bool interacted;
@@ -51,6 +54,10 @@ public class LoadScene : MonoBehaviour {
 
     void LoadNewScene()
     {
+        if (destroyMusic)
+        {
+            Destroy(musicObject);
+        }
         SetSpawn(newSpawnPoint);
         SceneManager.LoadSceneAsync(sceneToLoad, LoadSceneMode.Single);
     }
