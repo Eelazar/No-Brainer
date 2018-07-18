@@ -257,6 +257,16 @@ Prefab:
       propertyPath: popupMaster
       value: 
       objectReference: {fileID: 1114338455}
+    - target: {fileID: 114690241095226178, guid: 2b51cffad7dcf7a4ebd9019313113bdd,
+        type: 2}
+      propertyPath: destroyMusic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114690241095226178, guid: 2b51cffad7dcf7a4ebd9019313113bdd,
+        type: 2}
+      propertyPath: musicObject
+      value: 
+      objectReference: {fileID: 593219578}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b51cffad7dcf7a4ebd9019313113bdd, type: 2}
   m_IsPrefabParent: 0
@@ -866,6 +876,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0cde256edc9bd7e459355c33f995ab28, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &593219578 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1215846062634604, guid: 0cde256edc9bd7e459355c33f995ab28,
+    type: 2}
+  m_PrefabInternal: {fileID: 593219577}
 --- !u!1001 &653546131
 Prefab:
   m_ObjectHideFlags: 0
@@ -1414,12 +1429,12 @@ Prefab:
     - target: {fileID: 224264595465207554, guid: f75f93e8e9bb9904d9690a77ad723f09,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 533.5
+      value: 476.5
       objectReference: {fileID: 0}
     - target: {fileID: 224264595465207554, guid: f75f93e8e9bb9904d9690a77ad723f09,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 300
+      value: 268
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f75f93e8e9bb9904d9690a77ad723f09, type: 2}

@@ -541,6 +541,16 @@ Prefab:
       propertyPath: sceneToLoad
       value: DreamRoom5
       objectReference: {fileID: 0}
+    - target: {fileID: 114690241095226178, guid: 2b51cffad7dcf7a4ebd9019313113bdd,
+        type: 2}
+      propertyPath: destroyMusic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114690241095226178, guid: 2b51cffad7dcf7a4ebd9019313113bdd,
+        type: 2}
+      propertyPath: musicObject
+      value: 
+      objectReference: {fileID: 1974683717}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b51cffad7dcf7a4ebd9019313113bdd, type: 2}
   m_IsPrefabParent: 0
@@ -1162,12 +1172,12 @@ Prefab:
     - target: {fileID: 224264595465207554, guid: f75f93e8e9bb9904d9690a77ad723f09,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 533.5
+      value: 476.5
       objectReference: {fileID: 0}
     - target: {fileID: 224264595465207554, guid: f75f93e8e9bb9904d9690a77ad723f09,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 300
+      value: 268
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f75f93e8e9bb9904d9690a77ad723f09, type: 2}
@@ -2112,6 +2122,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0cde256edc9bd7e459355c33f995ab28, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1974683717 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1215846062634604, guid: 0cde256edc9bd7e459355c33f995ab28,
+    type: 2}
+  m_PrefabInternal: {fileID: 1974683716}
 --- !u!1001 &1977530066
 Prefab:
   m_ObjectHideFlags: 0
