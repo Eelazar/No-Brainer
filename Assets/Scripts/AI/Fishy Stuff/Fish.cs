@@ -9,6 +9,8 @@ public class Fish : MonoBehaviour {
     public float movementSpeed;
     [Tooltip("Amount of time it takes the fish to rotate")]
     public float rotationChangeDuration;
+    [Tooltip("The animation curve of the fish rotation")]
+    public AnimationCurve rotationCurve;
     [Tooltip("Limit the vertical distance the fish may travel (infinite if 0)")]
     public float staminaVertical;
     [Tooltip("Maximum amount of time the fish will wait upon reaching its destination. Min is 0")]
@@ -57,11 +59,12 @@ public class Fish : MonoBehaviour {
         {
             float distanceLeft = Vector3.Distance(this.transform.position, destination);
 
-            if(rotateOnCD == false)
+            if(rotateOnCD == false && rotationLerp >= 1)
             {
                 targetRotation = Quaternion.LookRotation(destination - this.transform.position);
+                rotationStartTime = Time.time;
             }
-            if(distanceLeft > minDistanceForVariation && rotateOnCD == false)
+            if(distanceLeft > minDistanceForVariation && rotateOnCD == false && rotationLerp >= 1)
             {
                 targetRotation = RandomizeRotation(targetRotation);
                 StartCoroutine(RotationVariationCD());
@@ -71,7 +74,7 @@ public class Fish : MonoBehaviour {
             //Calculate the lerp t variable based on the duration of the rotation
             rotationLerp = (Time.time - rotationStartTime) / rotationChangeDuration;
             //Slerp it
-            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, targetRotation, rotationLerp);
+            this.transform.rotation = Quaternion.SlerpUnclamped(this.transform.rotation, targetRotation, rotationCurve.Evaluate(rotationLerp));
             //Move it
             this.transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
 
@@ -117,15 +120,17 @@ public class Fish : MonoBehaviour {
 
     Quaternion RandomizeRotation(Quaternion rotation)
     {
+        Quaternion newRotation = rotation;
+
         float xChange = Random.Range(-maxRotationVariation, maxRotationVariation);
         float yChange = Random.Range(-maxRotationVariation, maxRotationVariation);
         float zChange = Random.Range(-maxRotationVariation /2, maxRotationVariation /2);
 
-        rotation.eulerAngles += new Vector3(xChange, yChange, zChange);
+        newRotation.eulerAngles += new Vector3(xChange, yChange, zChange);
 
         rotationStartTime = Time.time;
 
-        return rotation;
+        return newRotation;
     }
 
     IEnumerator RotationVariationCD()
