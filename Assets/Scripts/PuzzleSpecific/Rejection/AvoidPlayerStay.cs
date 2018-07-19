@@ -30,7 +30,7 @@ public class AvoidPlayerStay : MonoBehaviour {
             v *= pushForce;
             v.y = 0;
 
-            Debug.Log(v);
+
 
             gameObject.GetComponent<Rigidbody>().AddForce(-v);
         }
