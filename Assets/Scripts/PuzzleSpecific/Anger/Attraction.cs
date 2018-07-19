@@ -62,9 +62,11 @@ public class Attraction : MonoBehaviour {
         }
     }
 
+#if UNITY_EDITOR
     void OnDrawGizmos()
     {
         UnityEditor.Handles.color = Color.red;
         UnityEditor.Handles.DrawWireDisc(gameObject.transform.position, Vector3.up, attractionRange);
     }
+#endif
 }

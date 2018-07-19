@@ -189,6 +189,7 @@ public class RangedLights : MonoBehaviour
 
     }
 
+#if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
         //Visual aid to display range in editor
@@ -199,4 +200,5 @@ public class RangedLights : MonoBehaviour
         UnityEditor.Handles.color = Color.red;
         UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.up, outerVisibilityRing);
     }
+#endif
 }

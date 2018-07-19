@@ -38,6 +38,7 @@ public class Cloud : MonoBehaviour {
         }
     }
 
+#if UNITY_EDITOR
     void OnDrawGizmos()
     {
         UnityEditor.Handles.color = Color.cyan;
@@ -47,4 +48,5 @@ public class Cloud : MonoBehaviour {
         }
         UnityEditor.Handles.DrawWireDisc(centerOfRotation, Vector3.up, radius);
     }
+#endif
 }
