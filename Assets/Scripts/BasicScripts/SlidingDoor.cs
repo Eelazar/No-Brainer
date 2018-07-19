@@ -16,10 +16,17 @@ public class SlidingDoor : MonoBehaviour {
     public bool automatic;
     [Tooltip("Delay that will be applied every time the door is triggered")]
     public float delay;
-
+    [Tooltip("The animation curve for the door's movement")]
     public AnimationCurve animCurve;
+    [Tooltip("The sound the door makes when starting to move")]
+    public AudioClip startSound;
+    [Tooltip("The sound the door makes when stopping")]
+    public AudioClip stopSound;
 
 
+
+    //References
+    private AudioSource source;
     //Lerp Variables
     private float lerpT;
     private float lerpStart;
@@ -27,6 +34,8 @@ public class SlidingDoor : MonoBehaviour {
 	
 	void Start ()
     {
+        source = GetComponent<AudioSource>();
+
         if (open)
         {
             transform.position = openPosition;
@@ -47,6 +56,8 @@ public class SlidingDoor : MonoBehaviour {
         yield return new WaitForSeconds(delay);
 
         lerpStart = Time.time;
+
+        source.PlayOneShot(startSound);
 
         if (open)
         {
@@ -70,5 +81,7 @@ public class SlidingDoor : MonoBehaviour {
 
             open = true;
         }
+
+        source.PlayOneShot(stopSound);
     }
 }

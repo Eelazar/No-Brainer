@@ -22,6 +22,7 @@ public class PlayerScript : MonoBehaviour
     [Header("Sounds")]
     public AudioClip walkSound;
     public AudioClip jumpSound;
+    public AudioClip dieSound;
     
     ////Variables
     //Movement
@@ -198,7 +199,8 @@ public class PlayerScript : MonoBehaviour
         PlayerPrefs.SetFloat("Deaths", f += 1);
         PlayerPrefs.SetFloat("TotalDeaths", ff += 1);
 
-        //respawn
+        //Death sound and... death
+        source.PlayOneShot(dieSound);
         gameObject.transform.position = GetSpawn();
     }
 
