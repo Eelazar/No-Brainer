@@ -14,9 +14,12 @@ public class LoadScene : MonoBehaviour {
     public bool loadAfterTime;
     public float timeToLoad;
 
+    public AudioClip loadSound;
 
+    //References
     private GameObject musicObject;
     private Button btn;
+    private AudioSource source;
 
     private bool interacted;
 
@@ -24,7 +27,21 @@ public class LoadScene : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        source = GetComponent<AudioSource>();
         musicObject = GameObject.Find("LvlMusic");
+
+        if (sceneToLoad == "Resume")
+        {
+            if (PlayerPrefs.HasKey("Scene"))
+            {
+                sceneToLoad = PlayerPrefs.GetString("Scene");
+            }
+            else
+            {
+                sceneToLoad = "Tutorial";
+            }
+            newSpawnPoint = GetSpawn();
+        }
 
         if(this.GetComponent<Button>() != null)
         {
@@ -72,6 +89,7 @@ public class LoadScene : MonoBehaviour {
 
     void LoadNewScene()
     {
+        source.PlayOneShot(loadSound);
         if (destroyMusic)
         {
             Destroy(musicObject);
@@ -85,5 +103,11 @@ public class LoadScene : MonoBehaviour {
         PlayerPrefs.SetFloat("xSpawn", spawn.x);
         PlayerPrefs.SetFloat("ySpawn", spawn.y);
         PlayerPrefs.SetFloat("zSpawn", spawn.z);
+    }
+
+    Vector3 GetSpawn()
+    {
+        Vector3 spawn = new Vector3(PlayerPrefs.GetFloat("xSpawn", 0), PlayerPrefs.GetFloat("ySpawn", 0), PlayerPrefs.GetFloat("zSpawn", 0));
+        return spawn;
     }
 }

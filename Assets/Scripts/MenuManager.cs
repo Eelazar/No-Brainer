@@ -9,7 +9,6 @@ public class MenuManager : MonoBehaviour {
     public Toggle devMode;
 
     private Button[] menuButtons;
-    private bool devSwitchBool;
     
 	void Start ()
     {
@@ -44,9 +43,4 @@ public class MenuManager : MonoBehaviour {
 
     }
     
-
-    void SwitchMenuMode(bool on)
-    {
-        
-    }
 }
