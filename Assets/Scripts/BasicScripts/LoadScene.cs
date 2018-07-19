@@ -11,8 +11,11 @@ public class LoadScene : MonoBehaviour {
     public bool mustInteract;
 
     public bool destroyMusic;
-    public GameObject musicObject;
+    public bool loadAfterTime;
+    public float timeToLoad;
 
+
+    private GameObject musicObject;
     private Button btn;
 
     private bool interacted;
@@ -21,6 +24,8 @@ public class LoadScene : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        musicObject = GameObject.Find("LvlMusic");
+
         if(this.GetComponent<Button>() != null)
         {
             btn = this.GetComponent<Button>();
@@ -35,6 +40,10 @@ public class LoadScene : MonoBehaviour {
         {
             LoadNewScene();
         }	
+        if(loadAfterTime == true && timeToLoad < Time.time)
+        {
+            LoadNewScene();
+        }
 	}
 
     private void OnTriggerEnter(Collider other)
@@ -49,6 +58,15 @@ public class LoadScene : MonoBehaviour {
             {
                 LoadNewScene();
             }
+
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            interacted = false;
         }
     }
 

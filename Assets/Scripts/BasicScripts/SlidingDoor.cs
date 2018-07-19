@@ -17,6 +17,8 @@ public class SlidingDoor : MonoBehaviour {
     [Tooltip("Delay that will be applied every time the door is triggered")]
     public float delay;
 
+    public AnimationCurve animCurve;
+
 
     //Lerp Variables
     private float lerpT;
@@ -51,7 +53,7 @@ public class SlidingDoor : MonoBehaviour {
             while (lerpT < 1)
             {
                 lerpT = (Time.time - lerpStart) / slideDuration;
-                transform.position = Vector3.Lerp(openPosition, closedPosition, lerpT);
+                transform.position = Vector3.LerpUnclamped(openPosition, closedPosition, animCurve.Evaluate(lerpT));
                 yield return null;
             }
 
@@ -62,7 +64,7 @@ public class SlidingDoor : MonoBehaviour {
             while (lerpT < 1)
             {
                 lerpT = (Time.time - lerpStart) / slideDuration;
-                transform.position = Vector3.Lerp(closedPosition, openPosition, lerpT);
+                transform.position = Vector3.Lerp(closedPosition, openPosition, animCurve.Evaluate(lerpT));
                 yield return null;
             }
 
