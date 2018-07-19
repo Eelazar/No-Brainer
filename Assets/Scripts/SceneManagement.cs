@@ -8,7 +8,7 @@ public class SceneManagement : MonoBehaviour {
 	void Start ()
     {
         PlayerPrefs.SetString("Scene", SceneManager.GetActiveScene().name);
-        PlayerPrefs.SetString("ScenePreview", SceneManager.GetActiveScene().name + "Preview");    
+        PlayerPrefs.SetString("ScenePreview", GetBaseSceneName() + "Preview");    
     }
     
     void Update ()
@@ -17,6 +17,15 @@ public class SceneManagement : MonoBehaviour {
         {
             SceneManager.LoadSceneAsync("Menu", LoadSceneMode.Single);
         }
+    }
+
+    string GetBaseSceneName()
+    {
+        string name = SceneManager.GetActiveScene().name;
+        string[] split = name.Split('_');
+
+        name = split[0];
+        return name;
     }
     
 }
