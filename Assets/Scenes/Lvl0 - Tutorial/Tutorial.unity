@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.5
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.063658744, g: 0.067073785, b: 0.06053935, a: 0.5}
+  m_IndirectSpecularColor: {r: 0.063658625, g: 0.067073725, b: 0.060539365, a: 0.5}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -262,18 +262,18 @@ MonoBehaviour:
   movingObjects:
   - {fileID: 1033684306227314, guid: d0d1573fe2520f849827e011ff623b28, type: 2}
   amountOfObjects: 7
-  areaRadius: 1
-  movementSpeed: 0.2
+  areaRadius: 1.5
+  movementSpeed: 0.1
   positionMargin: 0.1
   slerpSpeed: 0.01
   minIntensity: 1
-  maxIntensity: 2
-  intensityChangeDuration: 3
+  maxIntensity: 1.5
+  intensityChangeDuration: 5
   minRange: 0.3
   maxRange: 0.8
   rangeChangeDuration: 0.2
-  innerVisibilityRing: 4
-  outerVisibilityRing: 10
+  innerVisibilityRing: 3
+  outerVisibilityRing: 8
 --- !u!1001 &47013114
 Prefab:
   m_ObjectHideFlags: 0
@@ -593,18 +593,18 @@ MonoBehaviour:
   movingObjects:
   - {fileID: 1033684306227314, guid: d0d1573fe2520f849827e011ff623b28, type: 2}
   amountOfObjects: 7
-  areaRadius: 1
-  movementSpeed: 0.2
+  areaRadius: 1.5
+  movementSpeed: 0.1
   positionMargin: 0.1
   slerpSpeed: 0.01
   minIntensity: 1
-  maxIntensity: 2
-  intensityChangeDuration: 3
+  maxIntensity: 1.5
+  intensityChangeDuration: 5
   minRange: 0.3
   maxRange: 0.8
   rangeChangeDuration: 0.2
-  innerVisibilityRing: 4
-  outerVisibilityRing: 10
+  innerVisibilityRing: 3
+  outerVisibilityRing: 8
 --- !u!1001 &82366521
 Prefab:
   m_ObjectHideFlags: 0
@@ -1120,18 +1120,18 @@ MonoBehaviour:
   movingObjects:
   - {fileID: 1033684306227314, guid: d0d1573fe2520f849827e011ff623b28, type: 2}
   amountOfObjects: 7
-  areaRadius: 1
-  movementSpeed: 0.2
+  areaRadius: 1.5
+  movementSpeed: 0.1
   positionMargin: 0.1
   slerpSpeed: 0.01
   minIntensity: 1
-  maxIntensity: 2
-  intensityChangeDuration: 3
+  maxIntensity: 1.5
+  intensityChangeDuration: 5
   minRange: 0.3
   maxRange: 0.8
   rangeChangeDuration: 0.2
-  innerVisibilityRing: 4
-  outerVisibilityRing: 10
+  innerVisibilityRing: 3
+  outerVisibilityRing: 8
 --- !u!1001 &131766009
 Prefab:
   m_ObjectHideFlags: 0
@@ -2396,7 +2396,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2300020, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3469,7 +3469,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4923076758056444, guid: e71013ae8c7772a478a48cb780f2ed4d, type: 2}
       propertyPath: m_RootOrder
-      value: 19
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 114463468664207954, guid: e71013ae8c7772a478a48cb780f2ed4d,
         type: 2}
@@ -4242,18 +4242,18 @@ MonoBehaviour:
   movingObjects:
   - {fileID: 1033684306227314, guid: d0d1573fe2520f849827e011ff623b28, type: 2}
   amountOfObjects: 7
-  areaRadius: 1
-  movementSpeed: 0.2
+  areaRadius: 1.5
+  movementSpeed: 0.1
   positionMargin: 0.1
   slerpSpeed: 0.01
   minIntensity: 1
-  maxIntensity: 2
-  intensityChangeDuration: 3
+  maxIntensity: 1.5
+  intensityChangeDuration: 5
   minRange: 0.3
   maxRange: 0.8
   rangeChangeDuration: 0.2
-  innerVisibilityRing: 4
-  outerVisibilityRing: 10
+  innerVisibilityRing: 3
+  outerVisibilityRing: 8
 --- !u!1 &619729614 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: afa7ef2d7150cf84ea1a3b4076cacefb, type: 3}
@@ -4816,7 +4816,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &716708365
 Prefab:
@@ -4855,7 +4855,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2300020, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -5773,18 +5773,18 @@ MonoBehaviour:
   movingObjects:
   - {fileID: 1033684306227314, guid: d0d1573fe2520f849827e011ff623b28, type: 2}
   amountOfObjects: 7
-  areaRadius: 1
-  movementSpeed: 0.2
+  areaRadius: 1.5
+  movementSpeed: 0.1
   positionMargin: 0.1
   slerpSpeed: 0.01
   minIntensity: 1
-  maxIntensity: 2
-  intensityChangeDuration: 3
+  maxIntensity: 1.5
+  intensityChangeDuration: 5
   minRange: 0.3
   maxRange: 0.8
   rangeChangeDuration: 0.2
-  innerVisibilityRing: 4
-  outerVisibilityRing: 10
+  innerVisibilityRing: 3
+  outerVisibilityRing: 8
 --- !u!1 &871539215
 GameObject:
   m_ObjectHideFlags: 0
@@ -5858,62 +5858,6 @@ Transform:
   - {fileID: 871223915}
   m_Father: {fileID: 1437037680}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &875123147
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 875123150}
-  - component: {fileID: 875123149}
-  - component: {fileID: 875123148}
-  m_Layer: 0
-  m_Name: LoadScene
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &875123148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 875123147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 311d654f685bbb1488cd4e8906f0ba13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneToLoad: BrainRoom1
-  newSpawnPoint: {x: 0, y: 0, z: 0}
-  mustInteract: 0
---- !u!65 &875123149
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 875123147}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!4 &875123150
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 875123147}
-  m_LocalRotation: {x: -0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -0.32, y: -0.41, z: 20.22}
-  m_LocalScale: {x: 1.0505487, y: 1, z: 4.5703526}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &891980972
 Prefab:
@@ -6037,18 +5981,18 @@ MonoBehaviour:
   movingObjects:
   - {fileID: 1033684306227314, guid: d0d1573fe2520f849827e011ff623b28, type: 2}
   amountOfObjects: 7
-  areaRadius: 1
-  movementSpeed: 0.2
+  areaRadius: 1.5
+  movementSpeed: 0.1
   positionMargin: 0.1
   slerpSpeed: 0.01
   minIntensity: 1
-  maxIntensity: 2
-  intensityChangeDuration: 3
+  maxIntensity: 1.5
+  intensityChangeDuration: 5
   minRange: 0.3
   maxRange: 0.8
   rangeChangeDuration: 0.2
-  innerVisibilityRing: 4
-  outerVisibilityRing: 10
+  innerVisibilityRing: 3
+  outerVisibilityRing: 8
 --- !u!4 &925098389
 Transform:
   m_ObjectHideFlags: 0
@@ -6615,7 +6559,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4041754320777640, guid: 7453b0d9ba88b48468b20ca2ec60e8f8, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114080785671716788, guid: 7453b0d9ba88b48468b20ca2ec60e8f8,
         type: 2}
@@ -6635,7 +6579,12 @@ Prefab:
         type: 2}
       propertyPath: walkSound
       value: 
-      objectReference: {fileID: 8300000, guid: 744fafdef6eeb1041a1226bf3427819b, type: 3}
+      objectReference: {fileID: 8300000, guid: 6eb2ddf4412877b4b85fc7d0dd2dbba7, type: 3}
+    - target: {fileID: 82615605845961072, guid: 7453b0d9ba88b48468b20ca2ec60e8f8,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.15
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114742945521158764, guid: 7453b0d9ba88b48468b20ca2ec60e8f8, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 7453b0d9ba88b48468b20ca2ec60e8f8, type: 2}
@@ -6726,18 +6675,18 @@ MonoBehaviour:
   movingObjects:
   - {fileID: 1033684306227314, guid: d0d1573fe2520f849827e011ff623b28, type: 2}
   amountOfObjects: 7
-  areaRadius: 1
-  movementSpeed: 0.2
+  areaRadius: 1.5
+  movementSpeed: 0.1
   positionMargin: 0.1
   slerpSpeed: 0.01
   minIntensity: 1
-  maxIntensity: 2
-  intensityChangeDuration: 3
+  maxIntensity: 1.5
+  intensityChangeDuration: 5
   minRange: 0.3
   maxRange: 0.8
   rangeChangeDuration: 0.2
-  innerVisibilityRing: 4
-  outerVisibilityRing: 10
+  innerVisibilityRing: 3
+  outerVisibilityRing: 8
 --- !u!1 &1056699611 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: dba81795e3857334c806f85e6db138d9, type: 3}
@@ -7023,7 +6972,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2300020, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -7250,18 +7199,18 @@ MonoBehaviour:
   movingObjects:
   - {fileID: 1033684306227314, guid: d0d1573fe2520f849827e011ff623b28, type: 2}
   amountOfObjects: 7
-  areaRadius: 1
-  movementSpeed: 0.2
+  areaRadius: 1.5
+  movementSpeed: 0.1
   positionMargin: 0.1
   slerpSpeed: 0.01
   minIntensity: 1
-  maxIntensity: 2
-  intensityChangeDuration: 3
+  maxIntensity: 1.5
+  intensityChangeDuration: 5
   minRange: 0.3
   maxRange: 0.8
   rangeChangeDuration: 0.2
-  innerVisibilityRing: 4
-  outerVisibilityRing: 10
+  innerVisibilityRing: 3
+  outerVisibilityRing: 8
 --- !u!1001 &1154977070
 Prefab:
   m_ObjectHideFlags: 0
@@ -7425,7 +7374,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4182965793365248, guid: 4ad7e45fd85a4254bae67f962f0341ec, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 114971541471461248, guid: 4ad7e45fd85a4254bae67f962f0341ec,
         type: 2}
@@ -8258,7 +8207,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cfab35d62dc31dd4e95ebb0e423f1ab9, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: cfab35d62dc31dd4e95ebb0e423f1ab9, type: 3}
       propertyPath: m_Materials.Array.data[1]
@@ -8683,7 +8632,7 @@ Transform:
   - {fileID: 2123313726}
   - {fileID: 2138926832}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1377946255
 Prefab:
@@ -9006,7 +8955,7 @@ Transform:
   - {fileID: 1716988161}
   - {fileID: 1904939930}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1453297631 stripped
 GameObject:
@@ -9566,7 +9515,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2300020, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -9909,18 +9858,18 @@ MonoBehaviour:
   movingObjects:
   - {fileID: 1033684306227314, guid: d0d1573fe2520f849827e011ff623b28, type: 2}
   amountOfObjects: 7
-  areaRadius: 1
-  movementSpeed: 0.2
+  areaRadius: 1.5
+  movementSpeed: 0.1
   positionMargin: 0.1
   slerpSpeed: 0.01
   minIntensity: 1
-  maxIntensity: 2
-  intensityChangeDuration: 3
+  maxIntensity: 1.5
+  intensityChangeDuration: 5
   minRange: 0.3
   maxRange: 0.8
   rangeChangeDuration: 0.2
-  innerVisibilityRing: 4
-  outerVisibilityRing: 10
+  innerVisibilityRing: 3
+  outerVisibilityRing: 8
 --- !u!1001 &1652248285
 Prefab:
   m_ObjectHideFlags: 0
@@ -11051,7 +11000,7 @@ Transform:
   m_LocalScale: {x: 1.0505487, y: 1, z: 5.0988216}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1838298225
 Transform:
@@ -11103,7 +11052,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2300020, guid: 2bd87d201ead4ac46b899a8040fd3603, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -12031,7 +11980,7 @@ Transform:
   - {fileID: 131766012}
   - {fileID: 833146863}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2014011595
 GameObject:
