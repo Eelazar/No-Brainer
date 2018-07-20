@@ -22,11 +22,19 @@ public class LoadScene : MonoBehaviour {
     private AudioSource source;
 
     private bool interacted;
+    private bool isButton;
 
 
     // Use this for initialization
     void Start ()
     {
+        if (this.GetComponent<Button>() != null)
+        {
+            btn = this.GetComponent<Button>();
+            btn.onClick.AddListener(LoadNewScene);
+            isButton = true;
+        }
+
         source = GetComponent<AudioSource>();
         musicObject = GameObject.Find("LvlMusic");
 
@@ -42,24 +50,21 @@ public class LoadScene : MonoBehaviour {
             }
             newSpawnPoint = GetSpawn();
         }
-
-        if(this.GetComponent<Button>() != null)
-        {
-            btn = this.GetComponent<Button>();
-            btn.onClick.AddListener(LoadNewScene);
-        }
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-	    if(Input.GetButton("Fire1") && interacted)
+        if (!isButton)
         {
-            LoadNewScene();
-        }	
-        if(loadAfterTime == true && timeToLoad < Time.time)
-        {
-            LoadNewScene();
+            if (Input.GetButton("Fire1") && interacted)
+            {
+                LoadNewScene();
+            }
+            if (loadAfterTime == true && timeToLoad < Time.time)
+            {
+                LoadNewScene();
+            }
         }
 	}
 
@@ -95,7 +100,7 @@ public class LoadScene : MonoBehaviour {
             Destroy(musicObject);
         }
         SetSpawn(newSpawnPoint);
-        SceneManager.LoadSceneAsync(sceneToLoad, LoadSceneMode.Single);
+        SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Single);
     }
 
     void SetSpawn(Vector3 spawn)
