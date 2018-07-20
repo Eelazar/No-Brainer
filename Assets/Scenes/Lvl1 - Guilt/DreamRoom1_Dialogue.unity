@@ -448,6 +448,11 @@ Prefab:
       propertyPath: timeToLoad
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 114690241095226178, guid: 2b51cffad7dcf7a4ebd9019313113bdd,
+        type: 2}
+      propertyPath: mustInteract
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b51cffad7dcf7a4ebd9019313113bdd, type: 2}
   m_IsPrefabParent: 0
@@ -648,6 +653,7 @@ MonoBehaviour:
   destroyMusic: 0
   loadAfterTime: 0
   timeToLoad: 0
+  loadSound: {fileID: 0}
 --- !u!65 &1398945797
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -836,12 +842,12 @@ Prefab:
     - target: {fileID: 224264595465207554, guid: f75f93e8e9bb9904d9690a77ad723f09,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 355
+      value: 738.5
       objectReference: {fileID: 0}
     - target: {fileID: 224264595465207554, guid: f75f93e8e9bb9904d9690a77ad723f09,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 199.5
+      value: 415.5
       objectReference: {fileID: 0}
     - target: {fileID: 224264595465207554, guid: f75f93e8e9bb9904d9690a77ad723f09,
         type: 2}
