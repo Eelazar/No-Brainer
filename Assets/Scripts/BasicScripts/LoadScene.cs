@@ -94,12 +94,15 @@ public class LoadScene : MonoBehaviour {
 
     void LoadNewScene()
     {
-        source.PlayOneShot(loadSound);
-        if (destroyMusic)
+        if (!isButton)
         {
-            Destroy(musicObject);
+            source.PlayOneShot(loadSound);
+            if (destroyMusic)
+            {
+                Destroy(musicObject);
+            }
+            SetSpawn(newSpawnPoint);
         }
-        SetSpawn(newSpawnPoint);
         SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Single);
     }
 
