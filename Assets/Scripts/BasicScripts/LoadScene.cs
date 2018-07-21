@@ -96,7 +96,7 @@ public class LoadScene : MonoBehaviour {
     {
         if (!isButton)
         {
-            source.PlayOneShot(loadSound);
+            if (loadSound != null) source.PlayOneShot(loadSound);
             if (destroyMusic)
             {
                 Destroy(musicObject);

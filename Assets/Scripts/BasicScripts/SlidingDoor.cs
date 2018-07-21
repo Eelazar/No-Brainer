@@ -57,7 +57,7 @@ public class SlidingDoor : MonoBehaviour {
 
         lerpStart = Time.time;
 
-        source.PlayOneShot(startSound);
+        if(startSound != null) source.PlayOneShot(startSound);
 
         if (open)
         {
@@ -82,6 +82,6 @@ public class SlidingDoor : MonoBehaviour {
             open = true;
         }
 
-        source.PlayOneShot(stopSound);
+        if (stopSound != null) source.PlayOneShot(stopSound);
     }
 }

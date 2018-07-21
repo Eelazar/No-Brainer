@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DeletePrefs : MonoBehaviour {
     
@@ -14,5 +15,6 @@ public class DeletePrefs : MonoBehaviour {
 	void ResetPrefs()
     {
         PlayerPrefs.DeleteAll();
+        SceneManager.LoadScene("Menu");
     }
 }
