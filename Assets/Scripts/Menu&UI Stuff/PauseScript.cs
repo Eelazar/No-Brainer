@@ -18,7 +18,6 @@ public class PauseScript : MonoBehaviour {
 
         if(child.GetComponentsInChildren<Button>().Length >= 2)
         {
-            Debug.Log("Hhhh");
             menuButton    = child.GetComponentsInChildren<Button>()[0];
             restartButton = child.GetComponentsInChildren<Button>()[1];
 
