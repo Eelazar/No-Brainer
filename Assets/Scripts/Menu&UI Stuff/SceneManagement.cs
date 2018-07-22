@@ -13,10 +13,10 @@ public class SceneManagement : MonoBehaviour {
     
     void Update ()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            SceneManager.LoadSceneAsync("Menu", LoadSceneMode.Single);
-        }
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    SceneManager.LoadSceneAsync("Menu", LoadSceneMode.Single);
+        //}
     }
 
     string GetBaseSceneName()
