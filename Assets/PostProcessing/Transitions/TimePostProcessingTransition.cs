@@ -18,7 +18,7 @@ public class TimePostProcessingTransition : PostProcessingTransition
 	void OnTriggerEnter (Collider other)
 	{
 		PostProcessingBehaviour ppBeh = cam.GetComponentInChildren <PostProcessingBehaviour> ();
-		if (ppBeh != null && ppBeh.profile != null) {
+		if (ppBeh != null && ppBeh.profile != null && other.tag == "Player") {
 			TimeUpdatableProfile timeProf = ppBeh.gameObject.AddComponent <TimeUpdatableProfile> ();
 			timeProf.LerpOverTimeTo (ppBeh, futureProfile, config.timeForTransition);
 			state.behavioursInTransit.Add (timeProf);
