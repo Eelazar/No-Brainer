@@ -12,9 +12,10 @@ public class PlayerScript : MonoBehaviour
     public float turnDuration;
 
     [Header("Jump")]
+    public bool enableJump;
     [Tooltip("The force applied to the player when jumping")]
     public Vector3 jumpVector;
-	public float minVelocity = 0.3f;
+	public float minDistanceToFloor = 1F;
 
     [Header("Other")]
     [Tooltip("The starting position of the player when first starting the scene, will automatically get saved to PlayerPrefs upon loading")]
@@ -25,11 +26,15 @@ public class PlayerScript : MonoBehaviour
     public AudioClip walkSound;
     public AudioClip jumpSound;
     public AudioClip dieSound;
+
+    public bool enableWalkSound;
+
     
     ////Variables
     //Movement
     private float xInput, zInput;
     private Vector3 velocity;
+    private bool canJump;
     //Rotating
     private bool rotating;
     private Vector3 currentRotation;
@@ -37,8 +42,6 @@ public class PlayerScript : MonoBehaviour
     private Vector3 leftRotation    = new Vector3(0, -90, 0);
     private Vector3 forwardRotation = new Vector3(0, 0, 0);
     private Vector3 backRotation    = new Vector3(0, 180, 0);
-    //Jumping
-    private bool jumpCDBool;
     
     //Sound
     private AudioSource source;
@@ -81,7 +84,7 @@ public class PlayerScript : MonoBehaviour
             walking = true;
         }
         //But if he is in the air, set it to false again
-        if(v.y > minVelocity || v.y < -minVelocity)
+        if(v.y > 0.5F || v.y < -0.5F)
         {
             walking = false;
         }
@@ -91,27 +94,35 @@ public class PlayerScript : MonoBehaviour
         {
             animator.SetBool("moving", true);
             source.clip = walkSound;
-            source.Play();
+            if (enableWalkSound) source.Play();
         }
         else if(walking == false)
         {
             animator.SetBool("moving", false);
-            source.Stop();
+            if (enableWalkSound)  source.Stop();
         }
-    }  
+    }
+
+    void Update()
+    {
+        GetInput();
+        if (enableJump) TranslateJumpInput();
+    }
 
     void FixedUpdate()
     {
         TranslateMovementInput();
-        TranslateJumpInput();
     }
 
-    void TranslateMovementInput()
+    void GetInput()
     {
         //Get the player Input
         xInput = Input.GetAxisRaw("Horizontal");
         zInput = Input.GetAxisRaw("Vertical");
+    }
 
+    void TranslateMovementInput()
+    {
         //Assign the input to the velocity vector
         if (xInput != 0 && zInput == 0)
         {
@@ -175,16 +186,17 @@ public class PlayerScript : MonoBehaviour
 
     void TranslateJumpInput()
     {
-        if (Input.GetButtonDown("Jump") && GetComponent<Rigidbody>().velocity.y < minVelocity && GetComponent<Rigidbody>().velocity.y > -minVelocity)
+        RaycastHit hit;
+        canJump = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, minDistanceToFloor);
+        if (Input.GetButtonDown("Jump"))
         {
-            sourceOneShot.PlayOneShot(jumpSound);
-            Jump();
+            // Does the ray intersect any object
+            if (canJump)
+            {
+                sourceOneShot.PlayOneShot(jumpSound);
+                transform.GetComponent<Rigidbody>().AddForce(jumpVector, ForceMode.VelocityChange);
+            }
         }
-    }
-
-    void Jump()
-    {
-        transform.GetComponent<Rigidbody> ().AddForce (jumpVector, ForceMode.VelocityChange);
     }
 
     void OnTriggerEnter(Collider other)
