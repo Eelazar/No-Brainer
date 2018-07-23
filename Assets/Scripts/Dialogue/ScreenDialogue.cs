@@ -35,7 +35,7 @@ public class ScreenDialogue : MonoBehaviour {
     void Start ()
     {
         dialogueBox = gameObject.GetComponent<Text>();
-        background = gameObject.GetComponentInChildren<Image>();
+        background = GameObject.Find("DialogueBG").GetComponent<Image>();
         background.enabled = false;
         source = GetComponent<AudioSource>();
 
