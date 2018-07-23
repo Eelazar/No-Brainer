@@ -42,7 +42,8 @@ public class PlayerScript : MonoBehaviour
     //Sound
     private AudioSource source;
     private AudioSource sourceOneShot;
-    private bool walking;
+    [HideInInspector]
+    public bool walking;
     //Animator
   
     
