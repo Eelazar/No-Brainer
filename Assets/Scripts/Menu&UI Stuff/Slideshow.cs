@@ -28,6 +28,7 @@ public class Slideshow : MonoBehaviour {
     IEnumerator StartSlideshow()
     {
         imageHolder.SetActive(true);
+        imageHolder.GetComponent<Image>().sprite = null;
         yield return new WaitForSeconds(waitBefore);
 
         for(int i = 0; i < imagesToShow.Length; i++)
