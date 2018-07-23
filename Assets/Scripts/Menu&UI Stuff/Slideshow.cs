@@ -27,6 +27,7 @@ public class Slideshow : MonoBehaviour {
 
     IEnumerator StartSlideshow()
     {
+        imageHolder.SetActive(true);
         yield return new WaitForSeconds(waitBefore);
 
         for(int i = 0; i < imagesToShow.Length; i++)
@@ -39,6 +40,7 @@ public class Slideshow : MonoBehaviour {
 
         yield return new WaitForSeconds(waitAfter);
 
+        Destroy(imageHolder);
         Destroy(gameObject);
     }
 }
