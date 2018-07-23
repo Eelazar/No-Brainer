@@ -43,14 +43,15 @@ public class PlayerScript : MonoBehaviour
     private AudioSource source;
     private AudioSource sourceOneShot;
     private bool walking;
-    
+    //Animator
+  
     
 
     void Start()
     {
         source = this.GetComponents<AudioSource>()[0];
         sourceOneShot = this.GetComponents<AudioSource>()[1];
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
 
         //Reset amount of deaths
         PlayerPrefs.SetFloat("Deaths", 0);
