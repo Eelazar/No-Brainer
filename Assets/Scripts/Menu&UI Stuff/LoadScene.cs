@@ -61,7 +61,7 @@ public class LoadScene : MonoBehaviour {
             {
                 LoadNewScene();
             }
-            if (loadAfterTime == true && timeToLoad < Time.time)
+            if (loadAfterTime == true && timeToLoad < Time.timeSinceLevelLoad)
             {
                 LoadNewScene();
             }
