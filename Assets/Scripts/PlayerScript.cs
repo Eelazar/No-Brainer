@@ -14,6 +14,7 @@ public class PlayerScript : MonoBehaviour
     [Header("Jump")]
     [Tooltip("The force applied to the player when jumping")]
     public Vector3 jumpVector;
+	public float minVelocity = 0.3f;
 
     [Header("Other")]
     [Tooltip("The starting position of the player when first starting the scene, will automatically get saved to PlayerPrefs upon loading")]
@@ -38,7 +39,7 @@ public class PlayerScript : MonoBehaviour
     private Vector3 backRotation    = new Vector3(0, 180, 0);
     //Jumping
     private bool jumpCDBool;
-    private float minVelocity = 0.1f;
+    
     //Sound
     private AudioSource source;
     private AudioSource sourceOneShot;
