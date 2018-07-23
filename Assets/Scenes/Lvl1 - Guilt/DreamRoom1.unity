@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 8
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -39,7 +39,6 @@ RenderSettings:
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
   m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589246, b: 0.2978263, a: 1}
-  m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -55,10 +54,11 @@ LightmapSettings:
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
-    serializedVersion: 10
+    serializedVersion: 9
     m_Resolution: 2
     m_BakeResolution: 40
-    m_AtlasSize: 1024
+    m_TextureWidth: 1024
+    m_TextureHeight: 1024
     m_AO: 0
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
@@ -88,7 +88,6 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -607,7 +606,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: e4f52e322d61deb43983824abc51d7b2, type: 3}
   - {fileID: 2100002, guid: e4f52e322d61deb43983824abc51d7b2, type: 3}
@@ -762,6 +760,16 @@ Prefab:
         type: 2}
       propertyPath: Loop
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82754107733518752, guid: 0cde256edc9bd7e459355c33f995ab28,
+        type: 2}
+      propertyPath: panLevelCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82754107733518752, guid: 0cde256edc9bd7e459355c33f995ab28,
+        type: 2}
+      propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114159512230160720, guid: 0cde256edc9bd7e459355c33f995ab28, type: 2}
@@ -3699,7 +3707,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: e4f52e322d61deb43983824abc51d7b2, type: 3}
   m_StaticBatchInfo:
@@ -5280,7 +5287,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: e4f52e322d61deb43983824abc51d7b2, type: 3}
   m_StaticBatchInfo:
@@ -8421,7 +8427,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: e4f52e322d61deb43983824abc51d7b2, type: 3}
   - {fileID: 2100002, guid: e4f52e322d61deb43983824abc51d7b2, type: 3}
@@ -8883,7 +8888,7 @@ GameObject:
   - component: {fileID: 1333543685}
   m_Layer: 0
   m_Name: Sibling
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11037,6 +11042,11 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400006, guid: 2d06a87576cc40846a9e7a9d9318c533, type: 3}
   m_PrefabInternal: {fileID: 1026156211}
+--- !u!82 &1577774370 stripped
+AudioSource:
+  m_PrefabParentObject: {fileID: 82754107733518752, guid: 0cde256edc9bd7e459355c33f995ab28,
+    type: 2}
+  m_PrefabInternal: {fileID: 131932520}
 --- !u!1001 &1581251373
 Prefab:
   m_ObjectHideFlags: 0
@@ -13102,6 +13112,7 @@ GameObject:
   - component: {fileID: 1851739075}
   - component: {fileID: 1851739074}
   - component: {fileID: 1851739073}
+  - component: {fileID: 1851739076}
   m_Layer: 0
   m_Name: Swamp Trigger
   m_TagString: Untagged
@@ -13149,6 +13160,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1851739076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1851739072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 685f8e0fb2a40c24a8d3d738a6949551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newPitch: 0.85
+  music: {fileID: 1577774370}
 --- !u!4 &1852310420 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: df496c95f6361b4458d85916f85e74af, type: 3}
@@ -13186,9 +13210,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 3
+  serializedVersion: 2
   m_Convex: 0
-  m_CookingOptions: 14
+  m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1861854417
@@ -13204,7 +13228,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 282b06a9fba2b864e84dda019670bfee, type: 2}
   m_StaticBatchInfo:
@@ -14284,12 +14307,12 @@ Prefab:
     - target: {fileID: 224264595465207554, guid: f75f93e8e9bb9904d9690a77ad723f09,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 569
       objectReference: {fileID: 0}
     - target: {fileID: 224264595465207554, guid: f75f93e8e9bb9904d9690a77ad723f09,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 261.5
       objectReference: {fileID: 0}
     - target: {fileID: 224264595465207554, guid: f75f93e8e9bb9904d9690a77ad723f09,
         type: 2}
@@ -14873,9 +14896,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 2
   m_Convex: 0
-  m_CookingOptions: 14
+  m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &2101782414
@@ -14891,7 +14914,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 99cab6658322e7b42ad078baef1d05ca, type: 2}
   m_StaticBatchInfo:
