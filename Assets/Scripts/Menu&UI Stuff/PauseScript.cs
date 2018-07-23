@@ -5,24 +5,30 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PauseScript : MonoBehaviour {
-
-    private bool paused;
+      
+    private bool paused, controlsOn;
     private Button menuButton;
     private Button restartButton;
+    private Button controlsButton;
     private Transform child;
+    private Transform controlsImage;
 
     void Start()
     {
         child = transform.GetChild(0);
         child.gameObject.SetActive(false);
+        controlsImage = transform.GetChild(1);
+        controlsImage.gameObject.SetActive(false);
 
-        if(child.GetComponentsInChildren<Button>().Length >= 2)
+        if(child.GetComponentsInChildren<Button>().Length >= 3)
         {
-            menuButton    = child.GetComponentsInChildren<Button>()[0];
-            restartButton = child.GetComponentsInChildren<Button>()[1];
+            menuButton     = child.GetComponentsInChildren<Button>()[0];
+            restartButton  = child.GetComponentsInChildren<Button>()[1];
+            controlsButton = child.GetComponentsInChildren<Button>()[2];
 
             menuButton.onClick.AddListener(LoadMenu);
             restartButton.onClick.AddListener(RestartLvl);
+            controlsButton.onClick.AddListener(ShowControls);
         }
     }
 	
@@ -35,6 +41,11 @@ public class PauseScript : MonoBehaviour {
         else if (Input.GetKeyDown(KeyCode.Escape) && paused == true)
         {
             UnPause();
+        }
+        if (Input.GetButtonDown("Fire1") && controlsOn)
+        {
+            controlsImage.gameObject.SetActive(false);
+            controlsOn = false;
         }
     }
 
@@ -50,6 +61,12 @@ public class PauseScript : MonoBehaviour {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    void ShowControls()
+    {
+        controlsImage.gameObject.SetActive(true);
+        controlsOn = true;
+    }
+
     void Pause()
     {
         Time.timeScale = 0;
@@ -62,6 +79,8 @@ public class PauseScript : MonoBehaviour {
     {
         Time.timeScale = 1;
         paused = false;
+        controlsImage.gameObject.SetActive(false);
+        controlsOn = false;
 
         child.gameObject.SetActive(false);
     }
