@@ -51,7 +51,7 @@ public class PlayerScript : MonoBehaviour
     {
         source = this.GetComponents<AudioSource>()[0];
         sourceOneShot = this.GetComponents<AudioSource>()[1];
-        //animator = GetComponent<Animator>();
+
 
         //Reset amount of deaths
         PlayerPrefs.SetFloat("Deaths", 0);
