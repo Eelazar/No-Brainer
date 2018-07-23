@@ -101,8 +101,8 @@ public class LoadScene : MonoBehaviour {
             {
                 Destroy(musicObject);
             }
-            SetSpawn(newSpawnPoint);
         }
+        SetSpawn(newSpawnPoint);
         SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Single);
     }
 
