@@ -6,6 +6,7 @@ public class LineMovement : MonoBehaviour {
 
     public Vector3 pointA, pointB;
     public float speed, waitTime, distanceThreshold;
+	public bool directionChange;
 
     //Target is B if true, A if false
     private bool platformSwitch, wait;
@@ -26,7 +27,11 @@ public class LineMovement : MonoBehaviour {
     {
         if (platformSwitch == true && wait == false)
         {
+			if (directionChange == true)
+			{
             transform.rotation = Quaternion.LookRotation(directionToB);
+			}
+
             if (Vector3.Distance(gameObject.transform.position, pointB) < distanceThreshold)
             {
                 wait = true;
@@ -37,7 +42,11 @@ public class LineMovement : MonoBehaviour {
         }
         else if (platformSwitch == false && wait == false)
         {
+			if (directionChange == true)
+			{
             transform.rotation = Quaternion.LookRotation(directionToA);
+			}
+
             if (Vector3.Distance(gameObject.transform.position, pointA) < distanceThreshold)
             {
                 wait = true;
