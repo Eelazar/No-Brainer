@@ -18,6 +18,7 @@ public class PlayerScript : MonoBehaviour
     [Header("Other")]
     [Tooltip("The starting position of the player when first starting the scene, will automatically get saved to PlayerPrefs upon loading")]
     public Vector3 sceneSpawn;
+    public Animator animator;
 
     [Header("Sounds")]
     public AudioClip walkSound;
@@ -49,6 +50,7 @@ public class PlayerScript : MonoBehaviour
     {
         source = this.GetComponents<AudioSource>()[0];
         sourceOneShot = this.GetComponents<AudioSource>()[1];
+        animator = GetComponent<Animator>();
 
         //Reset amount of deaths
         PlayerPrefs.SetFloat("Deaths", 0);
@@ -81,14 +83,16 @@ public class PlayerScript : MonoBehaviour
             walking = false;
         }
 
-        //Finally, play the walking sound if he is walking only
+        //Finally, play the walking sound and animation if he is walking only
         if (walking && !source.isPlaying)
         {
+            animator.SetBool("moving", true);
             source.clip = walkSound;
             source.Play();
         }
         else if(walking == false)
         {
+            animator.SetBool("moving", false);
             source.Stop();
         }
     }  
