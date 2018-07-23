@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 8
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -38,8 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731725, g: 0.13414745, b: 0.12107873, a: 1}
-  m_UseRadianceAmbientProbe: 0
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -55,10 +54,11 @@ LightmapSettings:
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
-    serializedVersion: 10
+    serializedVersion: 9
     m_Resolution: 2
     m_BakeResolution: 40
-    m_AtlasSize: 1024
+    m_TextureWidth: 1024
+    m_TextureHeight: 1024
     m_AO: 0
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
@@ -88,7 +88,6 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -694,7 +693,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 491532820}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 512, y: 384, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1135993994}
@@ -924,7 +923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: press 'e' to examine
-  popupMaster: {fileID: 0}
+  popupMaster: {fileID: 1114338455}
 --- !u!114 &671497984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -936,7 +935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d13c4aec7348a64d9b81689d2d52035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueMaster: {fileID: 0}
+  dialogueMaster: {fileID: 1114338456}
   message: These are for dissolving body parts. / Nah. Not really. What do you take
     me for?
   initialDelay: 0
@@ -1939,12 +1938,12 @@ Prefab:
     - target: {fileID: 224264595465207554, guid: f75f93e8e9bb9904d9690a77ad723f09,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 766
       objectReference: {fileID: 0}
     - target: {fileID: 224264595465207554, guid: f75f93e8e9bb9904d9690a77ad723f09,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 386.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f75f93e8e9bb9904d9690a77ad723f09, type: 2}
@@ -3504,7 +3503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: press 'e' to examine
-  popupMaster: {fileID: 0}
+  popupMaster: {fileID: 1114338455}
 --- !u!114 &2131576431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3516,7 +3515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d13c4aec7348a64d9b81689d2d52035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueMaster: {fileID: 0}
+  dialogueMaster: {fileID: 1114338456}
   message: I am like an open box. / Wait .. That doesn't sound right.
   initialDelay: 0
   oneTime: 0
