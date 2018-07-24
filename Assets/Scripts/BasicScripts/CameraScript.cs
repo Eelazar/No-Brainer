@@ -23,6 +23,11 @@ public class CameraScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        gameObject.transform.position = Vector3.SmoothDamp(gameObject.transform.position, newPosition, ref velocity, smoothTime);
+	}
+
+    void LateUpdate()
+    {
         if (lockHorizontalMovement)
         {
             newPosition = new Vector3(cameraHeight / 3 * 2, target.transform.position.y + cameraHeight, -cameraHeight / 3 * 2);
@@ -31,7 +36,5 @@ public class CameraScript : MonoBehaviour {
         {
             newPosition = new Vector3(target.transform.position.x + cameraHeight / 3 * 2, target.transform.position.y + cameraHeight, target.transform.position.z - cameraHeight / 3 * 2);
         }
-
-        gameObject.transform.position = Vector3.SmoothDamp(gameObject.transform.position, newPosition, ref velocity, smoothTime);
-	}
+    }
 }
