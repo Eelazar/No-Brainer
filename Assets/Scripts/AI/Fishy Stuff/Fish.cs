@@ -41,6 +41,8 @@ public class Fish : MonoBehaviour {
     private bool rotateOnCD;
     //The rotation to the goal
     Quaternion targetRotation;
+    //The old rotation, for lerping
+    Quaternion oldRotation;
 
     //Lerp Stuff
     private float rotationLerp;
@@ -61,11 +63,13 @@ public class Fish : MonoBehaviour {
 
             if(rotateOnCD == false && rotationLerp >= 1)
             {
+                oldRotation = transform.rotation;
                 targetRotation = Quaternion.LookRotation(destination - this.transform.position);
                 rotationStartTime = Time.time;
             }
             if(distanceLeft > minDistanceForVariation && rotateOnCD == false && rotationLerp >= 1)
             {
+                oldRotation = transform.rotation;
                 targetRotation = RandomizeRotation(targetRotation);
                 StartCoroutine(RotationVariationCD());
             }
@@ -74,7 +78,7 @@ public class Fish : MonoBehaviour {
             //Calculate the lerp t variable based on the duration of the rotation
             rotationLerp = (Time.time - rotationStartTime) / rotationChangeDuration;
             //Slerp it
-            this.transform.rotation = Quaternion.SlerpUnclamped(this.transform.rotation, targetRotation, rotationCurve.Evaluate(rotationLerp));
+            this.transform.rotation = Quaternion.SlerpUnclamped(oldRotation, targetRotation, rotationCurve.Evaluate(rotationLerp));
             //Move it
             this.transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
 
