@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731725, g: 0.13414745, b: 0.12107873, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -365,14 +365,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94bd0973f93b8844da49088fd1e1d9ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minFlickerIntensity: 0
-  maxFlickerIntensity: 0
-  minFlickerDuration: 0
-  maxFlickerDuration: 0
-  minFlickerAmount: 0
-  maxFlickerAmount: 0
-  minWait: 0
-  maxWait: 0
+  minFlickerIntensity: 0.5
+  maxFlickerIntensity: 1.5
+  minFlickerDuration: 0.01
+  maxFlickerDuration: 0.3
+  minFlickerAmount: 2
+  maxFlickerAmount: 5
+  minWait: 4
+  maxWait: 16
 --- !u!108 &223764805
 Light:
   m_ObjectHideFlags: 0

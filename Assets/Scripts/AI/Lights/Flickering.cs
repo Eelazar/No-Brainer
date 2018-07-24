@@ -13,9 +13,9 @@ public class Flickering : MonoBehaviour {
     [Tooltip("Maximum flicker duration (Random)")]
     public float maxFlickerDuration;
     [Tooltip("Minimum amount of flickers (Random)")]
-    public float minFlickerAmount;
+    public int minFlickerAmount;
     [Tooltip("Maximum amount of flickers (Random)")]
-    public float maxFlickerAmount;
+    public int maxFlickerAmount;
     [Tooltip("Minimum wait time between flickers (Random)")]
     public float minWait;
     [Tooltip("Maximum wait time between flickers (Random)")]
@@ -51,7 +51,7 @@ public class Flickering : MonoBehaviour {
         flickering = true;
 
         //Generate a random amnount of flickers between the given limits
-        float amountOfFlickers = Random.Range(minFlickerAmount, maxFlickerAmount);
+        int amountOfFlickers = Random.Range(minFlickerAmount, maxFlickerAmount + 1);
 
         //Wait for a random amount of time between the given limits
         yield return new WaitForSeconds(Random.Range(minWait, maxWait));
@@ -66,6 +66,8 @@ public class Flickering : MonoBehaviour {
 
             //Reset the intensity
             thisLight.intensity = defaultIntensity;
+
+            yield return null;
         }
 
         //Reset the intensity
