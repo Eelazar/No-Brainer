@@ -219,7 +219,7 @@ public class PlayerScript : MonoBehaviour
         PlayerPrefs.SetFloat("TotalDeaths", ff += 1);
 
         //Death sound and... death
-        source.PlayOneShot(dieSound);
+        sourceOneShot.PlayOneShot(dieSound);
         gameObject.transform.position = GetSpawn();
     }
 
