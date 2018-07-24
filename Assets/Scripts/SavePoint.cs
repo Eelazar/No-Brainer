@@ -11,9 +11,23 @@ public class SavePoint : MonoBehaviour {
     [Tooltip("The new preview scene that will be saved to PlayerPrefs")]
     public string previewScene;
 
+    [Header("References")]
+    public GameObject display;
+
     //Resets when the player leaves the collider
     private bool saved;
+    private bool showDisplay;
     
+
+
+    void Update()
+    {
+        if (showDisplay)
+        {
+            display.SetActive(true);
+        }
+        else display.SetActive(false);
+    }
 
     void OnTriggerEnter(Collider collider)
     {
@@ -29,6 +43,8 @@ public class SavePoint : MonoBehaviour {
             //Save all changes in case of a crash
             PlayerPrefs.Save();
             saved = true;
+            showDisplay = true;
+            StartCoroutine(DisplayTime());
         }
     }
 
@@ -38,13 +54,11 @@ public class SavePoint : MonoBehaviour {
         {
             saved = false;
         }
-    }
+    }    
 
-    private void OnGUI()
+    IEnumerator DisplayTime()
     {
-        if(saved == true)
-        {
-            GUI.TextField(new Rect(0, 0, 50, 25), "Saved!");
-        }
+        yield return new WaitForSeconds(3);
+        showDisplay = false;
     }
 }
